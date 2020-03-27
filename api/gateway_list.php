@@ -12,7 +12,19 @@ $response=array("status"=>false,"message"=>"Invalid data.");
 
 if(isset($_REQUEST["email"],$_REQUEST["password"])&&$_REQUEST["email"]!=""&&$_REQUEST["password"]!="")
 {
-	$sql="SELECT * FROM `vtiger_paymentsource`";
+	$user_auth=user_auth($_REQUEST["email"],$_REQUEST["password"],$login);
+
+	$user_auth=json_decode($user_auth,true);
+	if($user_auth["user_auth"]==1)
+	{
+			$sql="SELECT * FROM `vtiger_paymentsource`";
+	}
+	else
+	{
+		$response=array("status"=>false,"message"=>"Authentication failed.");
+	}
+	
+	
 }
 
 echo json_encode($response);
