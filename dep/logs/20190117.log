@@ -1,0 +1,32 @@
+0	2019.01.17 09:44:21.360		MetaTrader 4 Manager API build 1090 initialized
+0	2019.01.17 09:44:21.438	184.95.62.122:443	Connect
+0	2019.01.17 09:44:21.547	184.95.62.122:443	'110': login (server build 1170)
+0	2019.01.17 09:44:21.672	184.95.62.122:443	'110': request 1 total trades by order numbers
+0	2019.01.17 09:44:21.735	184.95.62.122:443	'110': modify order #147943
+0	2019.01.17 09:44:21.797	184.95.62.122:443	'110': fix users balance
+0	2019.01.17 09:44:21.907	184.95.62.122:443	'110': disconnect
+0	2019.01.17 09:44:21.907		Remove: manager 52B348
+0	2019.01.17 11:37:13.125		MetaTrader 4 Manager API build 1090 initialized
+0	2019.01.17 11:37:13.203	184.95.62.122:443	Connect
+0	2019.01.17 11:37:13.313	184.95.62.122:443	'110': login (server build 1170)
+0	2019.01.17 11:37:13.438	184.95.62.122:443	'110': new user record '1331771003'('Gert Karl')
+0	2019.01.17 11:37:13.563	184.95.62.122:443	'110': disconnect
+0	2019.01.17 11:37:13.563		Remove: manager 60CD98
+0	2019.01.17 16:57:57.384		MetaTrader 4 Manager API build 1090 initialized
+0	2019.01.17 16:57:57.447	184.95.62.122:443	Connect
+0	2019.01.17 16:57:57.634	184.95.62.122:443	'110': login (server build 1170)
+0	2019.01.17 16:57:57.744	184.95.62.122:443	'110': set user '133159631' main password (success)
+0	2019.01.17 16:57:57.869	184.95.62.122:443	'110': disconnect
+0	2019.01.17 16:57:57.869		Remove: manager 58CA38
+0	2019.01.17 22:21:59.454		MetaTrader 4 Manager API build 1090 initialized
+0	2019.01.17 22:21:59.517	184.95.62.122:443	Connect
+0	2019.01.17 22:21:59.642	184.95.62.122:443	'110': login (server build 1170)
+1	2019.01.17 22:21:59.751	184.95.62.122:443	'110': request 0 total trades by order numbers (OK/None)
+0	2019.01.17 22:21:59.876	184.95.62.122:443	'110': disconnect
+0	2019.01.17 22:21:59.876		Remove: manager 4BB320
+0	2019.01.17 22:22:12.454		MetaTrader 4 Manager API build 1090 initialized
+0	2019.01.17 22:22:12.517	184.95.62.122:443	Connect
+0	2019.01.17 22:22:12.642	184.95.62.122:443	'110': login (server build 1170)
+1	2019.01.17 22:22:12.767	184.95.62.122:443	'110': request 0 total trades by order numbers (OK/None)
+0	2019.01.17 22:22:12.876	184.95.62.122:443	'110': disconnect
+0	2019.01.17 22:22:12.876		Remove: manager 60B320

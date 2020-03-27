@@ -1,0 +1,7 @@
+0	2019.01.07 10:17:54.007		MetaTrader 4 Manager API build 1090 initialized
+0	2019.01.07 10:17:54.070	184.95.62.122:443	Connect
+0	2019.01.07 10:17:54.242	184.95.62.122:443	'110': login (server build 1170)
+0	2019.01.07 10:17:54.367	184.95.62.122:443	'110': request 1 total trades by order numbers
+0	2019.01.07 10:17:54.429	184.95.62.122:443	'110': trade transaction
+0	2019.01.07 10:17:54.539	184.95.62.122:443	'110': disconnect
+0	2019.01.07 10:17:54.539		Remove: manager 30B4A8

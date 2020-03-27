@@ -1,0 +1,114 @@
+0	2020.01.24 16:25:13.554		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 16:25:13.803	23.81.66.123:443	Connect
+0	2020.01.24 16:25:14.162	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 16:25:14.677	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 16:25:14.786	23.81.66.123:443	'100': disconnect
+0	2020.01.24 16:25:14.786		Remove: manager 539F38
+0	2020.01.24 16:31:39.088		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 16:31:39.354	23.81.66.123:443	Connect
+0	2020.01.24 16:31:39.744	23.81.66.123:443	'100': login (server build 1220)
+0	2020.01.24 16:31:40.290	23.81.66.123:443	'100': new user record '1331776149'('last l')
+0	2020.01.24 16:31:40.399	23.81.66.123:443	'100': disconnect
+0	2020.01.24 16:31:40.399		Remove: manager 569F00
+0	2020.01.24 17:09:18.629		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 17:09:18.879	23.81.66.123:443	Connect
+0	2020.01.24 17:09:19.238	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 17:09:19.737	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 17:09:19.846	23.81.66.123:443	'100': disconnect
+0	2020.01.24 17:09:19.846		Remove: manager 5AA038
+0	2020.01.24 17:31:31.485		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 17:31:31.735	23.81.66.123:443	Connect
+0	2020.01.24 17:31:32.094	23.81.66.123:443	'100': login (server build 1220)
+0	2020.01.24 17:31:32.593	23.81.66.123:443	'100': new user record '1331776151'('last l')
+0	2020.01.24 17:31:32.702	23.81.66.123:443	'100': disconnect
+0	2020.01.24 17:31:32.702		Remove: manager 529F00
+0	2020.01.24 17:56:54.651		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 17:56:54.900	23.81.66.123:443	Connect
+0	2020.01.24 17:56:55.212	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 17:56:55.727	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 17:56:55.836	23.81.66.123:443	'100': disconnect
+0	2020.01.24 17:56:55.836		Remove: manager 569F28
+0	2020.01.24 18:04:28.244		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 18:04:28.494	23.81.66.123:443	Connect
+0	2020.01.24 18:04:28.743	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 18:04:29.227	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 18:04:29.336	23.81.66.123:443	'100': disconnect
+0	2020.01.24 18:04:29.336		Remove: manager 539F78
+0	2020.01.24 18:10:32.335		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 18:10:32.584	23.81.66.123:443	Connect
+0	2020.01.24 18:10:32.959	23.81.66.123:443	'100': login (server build 1220)
+0	2020.01.24 18:10:33.458	23.81.66.123:443	'100': new user record '1331776152'('tata b')
+0	2020.01.24 18:10:33.567	23.81.66.123:443	'100': disconnect
+0	2020.01.24 18:10:33.567		Remove: manager 2B97A8
+0	2020.01.24 18:32:05.454		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 18:32:05.704	23.81.66.123:443	Connect
+0	2020.01.24 18:32:06.016	23.81.66.123:443	'100': login (server build 1220)
+0	2020.01.24 18:32:06.515	23.81.66.123:443	'100': new user record '1331776153'('ttt tt')
+0	2020.01.24 18:32:06.624	23.81.66.123:443	'100': disconnect
+0	2020.01.24 18:32:06.624		Remove: manager 2597A8
+0	2020.01.24 18:53:13.719		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 18:53:13.969	23.81.66.123:443	Connect
+0	2020.01.24 18:53:14.328	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 18:53:14.827	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 18:53:14.936	23.81.66.123:443	'100': disconnect
+0	2020.01.24 18:53:14.936		Remove: manager 2F9DB0
+0	2020.01.24 18:56:48.712		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 18:56:48.962	23.81.66.123:443	Connect
+0	2020.01.24 18:56:49.321	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 18:56:49.820	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 18:56:49.945	23.81.66.123:443	'100': disconnect
+0	2020.01.24 18:56:49.945		Remove: manager 5D9DB0
+0	2020.01.24 19:02:07.266		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 19:02:07.516	23.81.66.123:443	Connect
+0	2020.01.24 19:02:07.874	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 19:02:08.342	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 19:02:08.467	23.81.66.123:443	'100': disconnect
+0	2020.01.24 19:02:08.467		Remove: manager 5B9DB0
+0	2020.01.24 19:05:50.539		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 19:05:50.788	23.81.66.123:443	Connect
+0	2020.01.24 19:05:51.147	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 19:05:51.631	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 19:05:51.756	23.81.66.123:443	'100': disconnect
+0	2020.01.24 19:05:51.756		Remove: manager 549DB0
+0	2020.01.24 19:15:12.515		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 19:15:12.765	23.81.66.123:443	Connect
+0	2020.01.24 19:15:13.124	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 19:15:13.607	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 19:15:13.716	23.81.66.123:443	'100': disconnect
+0	2020.01.24 19:15:13.716		Remove: manager 519DB0
+0	2020.01.24 19:17:47.073		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 19:17:47.322	23.81.66.123:443	Connect
+0	2020.01.24 19:17:47.697	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 19:17:48.180	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 19:17:48.305	23.81.66.123:443	'100': disconnect
+0	2020.01.24 19:17:48.305		Remove: manager 5F9DB0
+0	2020.01.24 19:19:43.328		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 19:19:43.578	23.81.66.123:443	Connect
+0	2020.01.24 19:19:43.936	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 19:19:44.404	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 19:19:44.529	23.81.66.123:443	'100': disconnect
+0	2020.01.24 19:19:44.529		Remove: manager 569DB0
+0	2020.01.24 19:22:06.686		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 19:22:06.920	23.81.66.123:443	Connect
+0	2020.01.24 19:22:07.279	23.81.66.123:443	'100': login (server build 1220)
+3	2020.01.24 19:22:07.763	23.81.66.123:443	'100': new user record (Invalid parameters)
+0	2020.01.24 19:22:07.872	23.81.66.123:443	'100': disconnect
+0	2020.01.24 19:22:07.872		Remove: manager 579DB0
+0	2020.01.24 19:24:54.430		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 19:24:54.680	23.81.66.123:443	Connect
+0	2020.01.24 19:24:55.054	23.81.66.123:443	'100': login (server build 1220)
+0	2020.01.24 19:24:55.538	23.81.66.123:443	'100': new user record '1331776155'('hgjgh ghghj')
+0	2020.01.24 19:24:55.663	23.81.66.123:443	'100': disconnect
+0	2020.01.24 19:24:55.663		Remove: manager 4EA3E8
+0	2020.01.24 19:30:58.100		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 19:30:58.365	23.81.66.123:443	Connect
+0	2020.01.24 19:30:58.724	23.81.66.123:443	'100': login (server build 1220)
+0	2020.01.24 19:30:59.207	23.81.66.123:443	'100': new user record '1331776156'('lava bas')
+0	2020.01.24 19:30:59.332	23.81.66.123:443	'100': disconnect
+0	2020.01.24 19:30:59.332		Remove: manager 4FA3D8
+0	2020.01.24 19:33:08.703		MetaTrader 4 Manager API build 1090 initialized
+0	2020.01.24 19:33:08.952	23.81.66.123:443	Connect
+0	2020.01.24 19:33:09.311	23.81.66.123:443	'100': login (server build 1220)
+0	2020.01.24 19:33:09.810	23.81.66.123:443	'100': new user record '1331776157'('jghjghj ghjghj')
+0	2020.01.24 19:33:09.920	23.81.66.123:443	'100': disconnect
+0	2020.01.24 19:33:09.920		Remove: manager 4BA090

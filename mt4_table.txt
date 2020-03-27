@@ -1,0 +1,395 @@
+Updatecheck<|||>3<|||>1
+DoUsageStatistics<|||>3<|||>1
+Theme<|||>1<|||>Windows
+SQL Attr Comment Foreground<|||>3<|||>8421504
+SQL Attr ConditionalComment Foreground<|||>3<|||>8421504
+SQL Attr DataType Foreground<|||>3<|||>128
+SQL Attr DelimitedIdentifier Foreground<|||>3<|||>32896
+SQL Attr Function Foreground<|||>3<|||>8388608
+SQL Attr Identifier Foreground<|||>3<|||>32896
+SQL Attr Key Foreground<|||>3<|||>16711680
+SQL Attr Number Foreground<|||>3<|||>8388736
+SQL Attr String Foreground<|||>3<|||>32768
+SQL Attr Symbol Foreground<|||>3<|||>16711680
+SQL Attr TableName Foreground<|||>3<|||>16711935
+SQL Attr Variable Foreground<|||>3<|||>8388736
+FieldColor_Binary<|||>3<|||>8388736
+FieldColor_Datetime<|||>3<|||>128
+FieldColor_Numeric<|||>3<|||>16711680
+FieldColor_Other<|||>3<|||>32896
+FieldColor_Real<|||>3<|||>16711752
+FieldColor_Spatial<|||>3<|||>8421376
+FieldColor_Text<|||>3<|||>32768
+UpdatecheckLastrun<|||>1<|||>2020-02-18 11:25:03
+LastUsageStatisticCall<|||>1<|||>2020-01-20 12:07:37
+LastSessions<|||>1<|||>mt4
+LastActiveSession<|||>1<|||>mt4
+ColWidths_connform.ListSessions<|||>1<|||>163,50,50,50,50,50,53
+ColsVisible_connform.ListSessions<|||>1<|||>0
+ColPositions_connform.ListSessions<|||>1<|||>0,1,2,3,4,5,6
+ColSort_connform.ListSessions<|||>1<|||>0,0
+ColWidths_frmTableEditor.listColumns<|||>1<|||>44,186,156,90,60,65,50,119,130,140,100,100
+ColsVisible_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
+ColPositions_frmTableEditor.listColumns<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11
+ColSort_frmTableEditor.listColumns<|||>1<|||>-1,0
+ColWidths_frmTableEditor.treeIndexes<|||>1<|||>434,100,80
+ColsVisible_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
+ColPositions_frmTableEditor.treeIndexes<|||>1<|||>0,1,2
+ColSort_frmTableEditor.treeIndexes<|||>1<|||>-1,0
+ColWidths_frmTableEditor.listForeignKeys<|||>1<|||>101,80,100,80,80,80
+ColsVisible_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
+ColPositions_frmTableEditor.listForeignKeys<|||>1<|||>0,1,2,3,4,5
+ColSort_frmTableEditor.listForeignKeys<|||>1<|||>-1,0
+MainWinMaximized<|||>3<|||>1
+MainWinOnMonitor<|||>3<|||>0
+ColWidths_MainForm.ListDatabases<|||>1<|||>150,80,50,50,50,50,50,50,50,50,120
+ColsVisible_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
+ColPositions_MainForm.ListDatabases<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10
+ColSort_MainForm.ListDatabases<|||>1<|||>0,0
+ColWidths_MainForm.ListVariables<|||>1<|||>160,200,275
+ColsVisible_MainForm.ListVariables<|||>1<|||>0,1,2
+ColPositions_MainForm.ListVariables<|||>1<|||>0,1,2
+ColSort_MainForm.ListVariables<|||>1<|||>0,0
+ColWidths_MainForm.ListStatus<|||>1<|||>160,275,100,100
+ColsVisible_MainForm.ListStatus<|||>1<|||>0,1,2,3
+ColPositions_MainForm.ListStatus<|||>1<|||>0,1,2,3
+ColSort_MainForm.ListStatus<|||>1<|||>0,0
+ColWidths_MainForm.ListProcesses<|||>1<|||>70,80,80,80,80,50,50,145
+ColsVisible_MainForm.ListProcesses<|||>1<|||>0,1,2,3,4,5,6,7
+ColPositions_MainForm.ListProcesses<|||>1<|||>0,1,2,3,4,5,6,7
+ColSort_MainForm.ListProcesses<|||>1<|||>0,1
+ColWidths_MainForm.ListCommandStats<|||>1<|||>120,100,100,100,215
+ColsVisible_MainForm.ListCommandStats<|||>1<|||>0,1,2,3,4
+ColPositions_MainForm.ListCommandStats<|||>1<|||>0,1,2,3,4
+ColSort_MainForm.ListCommandStats<|||>1<|||>1,1
+ColWidths_MainForm.ListTables<|||>1<|||>120,70,70,120,120,70,100,50,70,70,70,70,70,90,120,70,70,70,50
+ColsVisible_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,18
+ColPositions_MainForm.ListTables<|||>1<|||>0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
+ColSort_MainForm.ListTables<|||>1<|||>0,0
+SessionManager_WindowLeft<|||>3<|||>870
+SessionManager_WindowTop<|||>3<|||>537
+FindDialogSearchHistory<|||>1<|||>lavanya+12@nscript.in<{{{><}}}>0xc32f09ee4b1159b50ab66fb9f98505ea248094b4<{{{><}}}>iPLWc5wV8uJBrqe3f0BCV4b0FBmMNpv2<{{{><}}}>iOhMOTZGx2IfY4rJfiteBpZVFrYDGhCH<{{{><}}}>1000<{{{><}}}>
+FileDialogEncoding_MainForm<|||>3<|||>0
+SQLFile0<|||>1<|||>C:\Users\Griffin\Downloads\sanfrix_new.sql
+MemoEditorWidth<|||>3<|||>136
+sqloutheight<|||>3<|||>242
+MainWinWidth<|||>3<|||>840
+MainWinHeight<|||>3<|||>525
+querymemoheight<|||>3<|||>267
+GridExportEncoding<|||>3<|||>0
+ExportSQL_Filenames<|||>1<|||>\\20.0.0.2\htdocs\vtigercrm\mt4_trade.sql<{{{><}}}>
+Servers\cryptofrix\SessionCreated<|||>1<|||>2019-04-10 18:00:50
+Servers\cryptofrix\Host<|||>1<|||>18.211.64.113
+Servers\cryptofrix\WindowsAuth<|||>3<|||>0
+Servers\cryptofrix\User<|||>1<|||>cryptofrix
+Servers\cryptofrix\Password<|||>1<|||>38385250764A37762
+Servers\cryptofrix\LoginPrompt<|||>3<|||>0
+Servers\cryptofrix\Port<|||>1<|||>3306
+Servers\cryptofrix\NetType<|||>3<|||>0
+Servers\cryptofrix\Compressed<|||>3<|||>0
+Servers\cryptofrix\LocalTimeZone<|||>3<|||>0
+Servers\cryptofrix\QueryTimeout<|||>3<|||>30
+Servers\cryptofrix\KeepAlive<|||>3<|||>20
+Servers\cryptofrix\FullTableStatus<|||>3<|||>1
+Servers\cryptofrix\Databases<|||>1<|||>
+Servers\cryptofrix\Comment<|||>1<|||>
+Servers\cryptofrix\StartupScriptFilename<|||>1<|||>
+Servers\cryptofrix\TreeBackground<|||>3<|||>536870911
+Servers\cryptofrix\SSHtunnelHost<|||>1<|||>
+Servers\cryptofrix\SSHtunnelHostPort<|||>3<|||>22
+Servers\cryptofrix\SSHtunnelUser<|||>1<|||>
+Servers\cryptofrix\SSHtunnelPassword<|||>1<|||>1
+Servers\cryptofrix\SSHtunnelTimeout<|||>3<|||>4
+Servers\cryptofrix\SSHtunnelPrivateKey<|||>1<|||>
+Servers\cryptofrix\SSHtunnelPort<|||>3<|||>3307
+Servers\cryptofrix\SSL_Active<|||>3<|||>0
+Servers\cryptofrix\SSL_Key<|||>1<|||>
+Servers\cryptofrix\SSL_Cert<|||>1<|||>
+Servers\cryptofrix\SSL_CA<|||>1<|||>
+Servers\cryptofrix\SSL_Cipher<|||>1<|||>
+Servers\cryptofrix\ServerVersionFull<|||>1<|||>10.3.11-MariaDB - mariadb.org binary distribution
+Servers\cryptofrix\ConnectCount<|||>3<|||>83
+Servers\cryptofrix\ServerVersion<|||>3<|||>100311
+Servers\cryptofrix\LastConnect<|||>1<|||>2019-12-02 10:43:25
+Servers\cryptofrix\lastUsedDB<|||>1<|||>cryptofrix
+Servers\cryptofrix\RefusedCount<|||>3<|||>1
+Servers\cryptofrix\cryptofrix|transaction\Sort<|||>1<|||>1_id|0_btc_generate|
+Servers\cryptofrix\cryptofrix|users\Sort<|||>1<|||>1_email_otp|0_mobile_otp|
+Servers\cryptofrix\cryptofrix|users2\Sort<|||>1<|||>1_id|
+Servers\cryptofrix\QueryHistory\5<|||>1<|||>2019-09-09 10:45:10|cryptofrix|218|select * from transaction where status=4 and trans_type=2 and currency!='NAS'
+Servers\cryptofrix\QueryHistory\47<|||>1<|||>2019-09-09 11:44:45|cryptofrix|438|SELECT * FROM users WHERE id=1077;
+Servers\cryptofrix\QueryHistory\49<|||>1<|||>2019-09-09 12:54:53|cryptofrix|234|select * from transaction where trans_type=3 and status=1
+Servers\cryptofrix\QueryHistory\50<|||>1<|||>2019-09-09 12:55:26|cryptofrix|234|select * from transaction where trans_type=3 and STATUS=1 AND currency='NAS'
+Servers\cryptofrix\QueryHistory\51<|||>1<|||>2019-09-09 12:55:59|cryptofrix|235|SELECT *,SUM(amount) AS nas_am from transaction where trans_type=3 and STATUS=1 AND currency='NAS'
+Servers\cryptofrix\QueryHistory\52<|||>1<|||>2019-09-09 12:56:37|cryptofrix|218|SELECT * from transaction where trans_type=3 and STATUS=1 AND currency='NAS'
+Servers\cryptofrix\QueryHistory\53<|||>1<|||>2019-09-09 17:21:54|cryptofrix|219|select * from users where company=1 or nas='0x9c230a1200b4570834399f31e82d19868927f564'
+Servers\cryptofrix\QueryHistory\48<|||>1<|||>2019-09-09 17:22:57|cryptofrix|219|select * from users WHERE nas='0x9c230a1200b4570834399f31e82d19868927f564'
+Servers\cryptofrix\QueryHistory\55<|||>1<|||>2019-09-09 17:24:28|cryptofrix|219|select * from nas_user where address='0x91dcdebeefd6e50ab36aa02a41a1168894497cb3' or address='0x9c230a1200b4570834399f31e82d19868927f564'
+Servers\cryptofrix\QueryHistory\56<|||>1<|||>2019-09-09 17:24:39|cryptofrix|219|select * from users WHERE nas='0x91dcdebeefd6e50ab36aa02a41a1168894497cb3'
+Servers\cryptofrix\QueryHistory\57<|||>1<|||>2019-09-09 17:24:55|cryptofrix|219|select * from users WHERE nas='0x91dcdebeefd6e50ab36aa02a41a1168894497cb3' OR company=1;
+Servers\cryptofrix\QueryHistory\58<|||>1<|||>2019-09-09 17:34:42|cryptofrix|218|select * from transaction where from_unixtime(`datetime`) > date_sub(now(), INTERVAL 10 DAY)  and trans_type=2 and merchant_address='0x232adfdf831fc340f638db4039fe8ac7f9cbcab5' and status=2 and amount=10 order by id desc limit 1
+Servers\cryptofrix\QueryHistory\59<|||>1<|||>2019-09-09 17:41:52|cryptofrix|219|select * from transaction where from_unixtime(`datetime`) <= DATE_ADD(CURDATE(), INTERVAL 10 DAY)   and trans_type=2 and merchant_address='0x232adfdf831fc340f638db4039fe8ac7f9cbcab5' and status=2 and amount=10 order by id desc limit 1
+Servers\cryptofrix\QueryHistory\60<|||>1<|||>2019-09-09 18:34:49|cryptofrix|218|select * from transaction where from_unixtime(`datetime`) > date_sub(now(), INTERVAL 10 DAY)  and trans_type=2 and merchant_address='0x232adfdf831fc340f638db4039fe8ac7f9cbcab5' and status=2 and amount=100 order by id desc limit 1
+Servers\cryptofrix\QueryHistory\63<|||>1<|||>2019-09-09 18:48:13|cryptofrix|219|select * from transaction where from_unixtime(`datetime`) > date_sub(now(), INTERVAL 10 DAY)  and trans_type=2 and merchant_address='0x232adfdf831fc340f638db4039fe8ac7f9cbcab5' and status=2 and amount=100 order by id DESC
+Servers\cryptofrix\QueryHistory\64<|||>1<|||>2019-09-09 19:08:18|cryptofrix|234|select transaction.*,users.acc_type as c_acc_type,users.first_name as c_first_name,users.last_name as c_last_name,users.business_name as c_business_name,users.email as c_email,users.callback_url as c_callback_url from transaction LEFT JOIN users ON transaction.merchant_id = users.id where users.status=7
+Servers\cryptofrix\QueryHistory\65<|||>1<|||>2019-09-09 19:08:26|cryptofrix|234|select transaction.*,users.acc_type as c_acc_type,users.first_name as c_first_name,users.last_name as c_last_name,users.business_name as c_business_name,users.email as c_email,users.callback_url as c_callback_url from transaction LEFT JOIN users ON transaction.merchant_id = users.id where users.STATUS=1
+Servers\cryptofrix\QueryHistory\66<|||>1<|||>2019-09-09 19:08:53|cryptofrix|218|select transaction.*,users.acc_type as c_acc_type,users.first_name as c_first_name,users.last_name as c_last_name,users.business_name as c_business_name,users.email as c_email,users.callback_url as c_callback_url from transaction LEFT JOIN users ON transaction.merchant_id = users.id where transaction.status=7
+Servers\cryptofrix\QueryHistory\61<|||>1<|||>2019-09-09 20:29:11|cryptofrix|204|delete FROM transaction WHERE amount=0
+Servers\cryptofrix\QueryHistory\62<|||>1<|||>2019-09-09 20:29:17|cryptofrix|219|SELECT * FROM transaction WHERE amount=0
+Servers\cryptofrix\QueryHistory\67<|||>1<|||>2019-09-10 11:27:50|cryptofrix|250|SELECT * FROM users WHERE email='fairlineenterpriseld@protonmail.com';
+Servers\cryptofrix\QueryHistory\68<|||>1<|||>2019-09-10 11:28:13|cryptofrix|250|SELECT id,commission_id FROM users WHERE email='fairlineenterpriseld@protonmail.com';
+Servers\cryptofrix\QueryHistory\69<|||>1<|||>2019-09-10 12:44:11|cryptofrix|234|SELECT * FROM transaction WHERE STATUS=2 AND trans_type=2;
+Servers\cryptofrix\QueryHistory\70<|||>1<|||>2019-09-10 12:44:35|cryptofrix|235|SELECT * FROM transaction WHERE STATUS=2 AND trans_type=2 ORDER BY id desc;
+Servers\cryptofrix\QueryHistory\72<|||>1<|||>2019-09-10 12:47:25|cryptofrix|344|ALTER TABLE `transaction` ADD `notify_mail` INT NOT NULL COMMENT 'for failure transaction' AFTER `btc_generate`;
+Servers\cryptofrix\QueryHistory\73<|||>1<|||>2019-09-10 12:52:21|cryptofrix|235|select transaction.*,users.acc_type as c_acc_type,users.first_name as c_first_name,users.last_name as c_last_name,users.business_name as c_business_name,users.email as c_email,users.callback_url as c_callback_url from transaction LEFT JOIN users ON transaction.merchant_id = users.id where transaction.status=3 and  transaction.notify_mail=0 and transaction.trans_type=2
+Servers\cryptofrix\QueryHistory\74<|||>1<|||>2019-09-10 13:15:53|cryptofrix|250|UPDATE transaction<{{{><}}}>SET notify_mail = 1<{{{><}}}>WHERE STATUS=3 AND trans_type=2 ;
+Servers\cryptofrix\QueryHistory\75<|||>1<|||>2019-09-10 13:16:02|cryptofrix|250|SELECT * FROM transaction WHERE STATUS=3 AND trans_type=2 ORDER BY id desc;
+Servers\cryptofrix\QueryHistory\71<|||>1<|||>2019-09-10 13:16:22|cryptofrix|235|SELECT * FROM transaction WHERE STATUS=1 AND trans_type=2 ORDER BY id desc;
+Servers\cryptofrix\QueryHistory\76<|||>1<|||>2019-09-10 17:09:24|cryptofrix|438|SELECT * FROM transaction WHERE currency="BTC" ORDER BY id desc
+Servers\cryptofrix\QueryHistory\77<|||>1<|||>2019-09-10 17:09:54|cryptofrix|219|SELECT * FROM transaction WHERE currency="BTC" AND trans_type=2 AND STATUS=1 ORDER BY id desc
+Servers\cryptofrix\QueryHistory\78<|||>1<|||>2019-09-12 12:39:39|cryptofrix|218|SELECT * FROM transaction ORDER BY id DESC LIMIT 2;
+Servers\cryptofrix\QueryHistory\79<|||>1<|||>2019-09-12 12:40:57|cryptofrix|218|SELECT * FROM transaction  ORDER BY amount DESC LIMIT 2;
+Servers\cryptofrix\QueryHistory\80<|||>1<|||>2019-09-12 12:41:15|cryptofrix|235|SELECT * FROM transaction  ORDER BY amount DESC LIMIT 1,1;
+Servers\cryptofrix\QueryHistory\81<|||>1<|||>2019-09-13 17:38:28|cryptofrix|297|SELECT * FROM users;
+Servers\cryptofrix\QueryHistory\21<|||>1<|||>2019-09-13 17:46:56|cryptofrix|281|SELECT * FROM users WHERE company=1;
+Servers\cryptofrix\QueryHistory\44<|||>1<|||>2019-09-14 17:56:28|cryptofrix|437|SELECT * FROM temp_transaction; 
+Servers\cryptofrix\QueryHistory\54<|||>1<|||>2019-09-14 17:56:43|cryptofrix|219|SELECT * FROM temp_transaction WHERE eth="0x28cd0F0e598cA5fF94d5Af2d3ab2339a09eFD59f"; 
+Servers\cryptofrix\QueryHistory\82<|||>1<|||>2019-09-14 17:59:55|cryptofrix|219|select transaction.*,users.callback_url as c_callback_url from transaction LEFT JOIN users ON transaction.merchant_id = users.id where transaction.status=4 and transaction.trans_type in (3,4) and transaction.currency!='NAS'
+Servers\cryptofrix\QueryHistory\40<|||>1<|||>2019-10-08 15:03:42|cryptofrix|219|SELECT * FROM users WHERE company=1
+Servers\mt4\SessionCreated<|||>1<|||>2020-02-01 16:32:55
+Servers\mt4\Host<|||>1<|||>23.81.66.123
+Servers\mt4\WindowsAuth<|||>3<|||>0
+Servers\mt4\User<|||>1<|||>usern
+Servers\mt4\Password<|||>1<|||>72637575797174662
+Servers\mt4\LoginPrompt<|||>3<|||>0
+Servers\mt4\Port<|||>1<|||>3306
+Servers\mt4\NetType<|||>3<|||>0
+Servers\mt4\Compressed<|||>3<|||>0
+Servers\mt4\LocalTimeZone<|||>3<|||>0
+Servers\mt4\QueryTimeout<|||>3<|||>30
+Servers\mt4\KeepAlive<|||>3<|||>20
+Servers\mt4\FullTableStatus<|||>3<|||>1
+Servers\mt4\Databases<|||>1<|||>
+Servers\mt4\Comment<|||>1<|||>
+Servers\mt4\StartupScriptFilename<|||>1<|||>
+Servers\mt4\TreeBackground<|||>3<|||>536870911
+Servers\mt4\SSHtunnelHost<|||>1<|||>
+Servers\mt4\SSHtunnelHostPort<|||>3<|||>22
+Servers\mt4\SSHtunnelUser<|||>1<|||>
+Servers\mt4\SSHtunnelPassword<|||>1<|||>3
+Servers\mt4\SSHtunnelTimeout<|||>3<|||>4
+Servers\mt4\SSHtunnelPrivateKey<|||>1<|||>
+Servers\mt4\SSHtunnelPort<|||>3<|||>3307
+Servers\mt4\SSL_Active<|||>3<|||>0
+Servers\mt4\SSL_Key<|||>1<|||>
+Servers\mt4\SSL_Cert<|||>1<|||>
+Servers\mt4\SSL_CA<|||>1<|||>
+Servers\mt4\SSL_Cipher<|||>1<|||>
+Servers\mt4\ServerVersionFull<|||>1<|||>5.7.20-log - MySQL Community Server (GPL)
+Servers\mt4\ConnectCount<|||>3<|||>12
+Servers\mt4\ServerVersion<|||>3<|||>50720
+Servers\mt4\LastConnect<|||>1<|||>2020-02-18 18:40:09
+Servers\mt4\lastUsedDB<|||>1<|||>mt4
+Servers\mt4\mt4|mt4_trades\Sort<|||>1<|||>1_TICKET|0_TIMESTAMP|
+Servers\mt4\mt4|mt4_users\Sort<|||>1<|||>0_REGDATE|
+Servers\mt4\QueryHistory\2<|||>1<|||>2020-02-01 18:41:35|mt4|234|SELECT TICKET,LOGIN,SYMBOL,CMD,VOLUME,OPEN_TIME,OPEN_PRICE,SL,TP,CLOSE_TIME,CLOSE_PRICE,PROFIT,COMMENT FROM mt4.mt4_trades where mt4_trades.LOGIN = 1331776241 order by mt4_trades.CLOSE_TIME
+Servers\mt4\QueryHistory\4<|||>1<|||>2020-02-06 13:15:37|mt4|250|select * from mt4.mt4_users WHERE mt4_users.LOGIN = 1331776130;
+Servers\mt4\QueryHistory\5<|||>1<|||>2020-02-06 15:24:23|mt4|1063|select * from mt4.mt4_users;
+Servers\mt4\QueryHistory\1<|||>1<|||>2020-02-06 15:25:46|mt4|594|select * FROM mt4.mt4_users WHERE mt4_users.GROUP='test';
+Servers\mt4\QueryHistory\6<|||>1<|||>2020-02-06 19:19:31|mt4|250|SELECT TICKET,LOGIN,SYMBOL,CMD,VOLUME,OPEN_TIME,OPEN_PRICE,SL,TP,CLOSE_TIME,CLOSE_PRICE,PROFIT,COMMENT FROM mt4.mt4_trades where mt4_trades.LOGIN = 1331776130 order by mt4_trades.CLOSE_TIME
+Servers\mt4\QueryHistory\7<|||>1<|||>2020-02-12 18:03:17|mt4|250|select * from mt4.mt4_users WHERE mt4_users.LOGIN = 1331795577
+Servers\mt4\QueryHistory\8<|||>1<|||>2020-02-12 18:04:06|mt4|250|select * from mt4.mt4_users WHERE mt4_users.LOGIN = 1331776130
+Servers\mt4\QueryHistory\9<|||>1<|||>2020-02-12 18:08:39|mt4|34094|SELECT TICKET,LOGIN,SYMBOL,CMD,VOLUME,OPEN_TIME,OPEN_PRICE,SL,TP,CLOSE_TIME,CLOSE_PRICE,PROFIT,COMMENT FROM mt4.mt4_trades order by mt4_trades.CLOSE_TIME
+Servers\mt4\QueryHistory\10<|||>1<|||>2020-02-12 18:14:01|mt4|1000|SELECT * FROM mt4_users GROUP BY regdate;
+Servers\mt4\QueryHistory\11<|||>1<|||>2020-02-12 18:17:46|mt4|641|SELECT * FROM mt4_users GROUP BY YEAR(regdate), MONTH(regdate),DAY(regdate);
+Servers\mt4\QueryHistory\13<|||>1<|||>2020-02-12 19:18:19|mt4|594|SELECT TICKET,LOGIN,SYMBOL,CMD,VOLUME,OPEN_TIME,OPEN_PRICE,SL,TP,CLOSE_TIME,CLOSE_PRICE,PROFIT,COMMENT FROM mt4.mt4_trades GROUP BY YEAR(mt4_trades.open_time), MONTH(mt4_trades.open_time),DAY(mt4_trades.open_time) order by mt4_trades.CLOSE_TIME ;
+Servers\mt4\QueryHistory\15<|||>1<|||>2020-02-13 12:54:23|mt4|1078|SELECT *,COUNT(login) AS regsister_count FROM mt4_users GROUP BY YEAR(regdate), MONTH(regdate),DAY(regdate);
+Servers\mt4\QueryHistory\12<|||>1<|||>2020-02-13 15:47:33|mt4|235|SELECT volume FROM mt4_trades WHERE ticket=259149;
+Servers\mt4\QueryHistory\16<|||>1<|||>2020-02-13 16:25:52|mt4|234|SELECT * FROM mt4_trades WHERE ticket=259149;
+Servers\mt4\QueryHistory\14<|||>1<|||>2020-02-14 10:55:43|mt4|391|select mt4_trades.* from mt4_trades join mt4_users on mt4_users.LOGIN=mt4_trades.LOGIN where mt4_users.`GROUP` in ("FXIN_PRE_EUR","FXIN_STD_EUR","FXIN_VIP_EUR","FXIN_MICR_EUR","demoforexfxin","FXIN_PRE_USD","FXIN_STD_USD","FXIN_VIP_USD","FXIN_MICR_EUR","test")
+Servers\mt4\QueryHistory\17<|||>1<|||>2020-02-14 10:58:51|mt4|344|select mt4_trades.*,mt4_users.`GROUP` from mt4_trades join mt4_users on mt4_users.LOGIN=mt4_trades.LOGIN where mt4_users.`GROUP` in ("FXIN_PRE_EUR","FXIN_STD_EUR","FXIN_VIP_EUR","FXIN_MICR_EUR","demoforexfxin","FXIN_PRE_USD","FXIN_STD_USD","FXIN_VIP_USD","FXIN_MICR_EUR","test")
+Servers\mt4\QueryHistory\18<|||>1<|||>2020-02-14 10:59:19|mt4|266|select mt4_trades.*,mt4_users.* from mt4_trades join mt4_users on mt4_users.LOGIN=mt4_trades.LOGIN where mt4_users.`GROUP` in ("FXIN_PRE_EUR","FXIN_STD_EUR","FXIN_VIP_EUR","FXIN_MICR_EUR","demoforexfxin","FXIN_PRE_USD","FXIN_STD_USD","FXIN_VIP_USD","FXIN_MICR_EUR","test")
+Servers\mt4\QueryHistory\19<|||>1<|||>2020-02-15 12:42:34|mt4|281|SELECT * FROM mt4_trades WHERE cmd IN(3,4);
+Servers\mt4\QueryHistory\20<|||>1<|||>2020-02-15 12:48:29|mt4|250|SELECT * FROM mt4_trades WHERE cmd IN(7);
+Servers\mt4\QueryHistory\21<|||>1<|||>2020-02-15 12:54:36|mt4|1110|SELECT * FROM mt4_users;
+Servers\mt4\QueryHistory\22<|||>1<|||>2020-02-15 13:02:39|mt4|250|SELECT * FROM mt4_users WHERE login IN(94102,17);
+Servers\mt4\QueryHistory\23<|||>1<|||>2020-02-15 13:02:45|mt4|250|SELECT * FROM mt4_users WHERE agent_account!=0;
+Servers\mt4\QueryHistory\3<|||>1<|||>2020-02-15 14:48:44|mt4|765|select mt4_trades.*,mt4_users.* from mt4_trades join mt4_users on mt4_users.LOGIN=mt4_trades.LOGIN where mt4_users.`GROUP` in ("FXIN_PRE_EUR","FXIN_STD_EUR","FXIN_VIP_EUR","FXIN_MICR_EUR","demoforexfxin","FXIN_PRE_USD","FXIN_STD_USD","FXIN_VIP_USD","FXIN_MICR_EUR","test") order by mt4_trades.OPEN_TIME DESC
+Servers\mt4\QueryHistory\24<|||>1<|||>2020-02-15 18:26:36|mt4|515|select mt4_trades.*,mt4_users.* from mt4_trades join mt4_users on mt4_users.LOGIN=mt4_trades.LOGIN where mt4_users.`GROUP` in ("FXIN_PRE_EUR","FXIN_STD_EUR","FXIN_VIP_EUR","FXIN_MICR_EUR","demoforexfxin","FXIN_PRE_USD","FXIN_STD_USD","FXIN_VIP_USD","FXIN_MICR_EUR","test") and mt4_trades.symbol!="" order by mt4_trades.OPEN_TIME DESC
+Servers\mt4\QueryHistory\25<|||>1<|||>2020-02-15 18:27:46|mt4|18625|SELECT * from mt4_trades where mt4_trades.symbol!="";
+Servers\mt4\QueryHistory\26<|||>1<|||>2020-02-18 12:54:34|mt4|328|SELECT * FROM mt4_trades WHERE cmd=6;
+Servers\payatsafe\SessionCreated<|||>1<|||>2019-12-17 15:10:45
+Servers\payatsafe\Host<|||>1<|||>3.135.138.100
+Servers\payatsafe\WindowsAuth<|||>3<|||>0
+Servers\payatsafe\User<|||>1<|||>payatsafe
+Servers\payatsafe\Password<|||>1<|||>6151425B7753567B9
+Servers\payatsafe\LoginPrompt<|||>3<|||>0
+Servers\payatsafe\Port<|||>1<|||>3306
+Servers\payatsafe\NetType<|||>3<|||>0
+Servers\payatsafe\Compressed<|||>3<|||>0
+Servers\payatsafe\LocalTimeZone<|||>3<|||>0
+Servers\payatsafe\QueryTimeout<|||>3<|||>30
+Servers\payatsafe\KeepAlive<|||>3<|||>20
+Servers\payatsafe\FullTableStatus<|||>3<|||>1
+Servers\payatsafe\Databases<|||>1<|||>
+Servers\payatsafe\Comment<|||>1<|||>XH9RnJMr
+Servers\payatsafe\StartupScriptFilename<|||>1<|||>
+Servers\payatsafe\TreeBackground<|||>3<|||>536870911
+Servers\payatsafe\SSHtunnelHost<|||>1<|||>
+Servers\payatsafe\SSHtunnelHostPort<|||>3<|||>22
+Servers\payatsafe\SSHtunnelUser<|||>1<|||>
+Servers\payatsafe\SSHtunnelPassword<|||>1<|||>9
+Servers\payatsafe\SSHtunnelTimeout<|||>3<|||>4
+Servers\payatsafe\SSHtunnelPrivateKey<|||>1<|||>
+Servers\payatsafe\SSHtunnelPort<|||>3<|||>3307
+Servers\payatsafe\SSL_Active<|||>3<|||>0
+Servers\payatsafe\SSL_Key<|||>1<|||>
+Servers\payatsafe\SSL_Cert<|||>1<|||>
+Servers\payatsafe\SSL_CA<|||>1<|||>
+Servers\payatsafe\SSL_Cipher<|||>1<|||>
+Servers\payatsafe\RefusedCount<|||>3<|||>2
+Servers\sancardkyc\SessionCreated<|||>1<|||>2019-08-24 17:14:10
+Servers\sancardkyc\Host<|||>1<|||>18.211.64.113
+Servers\sancardkyc\WindowsAuth<|||>3<|||>0
+Servers\sancardkyc\User<|||>1<|||>sancard
+Servers\sancardkyc\Password<|||>1<|||>6E3C3A7566776E7B4
+Servers\sancardkyc\LoginPrompt<|||>3<|||>0
+Servers\sancardkyc\Port<|||>1<|||>3306
+Servers\sancardkyc\NetType<|||>3<|||>0
+Servers\sancardkyc\Compressed<|||>3<|||>0
+Servers\sancardkyc\LocalTimeZone<|||>3<|||>0
+Servers\sancardkyc\QueryTimeout<|||>3<|||>30
+Servers\sancardkyc\KeepAlive<|||>3<|||>20
+Servers\sancardkyc\FullTableStatus<|||>3<|||>1
+Servers\sancardkyc\Databases<|||>1<|||>
+Servers\sancardkyc\Comment<|||>1<|||>
+Servers\sancardkyc\StartupScriptFilename<|||>1<|||>
+Servers\sancardkyc\TreeBackground<|||>3<|||>536870911
+Servers\sancardkyc\SSHtunnelHost<|||>1<|||>
+Servers\sancardkyc\SSHtunnelHostPort<|||>3<|||>22
+Servers\sancardkyc\SSHtunnelUser<|||>1<|||>
+Servers\sancardkyc\SSHtunnelPassword<|||>1<|||>7
+Servers\sancardkyc\SSHtunnelTimeout<|||>3<|||>4
+Servers\sancardkyc\SSHtunnelPrivateKey<|||>1<|||>
+Servers\sancardkyc\SSHtunnelPort<|||>3<|||>3307
+Servers\sancardkyc\SSL_Active<|||>3<|||>0
+Servers\sancardkyc\SSL_Key<|||>1<|||>
+Servers\sancardkyc\SSL_Cert<|||>1<|||>
+Servers\sancardkyc\SSL_CA<|||>1<|||>
+Servers\sancardkyc\SSL_Cipher<|||>1<|||>
+Servers\sancardkyc\ServerVersionFull<|||>1<|||>10.3.11-MariaDB - mariadb.org binary distribution
+Servers\sancardkyc\ConnectCount<|||>3<|||>4
+Servers\sancardkyc\ServerVersion<|||>3<|||>100311
+Servers\sancardkyc\LastConnect<|||>1<|||>2019-08-26 18:18:02
+Servers\sancardkyc\lastUsedDB<|||>1<|||>sancard
+Servers\sancardkyc\QueryHistory\1<|||>1<|||>2019-08-26 11:42:20|sancard|219|SELECT * FROM users WHERE STATUS=2 ORDER BY id DESC LIMIT 1
+Servers\sancardkyc\QueryHistory\2<|||>1<|||>2019-08-26 11:58:01|sancard|234|SELECT email,status FROM users WHERE STATUS=2 ORDER BY id DESC LIMIT 1
+Servers\sancardkyc\QueryHistory\4<|||>1<|||>2019-08-26 12:05:15|sancard|219|SELECT id,email,status FROM users WHERE STATUS=2 ORDER BY id DESC LIMIT 1
+Servers\sancardkyc\QueryHistory\3<|||>1<|||>2019-08-26 12:18:45|sancard|219|SELECT id,email,STATUS,filer_1 FROM users WHERE STATUS=1 ORDER BY id DESC LIMIT 1
+Servers\sanfrix_demo\SessionCreated<|||>1<|||>2019-10-12 16:01:09
+Servers\sanfrix_demo\Host<|||>1<|||>18.211.64.113
+Servers\sanfrix_demo\WindowsAuth<|||>3<|||>0
+Servers\sanfrix_demo\User<|||>1<|||>sanfrix_site_test
+Servers\sanfrix_demo\Password<|||>1<|||>4C68533B474876572
+Servers\sanfrix_demo\LoginPrompt<|||>3<|||>0
+Servers\sanfrix_demo\Port<|||>1<|||>3306
+Servers\sanfrix_demo\NetType<|||>3<|||>0
+Servers\sanfrix_demo\Compressed<|||>3<|||>0
+Servers\sanfrix_demo\LocalTimeZone<|||>3<|||>0
+Servers\sanfrix_demo\QueryTimeout<|||>3<|||>30
+Servers\sanfrix_demo\KeepAlive<|||>3<|||>20
+Servers\sanfrix_demo\FullTableStatus<|||>3<|||>1
+Servers\sanfrix_demo\Databases<|||>1<|||>
+Servers\sanfrix_demo\Comment<|||>1<|||>JfQ9EFtU
+Servers\sanfrix_demo\StartupScriptFilename<|||>1<|||>
+Servers\sanfrix_demo\TreeBackground<|||>3<|||>536870911
+Servers\sanfrix_demo\SSHtunnelHost<|||>1<|||>
+Servers\sanfrix_demo\SSHtunnelHostPort<|||>3<|||>22
+Servers\sanfrix_demo\SSHtunnelUser<|||>1<|||>
+Servers\sanfrix_demo\SSHtunnelPassword<|||>1<|||>9
+Servers\sanfrix_demo\SSHtunnelTimeout<|||>3<|||>4
+Servers\sanfrix_demo\SSHtunnelPrivateKey<|||>1<|||>
+Servers\sanfrix_demo\SSHtunnelPort<|||>3<|||>3307
+Servers\sanfrix_demo\SSL_Active<|||>3<|||>0
+Servers\sanfrix_demo\SSL_Key<|||>1<|||>
+Servers\sanfrix_demo\SSL_Cert<|||>1<|||>
+Servers\sanfrix_demo\SSL_CA<|||>1<|||>
+Servers\sanfrix_demo\SSL_Cipher<|||>1<|||>
+Servers\sanfrix_demo\ServerVersionFull<|||>1<|||>10.3.11-MariaDB - mariadb.org binary distribution
+Servers\sanfrix_demo\ConnectCount<|||>3<|||>6
+Servers\sanfrix_demo\ServerVersion<|||>3<|||>100311
+Servers\sanfrix_demo\LastConnect<|||>1<|||>2019-12-02 11:35:32
+Servers\sanfrix_demo\lastUsedDB<|||>1<|||>sanfrix_site_test
+Servers\sanfrix_demo\QueryHistory\1<|||>1<|||>2019-11-29 18:46:42|sanfrix_site_test|687|INSERT INTO `forms` (`id`, `name`, `del_i`) VALUES ('14', 'Request a Free Demo Blog', '0');<{{{><}}}>INSERT INTO `forms` (`id`, `name`, `del_i`) VALUES ('15', 'Floating Contact Forms Blog', '0');<{{{><}}}>INSERT INTO `forms` (`id`, `name`, `del_i`) VALUES ('16', 'Floating Free Demo Forms Blog', '0');
+Servers\sanfrix_demo\sanfrix_site_test|form_data\Sort<|||>1<|||>1_id|
+Servers\sanfrix_site\SessionCreated<|||>1<|||>2019-06-13 15:44:46
+Servers\sanfrix_site\Host<|||>1<|||>18.211.64.113
+Servers\sanfrix_site\WindowsAuth<|||>3<|||>0
+Servers\sanfrix_site\User<|||>1<|||>sanfrix_site
+Servers\sanfrix_site\Password<|||>1<|||>4D69543C484977583
+Servers\sanfrix_site\LoginPrompt<|||>3<|||>0
+Servers\sanfrix_site\Port<|||>1<|||>3306
+Servers\sanfrix_site\NetType<|||>3<|||>0
+Servers\sanfrix_site\Compressed<|||>3<|||>0
+Servers\sanfrix_site\LocalTimeZone<|||>3<|||>0
+Servers\sanfrix_site\QueryTimeout<|||>3<|||>30
+Servers\sanfrix_site\KeepAlive<|||>3<|||>20
+Servers\sanfrix_site\FullTableStatus<|||>3<|||>1
+Servers\sanfrix_site\Databases<|||>1<|||>
+Servers\sanfrix_site\Comment<|||>1<|||>JfQ9EFtU
+Servers\sanfrix_site\StartupScriptFilename<|||>1<|||>
+Servers\sanfrix_site\TreeBackground<|||>3<|||>536870911
+Servers\sanfrix_site\SSHtunnelHost<|||>1<|||>
+Servers\sanfrix_site\SSHtunnelHostPort<|||>3<|||>22
+Servers\sanfrix_site\SSHtunnelUser<|||>1<|||>
+Servers\sanfrix_site\SSHtunnelPassword<|||>1<|||>9
+Servers\sanfrix_site\SSHtunnelTimeout<|||>3<|||>4
+Servers\sanfrix_site\SSHtunnelPrivateKey<|||>1<|||>
+Servers\sanfrix_site\SSHtunnelPort<|||>3<|||>3307
+Servers\sanfrix_site\SSL_Active<|||>3<|||>0
+Servers\sanfrix_site\SSL_Key<|||>1<|||>
+Servers\sanfrix_site\SSL_Cert<|||>1<|||>
+Servers\sanfrix_site\SSL_CA<|||>1<|||>
+Servers\sanfrix_site\SSL_Cipher<|||>1<|||>
+Servers\sanfrix_site\RefusedCount<|||>3<|||>2
+Servers\sanfrix_site\ServerVersionFull<|||>1<|||>10.3.11-MariaDB - mariadb.org binary distribution
+Servers\sanfrix_site\ConnectCount<|||>3<|||>41
+Servers\sanfrix_site\ServerVersion<|||>3<|||>100311
+Servers\sanfrix_site\LastConnect<|||>1<|||>2020-01-22 13:03:19
+Servers\sanfrix_site\lastUsedDB<|||>1<|||>sanfrix_site
+Servers\sanfrix_site\QueryHistory\10<|||>1<|||>2020-01-14 10:31:30|sanfrix_site|235|SELECT * FROM form_data WHERE email='universe2@mail.com';
+Servers\sanfrix_site\sanfrix_site|form_data\Sort<|||>1<|||>1_id|
+Servers\Unnamed\SessionCreated<|||>1<|||>2020-01-21 13:07:36
+Servers\Unnamed\Host<|||>1<|||>20.0.0.10
+Servers\Unnamed\WindowsAuth<|||>3<|||>0
+Servers\Unnamed\User<|||>1<|||>root
+Servers\Unnamed\Password<|||>1<|||>6669726E733637385
+Servers\Unnamed\LoginPrompt<|||>3<|||>0
+Servers\Unnamed\Port<|||>1<|||>3306
+Servers\Unnamed\NetType<|||>3<|||>0
+Servers\Unnamed\Compressed<|||>3<|||>0
+Servers\Unnamed\LocalTimeZone<|||>3<|||>0
+Servers\Unnamed\QueryTimeout<|||>3<|||>30
+Servers\Unnamed\KeepAlive<|||>3<|||>20
+Servers\Unnamed\FullTableStatus<|||>3<|||>1
+Servers\Unnamed\Databases<|||>1<|||>
+Servers\Unnamed\Comment<|||>1<|||>
+Servers\Unnamed\StartupScriptFilename<|||>1<|||>
+Servers\Unnamed\TreeBackground<|||>3<|||>536870911
+Servers\Unnamed\SSHtunnelHost<|||>1<|||>
+Servers\Unnamed\SSHtunnelHostPort<|||>3<|||>22
+Servers\Unnamed\SSHtunnelUser<|||>1<|||>
+Servers\Unnamed\SSHtunnelPassword<|||>1<|||>3
+Servers\Unnamed\SSHtunnelTimeout<|||>3<|||>4
+Servers\Unnamed\SSHtunnelPrivateKey<|||>1<|||>
+Servers\Unnamed\SSHtunnelPort<|||>3<|||>3307
+Servers\Unnamed\SSL_Active<|||>3<|||>0
+Servers\Unnamed\SSL_Key<|||>1<|||>
+Servers\Unnamed\SSL_Cert<|||>1<|||>
+Servers\Unnamed\SSL_CA<|||>1<|||>
+Servers\Unnamed\SSL_Cipher<|||>1<|||>
+Servers\Unnamed\ServerVersionFull<|||>1<|||>8.0.18 - MySQL Community Server - GPL
+Servers\Unnamed\ConnectCount<|||>3<|||>1
+Servers\Unnamed\ServerVersion<|||>3<|||>80018
+Servers\Unnamed\LastConnect<|||>1<|||>2020-01-21 13:07:54
+Servers\Unnamed\lastUsedDB<|||>1<|||>
