@@ -31,7 +31,10 @@ if(isset($_REQUEST["email"],$_REQUEST["password"],$_REQUEST["login"],$_REQUEST["
 			$response=array("status"=>true,"message"=>"USER PASSWORD CHANGED","login"=>$login);
 		}
 		
-		$response=array("status"=>true,"user_auth"=>$user_auth);
+		else
+		{
+			$response=array("status"=>false,"message"=>"Failed");
+		}
 	}
 	else
 	{
