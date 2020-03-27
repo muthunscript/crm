@@ -18447,3 +18447,16 @@
 								AND (TIME_FORMAT(vtiger_activity_reminder_popup.time_start,'%H:%i') <= ?))
 								AND vtiger_activity.eventstatus <> 'Held' AND (vtiger_activity.status <> 'Completed' OR vtiger_activity.status IS NULL) LIMIT 20
 03/27/20 12:18:37,503 [1776] DEBUG VT - Prepared sql query parameters : [1,2020-03-27,12:19]
+Fri Mar 27 14:31:21 2020,775 [11168] INFO VT - PearDatabase ->ADODB disconnect
+Fri Mar 27 14:45:54 2020,890 [11168] INFO VT - PearDatabase ->ADODB disconnect
+Fri Mar 27 14:49:41 2020,725 [11168] INFO VT - PearDatabase ->ADODB disconnect
+Fri Mar 27 14:50:59 2020,708 [11168] INFO VT - PearDatabase ->ADODB disconnect
+Fri Mar 27 14:50:59 2020,816 [11168] DEBUG VT - Prepared sql query being executed : SELECT * FROM vtiger_organizationdetails WHERE organization_id=?
+Fri Mar 27 14:50:59 2020,816 [11168] DEBUG VT - Prepared sql query parameters : [1]
+Fri Mar 27 14:50:59 2020,816 [11168] INFO VT - PearDatabase ->ADODB error  Query Failed:SELECT * FROM vtiger_organizationdetails WHERE organization_id=?::->[1045]Access denied for user 'root'@'localhost' (using password: YES)
+Fri Mar 27 14:51:18 2020,300 [11168] INFO VT - PearDatabase ->ADODB disconnect
+Fri Mar 27 14:51:18 2020,459 [11168] DEBUG user - Entering Users() method ...
+Fri Mar 27 14:51:18 2020,459 [11168] DEBUG VT - Entering getColumnFields(Users) method ...
+Fri Mar 27 14:51:18 2020,459 [11168] DEBUG VT - in getColumnFields Users
+Fri Mar 27 14:51:18 2020,459 [11168] DEBUG VT - Prepared sql query being executed : SELECT tabid, name, ownedby FROM vtiger_tab
+Fri Mar 27 14:51:18 2020,460 [11168] INFO VT - PearDatabase ->ADODB error  Query Failed:SELECT tabid, name, ownedby FROM vtiger_tab::->[1045]Access denied for user 'root'@'localhost' (using password: YES)
