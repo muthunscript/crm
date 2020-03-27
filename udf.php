@@ -1296,6 +1296,7 @@ function user_auth($email,$password,$login="")
 	$lead_data = $adb->pquery($lead_data, array($email,$password));
 	$lead_data=$adb->fetch_array($lead_data);
 	
+	$lead_data["mt4account"]=array();
 	if(!empty($lead_data))
 	{
 		
@@ -1314,16 +1315,13 @@ function user_auth($email,$password,$login="")
 			if(!empty($sql_data))
 			{
 				$lead_data["user_auth"]=1;
+				$lead_data["mt4account"]=$sql_data;
 			}
 			else
 			{
 				$lead_data["user_auth"]=0;
 			}
-			
-			
-			
-			//$lead_data["mt4account"]=$sql_data;
-		
+
 		}
 		else
 		{
