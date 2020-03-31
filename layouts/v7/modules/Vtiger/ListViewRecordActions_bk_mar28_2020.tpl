@@ -69,44 +69,26 @@
 				{/if}
 			{/if}
 			
-
-
-
 			{if $MODULE eq "mt4trade"}
-
-			{if ($LISTVIEW_ENTRY->getRaw("cmd") eq 1 or $LISTVIEW_ENTRY->getRaw("cmd") eq 0) and $LISTVIEW_ENTRY->getRaw("close_time") eq '1970-01-01 00:00:00'}
-				{if $LOGINID_DETAILS eq 1}
+			
+			{if $LOGINID_DETAILS eq 1}
 				<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&close_order=1&loginid_details=1" name="editlink">Close Order</a></li>
-				{else}
-				<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&close_order=1" name="editlink">Close Order</a></li>
-				{/if}
-			{elseif ($LISTVIEW_ENTRY->getRaw("cmd") eq 1 or $LISTVIEW_ENTRY->getRaw("cmd") eq 0) and $LISTVIEW_ENTRY->getRaw("close_time") neq '1970-01-01 00:00:00'}
-				{if $LOGINID_DETAILS eq 1}
-				<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&reopen_order=1&loginid_details=1" name="editlink">Reopen Order</a></li>
-				{else}
-				<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&reopen_order=1" name="editlink">Reopen Order</a></li>
-				{/if}
-			{/if} 
 
+<!--				<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&delete_order=1&loginid_details=1" name="editlink">Delete Order</a></li>
 
+				<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&profit_order=1&loginid_details=1" name="editlink">Profit Order</a></li>-->
 
-			{if ($LISTVIEW_ENTRY->getRaw("cmd") eq 1 or $LISTVIEW_ENTRY->getRaw("cmd") eq 0) and $LISTVIEW_ENTRY->getRaw("close_time") eq '1970-01-01 00:00:00'}
+			{else}
+			<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&close_order=1" name="editlink">Close Order</a></li>
 
-					{if $LOGINID_DETAILS eq 1}
-					<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&profit_order=1&loginid_details=1" name="editlink">Profit Order</a></li>
-					{else}
-					<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&profit_order=1" name="editlink">Profit Order</a></li>
-					{/if}
+<!--			<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&delete_order=1" name="editlink">Delete Order</a></li>
+
+			<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&profit_order=1" name="editlink">Profit Order</a></li>-->
 
 			{/if}
 
 
-					{if $LOGINID_DETAILS eq 1}
-					<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&delete_order=1&loginid_details=1" name="editlink">Delete Order</a></li>
-					{else}
-					<li><a data-id="{$LISTVIEW_ENTRY->getId()}" href="javascript:void(0);" data-url="{$LISTVIEW_ENTRY->getEditViewUrl()}&app={$SELECTED_MENU_CATEGORY}&delete_order=1" name="editlink">Delete Order</a></li>
-					{/if}
-
+				
 			{/if}
 
         </ul>

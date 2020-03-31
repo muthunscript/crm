@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-01-28 13:37:46
+<?php /* Smarty version Smarty-3.1.7, created on 2020-03-28 09:39:23
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\AddTagUI.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:91315ddfd23160e1d1-01690015%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7fe92a377ed5de2f76b9f80b7230f5a62bf7943b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\AddTagUI.tpl',
-      1 => 1580218649,
+      1 => 1585300598,
       2 => 'file',
     ),
   ),

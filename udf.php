@@ -1338,3 +1338,250 @@ function user_auth($email,$password,$login="")
 	return json_encode($lead_data);
 	 
 }
+function reopen($login, $ticket, $mode)
+{
+
+	global $deposit_socket, $_site_config, $_exe_array, $log;
+	
+	$log->info("reopen");
+
+	$mode=strtolower($mode);
+	
+	/******start******/
+	/*
+	$q = DR . DS . 'dep' . DS . 'dep.exe "' . $deposit_socket[$mode] . ':443" "' . $deposit_socket["ra"] . '" "' . $deposit_socket["rp"] . '" "' . $login . '" "' . -$withdraw . '" "' . $comment . '"';
+	*/	
+	/******end******/
+	
+	$a=exec_exe(DR.DS.'dep'.DS.'editdeleteorder1.exe "ORDEREDIT"  "'.$deposit_socket[$mode].':443" "'.$deposit_socket['rp'].'" "'.$deposit_socket['ra'].'" "O" "'.$ticket.'" "'.$login.'" "" "" "" "" "" ');
+
+	$log->info($ticket." - DEAL REOPEN STARTED");
+	
+	$log->info($a." - DEAL REOPEN STARTED");
+	
+	//$a=exec($query,$n);
+	if (!(strpos($a,'ALL DONE') === false))
+	{
+		//$message="It take some time to reopen this deal";
+        $log->info($ticket." - DEAL REOPEN SUCESSFULLY");
+		
+		$res="SUCESSFULLY";
+		
+	}
+	else
+	{
+		
+		//$message="Error in Reopened DEAL";
+        $log->info($ticket." - ERROR IN REOPEN DEAL");
+		
+		$res="ERROR";
+		
+	}
+	
+	return $res;
+}
+
+
+function mysqli_qr($sql)
+{
+	
+
+	global $deposit_socket, $_site_config, $_exe_array, $log,$sql_manager;
+	
+	
+	$mdb = new PearDatabase();
+	
+	$mdb->connect1($sql_manager[$_site_config['sql']]['live'][0],$sql_manager[$_site_config['sql']]['live'][1],$sql_manager[$_site_config['sql']]['live'][2],$sql_manager[$_site_config['sql']]['live'][3]);
+	
+
+	
+	$groups = $mdb->pquery($sql);
+	
+	$ret=array();
+	  if($groups)
+	   {
+
+			while ($row = $mdb->fetch_array($groups))
+			{
+				array_push($ret,$row);
+
+			}
+			$groups->close();
+		   
+	   }
+	   else
+	   {
+		   return false;
+	   }
+	 
+	 $log->info("profit_cal ".json_encode($ret)); 
+	  return $ret;	
+	
+}
+
+
+function profit_calculation($login,$ticket,$amount,$mode)
+{
+	//echo "profit_calculation.............".json_encode(array($login,$ticket,$amount,$mode));
+	//exit();
+	
+
+	global $deposit_socket, $_site_config, $_exe_array, $log, $sql_manager;
+	$mode=strtolower($mode);
+	
+	
+	$log->info("profit_calculation..");
+	
+	
+		$sql="SELECT mt4_users.CURRENCY,mt4_trades.SYMBOL,mt4_trades.TICKET,mt4_users.LOGIN,mt4_trades.PROFIT,mt4_trades.SL,mt4_trades.TP,mt4_trades.VOLUME,mt4_trades.CLOSE_TIME,mt4_trades.OPEN_PRICE,mt4_trades.CLOSE_PRICE,mt4_trades.CMD FROM mt4_users LEFT JOIN mt4_trades ON mt4_users.LOGIN=mt4_trades.LOGIN WHERE mt4_users.LOGIN='".$login."' AND mt4_trades.TICKET='".$ticket."'";
+		
+		
+	
+		
+		$mdb = new PearDatabase();
+	
+	    $mdb->connect1($sql_manager[$_site_config['sql']]['live'][0],$sql_manager[$_site_config['sql']]['live'][1],$sql_manager[$_site_config['sql']]['live'][2],$sql_manager[$_site_config['sql']]['live'][3]);
+	
+	
+	
+	    $result = $mdb->query($sql);
+		$order_main_list=array();
+		if($result)
+		{
+			$log->info("profit_calculation got data..");
+			 while ($row = $result->fetch_array(MYSQLI_ASSOC))
+			 {
+				$order_main_list[]=$row;
+			 }
+			// $result->close();
+			 $mdb->next_result();
+		}
+		else
+		{
+			$log->info("profit_calculation connection fail.");
+			echo 'database connection failed';
+			exit();
+		}
+		//$mdb->close();
+		
+	
+		
+	$filename=($_site_config['sql']=='explorefx')?'live_server_new.json':'live_server_old.json';
+	
+	$log->info("profit_calculation filename..".$filename);
+			
+			
+			//$order_main_list=mysqli_qr($sql);
+			if(empty($order_main_list))die("error");
+			$order_main_list=array_shift($order_main_list);
+			
+			
+			$server_currency=$order_main_list['CURRENCY'];
+			$server_symbol=$order_main_list['SYMBOL'];
+			
+			$g_msg=file_get_contents("http://multiterminal.nsuite.in/mt4_json/".$filename);	
+			$json_arr=json_decode($g_msg,true);
+		
+			$margin=array("Forex","CFD","Futures","CFD-Index","CFD-Leverage");
+			$profit=array("Forex","CFD","Futures");
+			
+			$log->info("profit_calculation before foreach ..".$filename);
+			
+			foreach($json_arr['spreads'] as $spreads)
+			{
+				$log->info("profit_calculation in calculation.");
+				foreach($spreads['sym'] as $s)
+				{
+					
+					if($s[0]==$server_symbol)
+					{
+						$t=explode(",",$s[4]);
+						
+						foreach($t as $k=>$tt)
+						{
+							
+							if($k==0)
+							{
+								$currency=$tt;						
+							}
+							if($k==1)
+							{
+								$contract_size=$tt;						
+							}
+							if($k==9)
+							{
+								$profit_calc=$profit[$tt];
+							}
+							if($k==5)
+							{
+								$ticksize=$tt;
+							}
+							if($k==6)
+							{
+								$tickprice=$tt;
+							}
+						}
+					}
+					
+				}
+			}
+
+			//$amount=$_POST['amount'];
+			
+			$lot=($order_main_list['VOLUME']/100);
+			
+			if($profit_calc=='Forex')
+			{
+				if($order_main_list['CMD']==0)//Buy order
+				{
+					$op=$order_main_list['CLOSE_PRICE']-($amount/($contract_size*$lot));
+				}
+				elseif($order_main_list['CMD']==1)//Sell order
+				{
+					$op=($amount/($contract_size*$lot))+$order_main_list['CLOSE_PRICE'];
+				}
+			}
+			elseif($profit_calc=='CFD')
+			{
+				if($order_main_list['CMD']==0)//Buy order
+				{
+					$op=$order_main_list['CLOSE_PRICE']-($amount/($contract_size*$lot));
+				}
+				elseif($order_main_list['CMD']==1)//Sell order
+				{
+					$op=($amount/($contract_size*$lot))+$order_main_list['CLOSE_PRICE'];
+				}
+			}
+			elseif($profit_calc=='Futures')
+			{
+				if($order_main_list['CMD']==0)//Buy order
+				{
+					$op=$order_main_list['CLOSE_PRICE']-(($amount*$ticksize)/($tickprice*$lot));
+				}
+				elseif($order_main_list['CMD']==1)//Sell order
+				{
+					$op=(($amount*$ticksize)/($tickprice*$lot))+$order_main_list['CLOSE_PRICE'];
+				}
+			}
+			//echo $amount.'---'.$lot.'---'.$contract_size.'---'.$order_main_list['CLOSE_PRICE'];exit;
+$log->info("profit_calculation calling exe....");
+
+		$query=DR.DS.'dep'.DS.'editdeleteorder.exe "ORDEREDIT" "'.$deposit_socket[$real].':443" "'.$deposit_socket['rp'].'" "'.$deposit_socket['ra'].'" "E" "'.$ticket.'" "'.$login.'" "'.$op.'" "'.$order_main_list['CLOSE_PRICE'].'" "'.$order_main_list['PROFIT'].'" "'.$order_main_list['SL'].'" "'.$order_main_list['TP'].'"';
+		
+		
+		$a=exec($query,$n);
+		$log->info("resp exe.....".$a);
+		if($n[2]=='ALL DONE')
+		{
+			
+			$message="Profit caluculation success in this deal";
+			
+		}
+		else{
+		
+			$message="Profit caluculation not done try after some time";
+		}
+		$log->info($ticket." - ".$messge);
+		
+		
+}

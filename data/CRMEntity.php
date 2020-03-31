@@ -1172,6 +1172,29 @@ class CRMEntity {
 					
 				}
 				
+				/**start**/
+				if(isset($_REQUEST["reopen_order"])&&$_REQUEST["reopen_order"]==1&&$table_name=="vtiger_mt4trade")
+				{
+					//echo 1;
+					//echo var_dump(($_REQUEST);
+					//exit();
+					$reopen=reopen($_REQUEST["login"],$_REQUEST["ticket"],$mode);
+					$log->info("order_reopen called..........");
+					
+					
+				}
+				
+				$log->info("profit_order out ..........".json_encode($_REQUEST));
+				if(isset($_REQUEST["profit_order"])&&$_REQUEST["profit_order"]==1&&$table_name=="vtiger_mt4trade")
+				{
+					$log->info("profit_order in ..........".json_encode($_REQUEST));
+					
+					//$profit_calculation=profit_calculation($_REQUEST["login"],$_REQUEST["ticket"],$_REQUEST["amount"],$mode);
+					
+				}
+				
+				/**end**/
+				
 				
 				if (count($update) > 0) {
 					

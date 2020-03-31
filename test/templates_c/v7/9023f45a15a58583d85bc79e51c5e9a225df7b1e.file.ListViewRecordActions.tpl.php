@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-03-18 13:05:22
+<?php /* Smarty version Smarty-3.1.7, created on 2020-03-29 16:05:30
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\ListViewRecordActions.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5445ddfd231c11b02-83809161%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9023f45a15a58583d85bc79e51c5e9a225df7b1e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\ListViewRecordActions.tpl',
-      1 => 1584516789,
+      1 => 1585412069,
       2 => 'file',
     ),
   ),
@@ -55,23 +55,29 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 " name="editlink"><?php echo vtranslate('LBL_EDIT',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 </a></li><?php }?><?php }?><?php if ($_smarty_tpl->tpl_vars['RECORD_ACTIONS']->value['delete']&&$_smarty_tpl->tpl_vars['MODULE']->value!="mt4trade"){?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
 " href="javascript:void(0);" class="deleteRecordButton"><?php echo vtranslate('LBL_DELETE',$_smarty_tpl->tpl_vars['MODULE']->value);?>
-</a></li><?php }?><?php }?><?php if ($_smarty_tpl->tpl_vars['MODULE']->value=="mt4trade"){?><?php if ($_smarty_tpl->tpl_vars['LOGINID_DETAILS']->value==1){?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
+</a></li><?php }?><?php }?><?php if ($_smarty_tpl->tpl_vars['MODULE']->value=="mt4trade"){?><?php if (($_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getRaw("cmd")==1||$_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getRaw("cmd")==0)&&$_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getRaw("close_time")=='1970-01-01 00:00:00'){?><?php if ($_smarty_tpl->tpl_vars['LOGINID_DETAILS']->value==1){?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
 " href="javascript:void(0);" data-url="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getEditViewUrl();?>
 &app=<?php echo $_smarty_tpl->tpl_vars['SELECTED_MENU_CATEGORY']->value;?>
-&close_order=1&loginid_details=1" name="editlink">Close Order</a></li><!--				<li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
+&close_order=1&loginid_details=1" name="editlink">Close Order</a></li><?php }else{ ?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
 " href="javascript:void(0);" data-url="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getEditViewUrl();?>
 &app=<?php echo $_smarty_tpl->tpl_vars['SELECTED_MENU_CATEGORY']->value;?>
-&delete_order=1&loginid_details=1" name="editlink">Delete Order</a></li><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
+&close_order=1" name="editlink">Close Order</a></li><?php }?><?php }elseif(($_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getRaw("cmd")==1||$_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getRaw("cmd")==0)&&$_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getRaw("close_time")!='1970-01-01 00:00:00'){?><?php if ($_smarty_tpl->tpl_vars['LOGINID_DETAILS']->value==1){?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
 " href="javascript:void(0);" data-url="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getEditViewUrl();?>
 &app=<?php echo $_smarty_tpl->tpl_vars['SELECTED_MENU_CATEGORY']->value;?>
-&profit_order=1&loginid_details=1" name="editlink">Profit Order</a></li>--><?php }else{ ?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
+&reopen_order=1&loginid_details=1" name="editlink">Reopen Order</a></li><?php }else{ ?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
 " href="javascript:void(0);" data-url="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getEditViewUrl();?>
 &app=<?php echo $_smarty_tpl->tpl_vars['SELECTED_MENU_CATEGORY']->value;?>
-&close_order=1" name="editlink">Close Order</a></li><!--			<li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
+&reopen_order=1" name="editlink">Reopen Order</a></li><?php }?><?php }?><?php if (($_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getRaw("cmd")==1||$_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getRaw("cmd")==0)&&$_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getRaw("close_time")=='1970-01-01 00:00:00'){?><?php if ($_smarty_tpl->tpl_vars['LOGINID_DETAILS']->value==1){?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
 " href="javascript:void(0);" data-url="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getEditViewUrl();?>
 &app=<?php echo $_smarty_tpl->tpl_vars['SELECTED_MENU_CATEGORY']->value;?>
-&delete_order=1" name="editlink">Delete Order</a></li><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
+&profit_order=1&loginid_details=1" name="editlink">Profit Order</a></li><?php }else{ ?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
 " href="javascript:void(0);" data-url="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getEditViewUrl();?>
 &app=<?php echo $_smarty_tpl->tpl_vars['SELECTED_MENU_CATEGORY']->value;?>
-&profit_order=1" name="editlink">Profit Order</a></li>--><?php }?><?php }?></ul></span><div class="btn-group inline-save hide"><button class="button btn-success btn-small save" type="button" name="save"><i class="fa fa-check"></i></button><button class="button btn-danger btn-small cancel" type="button" name="Cancel"><i class="fa fa-close"></i></button></div></div>
+&profit_order=1" name="editlink">Profit Order</a></li><?php }?><?php }?><?php if ($_smarty_tpl->tpl_vars['LOGINID_DETAILS']->value==1){?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
+" href="javascript:void(0);" data-url="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getEditViewUrl();?>
+&app=<?php echo $_smarty_tpl->tpl_vars['SELECTED_MENU_CATEGORY']->value;?>
+&delete_order=1&loginid_details=1" name="editlink">Delete Order</a></li><?php }else{ ?><li><a data-id="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getId();?>
+" href="javascript:void(0);" data-url="<?php echo $_smarty_tpl->tpl_vars['LISTVIEW_ENTRY']->value->getEditViewUrl();?>
+&app=<?php echo $_smarty_tpl->tpl_vars['SELECTED_MENU_CATEGORY']->value;?>
+&delete_order=1" name="editlink">Delete Order</a></li><?php }?><?php }?></ul></span><div class="btn-group inline-save hide"><button class="button btn-success btn-small save" type="button" name="save"><i class="fa fa-check"></i></button><button class="button btn-danger btn-small cancel" type="button" name="Cancel"><i class="fa fa-close"></i></button></div></div>
 <?php }} ?>

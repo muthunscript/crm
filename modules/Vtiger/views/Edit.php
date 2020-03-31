@@ -210,8 +210,10 @@ Class Vtiger_Edit_View extends Vtiger_Index_View {
 			$close_order=0;
 			$edit_order=0;
 			$loginid_details=0;
-		//	$profit_order=0;
-		//	$delete_order=0;
+			$reopen_order=0;
+			$profit_order=0;
+			$profit_order=0;
+			$delete_order=0;
 			if($request->get('close_order')==1)
 			{
 				$close_order=1;
@@ -224,7 +226,11 @@ Class Vtiger_Edit_View extends Vtiger_Index_View {
 			{
 				$loginid_details=1;
 			}
-			/*
+			if($request->get('reopen_order')==1)
+			{
+				$reopen_order=1;
+			}
+			
 			if($request->get('profit_order')==1)
 			{
 				$profit_order=1;
@@ -233,13 +239,14 @@ Class Vtiger_Edit_View extends Vtiger_Index_View {
 			{
 				$delete_order=1;
 			}
-			*/	
+			
 			/*****end*****/
 			$viewer->assign('CLOSE_ORDER',$close_order);
 			$viewer->assign('EDIT_ORDER',$edit_order);
 			$viewer->assign('LOGINID_DETAILS',$loginid_details);
-			//$viewer->assign('PROFIT_ORDER',$profit_order);
-			//$viewer->assign('DELETE_ORDER',$delete_order);
+			$viewer->assign('REOPEN_ORDER',$reopen_order);
+			$viewer->assign('PROFIT_ORDER',$profit_order);
+			$viewer->assign('DELETE_ORDER',$delete_order);
 			$viewer->view('EditView.tpl', $moduleName);
 		}
 	}

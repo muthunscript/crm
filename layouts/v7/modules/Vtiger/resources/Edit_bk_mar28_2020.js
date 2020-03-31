@@ -365,42 +365,6 @@ Vtiger_Index_Js("Vtiger_Edit_Js",{
 		}
 		
 		
-		/****start****/
-		var reopen_order=false;
-		
-		console.log("url............."+url);
-		
-		var field1 = 'reopen_order';
-		if(url.indexOf('?' + field1 + '=') != -1)
-		{
-			reopen_order=true;
-		}
-		else if(url.indexOf('&' + field1 + '=') != -1)
-		{
-			reopen_order=true;
-		}
-		console.log("reopen_order......."+reopen_order);
-		
-		
-		
-		var profit_order=false;
-		
-		console.log("url............."+url);
-		
-		var field2 = 'profit_order';
-		if(url.indexOf('?' + field2 + '=') != -1)
-		{
-			profit_order=true;
-		}
-		else if(url.indexOf('&' + field2 + '=') != -1)
-		{
-			profit_order=true;
-		}
-		console.log("profit_order......."+profit_order);
-		
-		/****end****/
-		
-		
 		var container=jQuery('#EditView');
 		container.find('[name="ticket"]').parent('td').css('pointer-events', 'none');
 		container.find('[name="ticket"]').css('background-color' , '#DEDEDE');
@@ -429,31 +393,7 @@ Vtiger_Index_Js("Vtiger_Edit_Js",{
 			
 			$(".editHeader").html("Close Order");
 		}
-		else if(reopen_order)
-		{
 		
-			container.find('[name="sl"]').parent('td').parent('tr').hide();
-		    container.find('[name="open_price"]').parent('td').parent('tr').hide();
-		    container.find('[name="tp"]').parent('td').parent('tr').hide();
-		    container.find('[name="close_price"]').parent('td').parent('tr').hide();
-		    container.find('[name="profit"]').parent('td').parent('tr').hide();
-		    container.find('[name="comment"]').parent('td').parent('tr').hide();
-			
-			
-			$(".editHeader").html("Reopen Order");
-		}
-		else if(profit_order)
-		{
-		
-			container.find('[name="sl"]').parent('td').parent('tr').hide();
-		    container.find('[name="open_price"]').parent('td').parent('tr').hide();
-		    container.find('[name="tp"]').parent('td').parent('tr').hide();
-		    container.find('[name="close_price"]').parent('td').parent('tr').hide();
-		    container.find('[name="comment"]').parent('td').parent('tr').hide();
-			container.find('[name="profit"]').parent('td').parent('tr').show();
-			
-			$(".editHeader").html("Profit Calculation");
-		}
 		
 		/*********/
 		

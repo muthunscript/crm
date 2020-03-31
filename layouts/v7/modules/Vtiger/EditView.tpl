@@ -21,6 +21,9 @@
 					<input type="hidden" name="close_order" value="{$CLOSE_ORDER}" />
 					<input type="hidden" name="edit_order" value="{$EDIT_ORDER}" />
 					<input type="hidden" name="loginid_details" value="{$LOGINID_DETAILS}" />
+					<input type="hidden" name="reopen_order" value="{$REOPEN_ORDER}" />
+					<input type="hidden" name="delete_order" value="{$DELETE_ORDER}" />
+					<input type="hidden" name="profit_order" value="{$PROFIT_ORDER}" />
 					<!--<input type="hidden" name="delete_order" value="{$DELETE_ORDER}" />
 					<input type="hidden" name="profit_order" value="{$PROFIT_ORDER}" />-->
 

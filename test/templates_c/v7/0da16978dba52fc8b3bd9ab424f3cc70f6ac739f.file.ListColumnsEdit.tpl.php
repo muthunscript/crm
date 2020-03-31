@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-01-28 11:02:13
+<?php /* Smarty version Smarty-3.1.7, created on 2020-03-28 13:59:03
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\ListColumnsEdit.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:164595e293bf2de78b3-70545541%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0da16978dba52fc8b3bd9ab424f3cc70f6ac739f' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\ListColumnsEdit.tpl',
-      1 => 1580205127,
+      1 => 1585300598,
       2 => 'file',
     ),
   ),

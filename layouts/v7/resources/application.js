@@ -563,7 +563,7 @@ jQuery(function () {
 //}, 1000 * 60 * 5);
 	
 /********custom end***********/
-var siteURL = 'http://nscript/vtigercrm/';
+var siteURL = 'http://localhost/vtigercrm/';
 function getNotifications(){
 	var lastNotifyTime = localStorage.lastNotifyTime;
 	$.ajax({

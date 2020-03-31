@@ -1,0 +1,27 @@
+0	2020.03.28 15:42:21.127		MetaTrader 4 Manager API build 1090 initialized
+0	2020.03.28 15:42:21.421	23.81.66.123:443	Connect
+0	2020.03.28 15:42:21.830	23.81.66.123:443	'100': login (server build 1260)
+0	2020.03.28 15:42:22.412	23.81.66.123:443	'100': request 1 total trades by order numbers
+0	2020.03.28 15:42:22.736	23.81.66.123:443	'100': trade transaction
+0	2020.03.28 15:42:22.837	23.81.66.123:443	'100': disconnect
+0	2020.03.28 15:42:22.837		Remove: manager 4F78A8
+0	2020.03.28 21:01:54.260		MetaTrader 4 Manager API build 1090 initialized
+0	2020.03.28 21:01:54.273	:443	Connect
+255	2020.03.28 21:01:54.288	:443	'100': login failed (Network problem)
+0	2020.03.28 21:01:54.288		Remove: manager 567060
+0	2020.03.28 21:10:16.257		MetaTrader 4 Manager API build 1090 initialized
+0	2020.03.28 21:10:16.270	:443	Connect
+255	2020.03.28 21:10:16.270	:443	'100': login failed (Network problem)
+0	2020.03.28 21:10:16.270		Remove: manager 712220
+0	2020.03.28 21:14:57.111		MetaTrader 4 Manager API build 1090 initialized
+0	2020.03.28 21:14:57.123	:443	Connect
+255	2020.03.28 21:14:57.123	:443	'100': login failed (Network problem)
+0	2020.03.28 21:14:57.123		Remove: manager 4714C0
+0	2020.03.28 21:22:53.093		MetaTrader 4 Manager API build 1090 initialized
+0	2020.03.28 21:22:53.362	23.81.66.123:443	Connect
+0	2020.03.28 21:22:53.740	23.81.66.123:443	'100': login (server build 1260)
+0	2020.03.28 21:22:54.287	23.81.66.123:443	'100': request 1 total trades by order numbers
+0	2020.03.28 21:22:54.607	23.81.66.123:443	'100': modify order #271620
+0	2020.03.28 21:22:54.926	23.81.66.123:443	'100': fix users balance
+0	2020.03.28 21:22:55.027	23.81.66.123:443	'100': disconnect
+0	2020.03.28 21:22:55.027		Remove: manager 4D15E0
