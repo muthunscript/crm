@@ -44,6 +44,12 @@ $HELPDESK_SUPPORT_EMAIL_REPLY_ID = $HELPDESK_SUPPORT_EMAIL_ID;
       db_name
 */
 
+/*
+$dbconfig['db_server'] = '13.228.124.201';
+$dbconfig['db_port'] = ':3306';
+$dbconfig['db_username'] = 'vtigercrm';
+$dbconfig['db_password'] = 'vtigercrm';
+*/
 $dbconfig['db_server'] = 'localhost';
 $dbconfig['db_port'] = ':3306';
 $dbconfig['db_username'] = 'root';

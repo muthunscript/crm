@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-03-27 16:15:20
+<?php /* Smarty version Smarty-3.1.7, created on 2020-03-31 18:06:22
          compiled from "C:\xampp\htdocs\vtigercrm\crm\includes\runtime/../../layouts/v7\modules\Vtiger\partials\SidebarAppMenu.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:9282640815e7dd940105fb3-08146783%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '93c81c03234224f2211fd470c0d5e39791c45eaa' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\crm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\partials\\SidebarAppMenu.tpl',
-      1 => 1585299354,
+      1 => 1585658172,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5e7dd94019a7e',
   'variables' => 
   array (
     'DASHBOARD_MODULE_MODEL' => 0,
@@ -36,8 +38,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'USER_MODEL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5e7dd94019a7e',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5e7dd94019a7e')) {function content_5e7dd94019a7e($_smarty_tpl) {?>
 <script>
@@ -150,6 +150,16 @@ $_smarty_tpl->tpl_vars['moduleModel']->_loop = true;
 					</div>
 				<?php }?>
 			<?php } ?>
+			<div class="menu-item app-item dropdown-toggle app-item-color-<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" data-app-name="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" id="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="index.php?module=mt4report&view=List&app=SUPPORT&managenotification=1">
+				<div class="menu-items-wrapper app-menu-items-wrapper">
+					<span class="app-icon-list fa vicon-mt4trade"></span>
+					<span class="app-name textOverflowEllipsis">Notification Settings</span>
+				</div>
+			</div>
+
 			<div class="menu-item app-item dropdown-toggle app-item-color-DEPOSIT" data-app-name="DEPOSIT" id="DEPOSIT_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="http://20.0.0.2/vtigercrm/index.php?module=deposit&view=List&viewname=57&app=MARKETING&credit=1">
 				<div class="menu-items-wrapper app-menu-items-wrapper">
 					<span class="app-icon-list fa vicon-deposit"></span>

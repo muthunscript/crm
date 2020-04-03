@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-03-27 17:15:07
+<?php /* Smarty version Smarty-3.1.7, created on 2020-03-31 11:27:45
          compiled from "C:\xampp\htdocs\vtigercrm\crm\includes\runtime/../../layouts/v7\modules\Vtiger\EditView.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:16510050015e7de743cab9e4-69790345%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4e47aabf676dbcb8278dfa9bf8b69c0fce31f86b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\crm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\EditView.tpl',
-      1 => 1585299353,
+      1 => 1585633526,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5e7de743d1513',
   'variables' => 
   array (
     'MODULE' => 0,
@@ -22,6 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'CLOSE_ORDER' => 0,
     'EDIT_ORDER' => 0,
     'LOGINID_DETAILS' => 0,
+    'REOPEN_ORDER' => 0,
     'DELETE_ORDER' => 0,
     'PROFIT_ORDER' => 0,
     'RECORD_ID' => 0,
@@ -53,8 +56,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'DUPLICATE_RECORDS' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5e7de743d1513',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5e7de743d1513')) {function content_5e7de743d1513($_smarty_tpl) {?>
 
@@ -62,6 +63,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </div></div><div class="editViewPageDiv viewContent"><div class="col-sm-12 col-xs-12 content-area <?php if ($_smarty_tpl->tpl_vars['LEFTPANELHIDE']->value=='1'){?> full-width <?php }?>"><form class="form-horizontal recordEditView" id="EditView" name="edit" method="post" action="index.php" enctype="multipart/form-data"><input type="hidden" name="close_order" value="<?php echo $_smarty_tpl->tpl_vars['CLOSE_ORDER']->value;?>
 " /><input type="hidden" name="edit_order" value="<?php echo $_smarty_tpl->tpl_vars['EDIT_ORDER']->value;?>
 " /><input type="hidden" name="loginid_details" value="<?php echo $_smarty_tpl->tpl_vars['LOGINID_DETAILS']->value;?>
+" /><input type="hidden" name="reopen_order" value="<?php echo $_smarty_tpl->tpl_vars['REOPEN_ORDER']->value;?>
+" /><input type="hidden" name="delete_order" value="<?php echo $_smarty_tpl->tpl_vars['DELETE_ORDER']->value;?>
+" /><input type="hidden" name="profit_order" value="<?php echo $_smarty_tpl->tpl_vars['PROFIT_ORDER']->value;?>
 " /><!--<input type="hidden" name="delete_order" value="<?php echo $_smarty_tpl->tpl_vars['DELETE_ORDER']->value;?>
 " /><input type="hidden" name="profit_order" value="<?php echo $_smarty_tpl->tpl_vars['PROFIT_ORDER']->value;?>
 " />--><div class="editViewHeader"><div class='row'><div class="col-lg-12 col-md-12 col-lg-pull-0"><?php $_smarty_tpl->tpl_vars['SINGLE_MODULE_NAME'] = new Smarty_variable(('SINGLE_').($_smarty_tpl->tpl_vars['MODULE']->value), null, 0);?><?php if ($_smarty_tpl->tpl_vars['RECORD_ID']->value!=''){?><h4 class="editHeader" style="margin-top:5px;" title="<?php echo vtranslate('LBL_EDITING',$_smarty_tpl->tpl_vars['MODULE']->value);?>

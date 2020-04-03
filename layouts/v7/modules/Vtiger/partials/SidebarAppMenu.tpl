@@ -83,6 +83,13 @@
 					</div>
 				{/if}
 			{/foreach}
+			<div class="menu-item app-item dropdown-toggle app-item-color-{$APP_NAME}" data-app-name="{$APP_NAME}" id="{$APP_NAME}_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="index.php?module=mt4report&view=List&app=SUPPORT&managenotification=1">
+				<div class="menu-items-wrapper app-menu-items-wrapper">
+					<span class="app-icon-list fa vicon-mt4trade"></span>
+					<span class="app-name textOverflowEllipsis">Notification Settings</span>
+				</div>
+			</div>
+
 			<div class="menu-item app-item dropdown-toggle app-item-color-DEPOSIT" data-app-name="DEPOSIT" id="DEPOSIT_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="http://20.0.0.2/vtigercrm/index.php?module=deposit&view=List&viewname=57&app=MARKETING&credit=1">
 				<div class="menu-items-wrapper app-menu-items-wrapper">
 					<span class="app-icon-list fa vicon-deposit"></span>
