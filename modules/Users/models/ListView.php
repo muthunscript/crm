@@ -97,8 +97,10 @@ class Users_ListView_Model extends Vtiger_ListView_Model {
 		// Added as Users module do not have custom filters and id column is added by querygenerator.
 		$fields = $queryGenerator->getFields();
 		$fields[] = 'id';
+		//$fields[] = 'loginid';
+		//$fields[] = 'commission';
 		$queryGenerator->setFields($fields);
-		
+
 		return parent::getListViewEntries($pagingModel);
 	}
         

@@ -307,19 +307,12 @@ public function __construct() {
 				$split1 = preg_split('/FROM/i', $listQuery);
 				$split2 = preg_split('/where/i', $split1[1]);
 			
-				/************/
-				/*
 				
-				$listQuery = $split1[0] . ',(CASE WHEN vtiger_deposit.status = 1 THEN "Success" WHEN vtiger_deposit.status = 2 THEN "Pending" WHEN vtiger_deposit.status = 3 THEN "Failure" ELSE "" END) as status FROM ' . $split2[0] . ' left join vtiger_mt4trade ON vtiger_mt4trade.ticket= vtiger_deposit.ticket WHERE '.$split2[1].' AND vtiger_deposit.ticket!="" and vtiger_mt4trade.del_i=0 ';
 				
-				*/
 				
 				$listQuery = $split1[0] . ',(CASE WHEN vtiger_deposit.status = 1 THEN "Success" WHEN vtiger_deposit.status = 2 THEN "Pending" WHEN vtiger_deposit.status = 3 THEN "Failure" ELSE "" END) as status FROM ' . $split2[0] . ' left join vtiger_mt4trade ON vtiger_mt4trade.ticket= vtiger_deposit.ticket WHERE '.$split2[1].' AND ((vtiger_deposit.status=1 and vtiger_deposit.ticket!="") or (vtiger_deposit.status=2 and vtiger_deposit.ticket="") or (vtiger_deposit.status=3 and vtiger_deposit.ticket="") or (vtiger_deposit.status=3 and vtiger_deposit.ticket!="")) ';//  and vtiger_mt4trade.del_i=0
 				
-				/************/
 				
-				
-				//$listQuery = $split[0] . ' left join vtiger_mt4trade ON vtiger_mt4trade.ticket= vtiger_deposit.ticket WHERE ' . $split[1] . ' AND vtiger_deposit.ticket!="" and vtiger_mt4trade.del_i=0 ';
 				
 				
 				
@@ -341,17 +334,10 @@ public function __construct() {
 				$split1 = preg_split('/FROM/i', $listQuery);
 				$split2 = preg_split('/where/i', $split1[1]);
 				
-				/************/
-				/*
 				
-				$listQuery = $split1[0] . ',(CASE WHEN vtiger_withdraw.status = 1 THEN "Success" WHEN vtiger_withdraw.status = 2 THEN "Pending" WHEN vtiger_withdraw.status = 3 THEN "Failure" ELSE "" END) as status FROM ' . $split2[0] . ' left join vtiger_mt4trade ON vtiger_mt4trade.ticket= vtiger_withdraw.ticket WHERE '.$split2[1].' AND vtiger_withdraw.ticket!="" and vtiger_mt4trade.del_i=0 ';
-				
-				*/
 				
 				$listQuery = $split1[0] . ',(CASE WHEN vtiger_withdraw.status = 1 THEN "Success" WHEN vtiger_withdraw.status = 2 THEN "Pending" WHEN vtiger_withdraw.status = 3 THEN "Failure" ELSE "" END) as status FROM ' . $split2[0] . ' left join vtiger_mt4trade ON vtiger_mt4trade.ticket= vtiger_withdraw.ticket WHERE '.$split2[1].' AND ((vtiger_withdraw.status=1 and vtiger_withdraw.ticket!="") or (vtiger_withdraw.status=2 and vtiger_withdraw.ticket="") or (vtiger_withdraw.status=3 and vtiger_withdraw.ticket="") or (vtiger_withdraw.status=3 and vtiger_withdraw.ticket!="")) ';// and vtiger_mt4trade.del_i=0
-				/************/
-
-				//$listQuery = $split[0] . ' left join vtiger_mt4trade ON vtiger_mt4trade.ticket= vtiger_withdraw.ticket WHERE ' . $split[1] . ' AND vtiger_withdraw.ticket!="" and vtiger_mt4trade.del_i=0 ';
+				
 				
 				
 				
@@ -360,6 +346,23 @@ public function __construct() {
 			else {
 						$listQuery = $listQuery. ' WHERE vtiger_withdraw.ticket!="" and vtiger_mt4trade.del_i=0 ';
 			}
+			
+		}
+		else if($moduleName == 'Users')
+		{
+			
+			$position = stripos($listQuery, 'where');
+			
+			
+			if($position) {
+
+				$split = preg_split('/where/i', $listQuery);
+				$split1 = preg_split('/FROM/i', $listQuery);
+				$split2 = preg_split('/where/i', $split1[1]);
+				$listQuery = $split1[0] . ',vtiger_users.loginid,vtiger_users.commission FROM ' . $split2[0] . ' WHERE '.$split2[1].'';
+			}
+
+			
 			
 		}
 		

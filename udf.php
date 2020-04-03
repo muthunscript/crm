@@ -1585,3 +1585,50 @@ $log->info("profit_calculation calling exe....");
 		
 		
 }
+
+
+function security($mode)//$group,$mode
+{
+	
+	//getsecurity.exe "demoforext2-eur" "23.81.66.123:443" "abcd1234" "100"
+	
+	//"demoforext2-eur|-|test|-|crypto|-|" "23.81.66.123:443" "abcd1234" "100" 
+	
+	    $groups=groups();
+		
+		$groups = implode("|-|", $groups);
+		
+		//echo print_r($groups);
+		//exit();
+	
+ 		global $deposit_socket, $_site_config, $_exe_array, $log;
+		
+		$log->info("security");
+	
+		$mode=strtolower($mode);
+ 		
+        //getsecuritygroups.exe "demoforext2-eur|-|test|-|crypto|-|" "23.81.66.123:443" "abcd1234" "100"
+		
+		
+		$q = DR . DS . 'dep' . DS . 'getsecuritygroups.exe "'.$groups.'|-|" "' . $deposit_socket[$mode] . ':443" "' . $deposit_socket["rp"] . '" "' . $deposit_socket["ra"] . '"';
+		$log->info($q);
+		$n='';
+		$n = exec_exe(DR . DS . 'dep' . DS . 'getsecuritygroups.exe "'.$groups.'|-|" "' . $deposit_socket[$mode] . ':443" "' . $deposit_socket["rp"] . '" "' . $deposit_socket["ra"] . '"');
+		
+		
+		/*
+		
+		$q = DR . DS . 'dep' . DS . 'getsecurity.exe "test" "' . $deposit_socket[$mode] . ':443" "' . $deposit_socket["rp"] . '" "' . $deposit_socket["ra"] . '"';
+		$log->info($q);
+		$n='';
+		$n = exec_exe(DR . DS . 'dep' . DS . 'getsecurity.exe "test" "' . $deposit_socket[$mode] . ':443" "' . $deposit_socket["rp"] . '" "' . $deposit_socket["ra"] . '"');
+		
+		*/
+		
+		$log->info("security....".$n);
+		
+		return $n;
+		
+}
+
+

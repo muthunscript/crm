@@ -3,6 +3,34 @@
 include_once 'config.inc.php';
 global $adb;
 
+
+$mt4_users=mt4_users('1331776584');
+echo json_encode($mt4_users);
+exit();
+
+$security='{"crypto":[{"I":"0","S":"ForexMajours"},{"I":"1","S":"FX"},{"I":"5","S":"Crypto Ext"},{"I":"25","S":"cryptonew"},{"I":"29","S":"crypton"}],"demoforext2-eur":[{"I":"0","S":"ForexMajours"},{"I":"1","S":"FX"},{"I":"2","S":"Forex Ext"},{"I":"5","S":"Crypto Ext"},{"I":"6","S":"Gold"},{"I":"7","S":"Gold gr"},{"I":"9","S":"Silver"},{"I":"10","S":"Energy Spot"},{"I":"11","S":"Energy Spot 1"},{"I":"12","S":"Futures"},{"I":"13","S":"Energy Futures"},{"I":"14","S":"US Shares"},{"I":"15","S":"UK Shares"},{"I":"16","S":"French Shares"},{"I":"17","S":"German Shares"},{"I":"19","S":"Shares"},{"I":"20","S":"Forex Ext1"},{"I":"21","S":"Forex Ext2"},{"I":"22","S":"Forex Ext3"},{"I":"23","S":"Spot Indices"},{"I":"24","S":"Spot indices 1"},{"I":"25","S":"cryptonew"},{"I":"29","S":"crypton"},{"I":"30","S":"Crypto"}],"test":[{"I":"0","S":"ForexMajours"},{"I":"1","S":"FX"},{"I":"2","S":"Forex Ext"},{"I":"12","S":"Futures"},{"I":"13","S":"Energy Futures"},{"I":"14","S":"US Shares"},{"I":"15","S":"UK Shares"},{"I":"16","S":"French Shares"},{"I":"17","S":"German Shares"},{"I":"20","S":"Forex Ext1"},{"I":"21","S":"Forex Ext2"},{"I":"22","S":"Forex Ext3"},{"I":"23","S":"Spot Indices"},{"I":"24","S":"Spot indices 1"}]}';
+
+$security=json_decode($security,true);
+
+$security_array=array();
+foreach($security as $k => $v)
+{
+	foreach($v as $k1 => $v1)
+	{
+		$security_array[]=$v1;
+	}
+	
+}
+
+$security_array = array_map("unserialize", array_unique(array_map("serialize", $security_array)));
+
+//echo print_r($security);
+//echo print_r($security_array);
+
+echo json_encode($security_array);
+
+exit();
+
 //echo $adb->getUniqueID('vtiger_contactdetails');
 //exit();
 

@@ -383,7 +383,50 @@ class Vtiger_List_View extends Vtiger_Index_View {
 			$loginid=$request->get('loginid');
 			$offers=$request->get('offers');
 			$ibmanagement=$request->get('ibmanagement');
-			if($ibmanagement==1)
+			$ibcommission=$request->get('ibcommission');
+			
+		//	echo $ibcommission;
+		//	exit();
+			
+			if($ibcommission==1)
+			{
+				//$security=json_decode('[{"I": "0", "S": "Forex"},{"I": "5", "S": "Metals"},{"I": "6", "S": "Oil"},{"I": "2", "S": "CFD"},{"I": "30", "S": "Bitcoin"}]',true);
+				
+				
+				
+				/****s***/
+				
+				//$security=json_decode(security("live"),true);
+				
+				$security='security.json';
+				$security = file_get_contents($security);
+				$security = json_decode($security,true);
+				
+				
+
+				$security_array=array();
+				foreach($security as $k => $v)
+				{
+					foreach($v as $k1 => $v1)
+					{
+						$security_array[]=$v1;
+					}
+					
+				}
+
+				$security_array = array_map("unserialize", array_unique(array_map("serialize", $security_array)));
+				/****e***/
+				
+				
+				$users=$request->get('users');
+				
+			
+				$viewer->assign('SECURITY', $security_array);
+				$viewer->assign('USERS', $users);
+				$viewer->assign('SECURITY_JSON', json_encode($security_array));
+				$viewer->assign('IBCOMMISSION', 1);
+			}
+			else if($ibmanagement==1)
 			{
 				$viewer->assign('IBMANAGEMENT', 1);
 			}

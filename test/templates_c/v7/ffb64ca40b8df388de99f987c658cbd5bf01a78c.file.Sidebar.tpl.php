@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-11-29 13:20:02
+<?php /* Smarty version Smarty-3.1.7, created on 2020-03-31 12:43:02
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Settings\Vtiger\Sidebar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:206385de11b02300578-97465845%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ffb64ca40b8df388de99f987c658cbd5bf01a78c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Settings\\Vtiger\\Sidebar.tpl',
-      1 => 1572870387,
+      1 => 1585300598,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5de11b0238915',
   'variables' => 
   array (
     'USER_MODEL' => 0,
@@ -32,8 +34,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'MENU_LABEL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5de11b0238915',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5de11b0238915')) {function content_5de11b0238915($_smarty_tpl) {?>
 <?php if ($_smarty_tpl->tpl_vars['USER_MODEL']->value->isAdminUser()){?><?php $_smarty_tpl->tpl_vars['SETTINGS_MODULE_MODEL'] = new Smarty_variable(Settings_Vtiger_Module_Model::getInstance(), null, 0);?><?php $_smarty_tpl->tpl_vars['SETTINGS_MENUS'] = new Smarty_variable($_smarty_tpl->tpl_vars['SETTINGS_MODULE_MODEL']->value->getMenus(), null, 0);?><div class="settingsgroup"><div><input type="text" placeholder="<?php echo vtranslate('LBL_SEARCH_FOR_SETTINGS',$_smarty_tpl->tpl_vars['QUALIFIED_MODULE']->value);?>

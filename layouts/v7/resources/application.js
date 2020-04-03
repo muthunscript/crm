@@ -605,3 +605,43 @@ $(document).ready(function(){
 		}
 	});
 });
+
+
+$( "#sub_commission" ).change(function() {
+  //alert( "Handler for .change() called." );
+  
+  var sub_commission=$( "#sub_commission" ).val();
+  
+  $(".sub_commission").hide();
+  
+  if(parseInt(sub_commission)==1)
+  {
+	  $(".sub_commission").show();
+  }
+  else if(parseInt(sub_commission)==2)
+  {
+	  $(".sub_commission").show();
+  }
+  
+});
+
+$( "#direct_commission" ).change(function() {
+  //alert( "Handler for .change() called." );
+  
+ /// $(".direct_commission").show();
+  
+  var direct_commission=$( "#direct_commission" ).val();
+  
+  $(".direct_commission").hide();
+  
+  if(parseInt(direct_commission)==1)
+  {
+	  $(".direct_commission").show();
+  }
+  else if(parseInt(direct_commission)==2)
+  {
+	  $(".direct_commission").show();
+  }
+  
+  
+});

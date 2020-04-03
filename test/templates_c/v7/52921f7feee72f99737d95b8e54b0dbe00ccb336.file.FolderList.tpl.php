@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-12-03 10:43:30
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-01 11:30:54
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\MailManager\FolderList.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:47545de63c52007871-76556889%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '52921f7feee72f99737d95b8e54b0dbe00ccb336' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\MailManager\\FolderList.tpl',
-      1 => 1573046564,
+      1 => 1585300596,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5de63c520fe71',
   'variables' => 
   array (
     'FOLDERS' => 0,
@@ -28,8 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'IGNORE_FOLDERS' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5de63c520fe71',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5de63c520fe71')) {function content_5de63c520fe71($_smarty_tpl) {?>
 

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-02-03 06:21:46
+<?php /* Smarty version Smarty-3.1.7, created on 2020-03-31 18:20:02
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\mt4report\partials\SidebarEssentials.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:77905e37bbfa5cfe00-59877136%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1e8b6c02a857c16f3917b969c239a68d36b9866e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\mt4report\\partials\\SidebarEssentials.tpl',
-      1 => 1572870387,
+      1 => 1585300597,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5e37bbfa7a1e3',
   'variables' => 
   array (
     'MODULE' => 0,
@@ -45,8 +47,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'TAG_ID' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5e37bbfa7a1e3',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5e37bbfa7a1e3')) {function content_5e37bbfa7a1e3($_smarty_tpl) {?>
 <div class="sidebar-menu">

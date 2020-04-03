@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-03-23 17:25:06
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-03 11:45:28
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\mt4report\ListViewContents.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:182195e37bbfa908524-62883902%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e297644f856c24efe2029b6d407bd2a7b6c4775e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\mt4report\\ListViewContents.tpl',
-      1 => 1584964501,
+      1 => 1585894499,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'MODULE' => 0,
     'RISK' => 0,
     'IBMANAGEMENT' => 0,
+    'IBCOMMISSION' => 0,
     'ACTUAL_LINK' => 0,
+    'SECURITY_JSON' => 0,
+    'USERS' => 0,
+    'SECURITY' => 0,
+    'SECURIT' => 0,
     'SETTINGS' => 0,
     'DEPOSIT_DATA' => 0,
     'WITHDRAW_DATA' => 0,
@@ -44,8 +49,295 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <?php $_smarty_tpl->tpl_vars['RISK'] = new Smarty_variable($_smarty_tpl->tpl_vars['RISK']->value, null, 0);?>
 <?php $_smarty_tpl->tpl_vars['IBMANAGEMENT'] = new Smarty_variable($_smarty_tpl->tpl_vars['IBMANAGEMENT']->value, null, 0);?>
+<?php $_smarty_tpl->tpl_vars['IBCOMMISSION'] = new Smarty_variable($_smarty_tpl->tpl_vars['IBCOMMISSION']->value, null, 0);?>
 
-<?php if ($_smarty_tpl->tpl_vars['IBMANAGEMENT']->value=='1'){?>
+<?php if ($_smarty_tpl->tpl_vars['IBCOMMISSION']->value=='1'){?>
+
+<style>
+.notificatn h2 {
+    font-size: 24px;
+    font-family: 'OpenSans-Semibold', 'ProximaNova-Semibold', sans-serif;
+	    margin: 0px;
+}
+.top_flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
+
+.general_notificatn h3 {
+    font-size: 18px;
+    font-family: 'OpenSans-Regular', sans-serif;
+    
+        padding: 0px 18px;
+}
+
+.bordr_top{
+	border-top: 1px solid #ccc;
+	padding:15px 0px;
+	}
+
+
+div.checkbox.switcher label, div.radio.switcher label {
+  padding: 0;
+}
+div.checkbox.switcher label *, div.radio.switcher label * {
+  vertical-align: middle;
+}
+div.checkbox.switcher label input, div.radio.switcher label input {
+  display: none;
+}
+div.checkbox.switcher label input + span, div.radio.switcher label input + span {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    width: 45px;
+    height: 20px;
+    background: #f2f2f2;
+    border: 1px solid #eee;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+}
+div.checkbox.switcher label input + span small, div.radio.switcher label input + span small {
+    position: absolute;
+    display: block;
+    width: 40%;
+    margin: 2px;
+    height: 14px;
+    background: #fff;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+    left: 0;
+}
+div.checkbox.switcher label input:checked + span, div.radio.switcher label input:checked + span {
+  background: #ef5e29;
+  border-color: #ef5e29;
+}
+div.checkbox.switcher label input:checked + span small, div.radio.switcher label input:checked + span small {
+  left: 50%;
+}
+ .dis_flex {
+    padding: 8px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox.switcher {
+    margin: 0px;
+}
+
+.dis_flex p {
+    font-size: 15px !important;
+	width: 68%;
+	margin: 0px;
+}
+
+ 
+.checkbox.switcher {
+    font-size: 15px;
+}
+.save_changes {
+    float: right;
+    padding: 40px 5px;
+}
+ 
+
+#offer_submit {
+    background-color: #ef5e29;
+    padding: 6px 50px;
+    font-size: 15px;
+    color: #fff;
+    border: 0px;
+    outline: none;
+}
+</style>
+ <div class="container notificatn">
+ <!-- <form method="post" action="ibmain.php">
+		<input type="hidden" name="current_url" value="<?php echo $_smarty_tpl->tpl_vars['ACTUAL_LINK']->value;?>
+">
+		 <input type="hidden" name="security" value='<?php echo $_smarty_tpl->tpl_vars['SECURITY_JSON']->value;?>
+'>
+		 <input type="hidden" name="users" value='<?php echo $_smarty_tpl->tpl_vars['USERS']->value;?>
+'>
+ <div class="top_flex">
+ 	<h2>Mt4account</h2>
+	
+  </div> 
+
+             <div class="bordr_top">
+                <div class="dis_flex">
+                     <p><b>Account </b></p>
+                      
+                                  <label for="btn1">
+                                 
+                                    <input type="text"  name="account">
+                                    <span><small></small></span>
+                                     
+                                  </label>
+                            
+                     
+                </div>
+
+
+
+		  <div class="save_changes">
+    	<div class="buttn">
+        	<button type="submit" id="offer_submit1">Save</button>
+        </div>
+    </div>
+
+  </form>-->
+<form method="post" action="security.php">
+ <input type="hidden" name="current_url" value="<?php echo $_smarty_tpl->tpl_vars['ACTUAL_LINK']->value;?>
+">
+ <div class="save_changes">
+    	<div class="buttn">
+        	<button type="submit" id="offer_submit"  >Refresh</button>
+        </div>
+    </div>
+</form>
+
+ <form method="post" action="ibmain.php">
+ <input type="hidden" name="current_url" value="<?php echo $_smarty_tpl->tpl_vars['ACTUAL_LINK']->value;?>
+">
+ <input type="hidden" name="security" value='<?php echo $_smarty_tpl->tpl_vars['SECURITY_JSON']->value;?>
+'>
+ <input type="hidden" name="users" value='<?php echo $_smarty_tpl->tpl_vars['USERS']->value;?>
+'>
+
+ <div class="top_flex">
+ 	<h2>Commission</h2>
+	
+  </div> 
+    <div class="container general_notificatn">
+	
+        <div class="col-md-6 col-sm-12 ">
+
+		
+
+
+               <div class="bordr_top">
+
+				<!---start--->
+				<div class="dis_flex">
+                     <p><b>Account </b></p>
+                      
+                                  <label for="btn2">
+                                 
+                                  <input type="text"  name="account">
+                                    <span><small></small></span>
+                                     
+                                  </label>
+                            
+                     
+                </div>
+
+			<!---end-->
+
+
+                <div class="dis_flex">
+                     <p><b>Set Commission </b></p>
+                      <div class="checkbox switcher">
+                                  <label for="btn1">
+                                 
+                                    <select name="direct_commission" id="direct_commission">
+									  <option value="0">No</option>
+									  <option value="1">Fixed</option>
+									  <option value="2">Percentage</option>
+									</select>
+                                    <span><small></small></span>
+                                     
+                                  </label>
+                            </div>
+                     
+                </div>
+
+				<!---------->
+                             
+				<div class="direct_commission" style="display:none;">
+
+							
+							<?php  $_smarty_tpl->tpl_vars['SECURIT'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['SECURIT']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['SECURITY']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['SECURIT']->key => $_smarty_tpl->tpl_vars['SECURIT']->value){
+$_smarty_tpl->tpl_vars['SECURIT']->_loop = true;
+?>
+
+								
+									<div class="dis_flex">
+										 <p><b><?php echo $_smarty_tpl->tpl_vars['SECURIT']->value["S"];?>
+ </b></p>
+										 <div class="checkbox switcher">
+													    
+														<input type="text"  name="<?php echo $_smarty_tpl->tpl_vars['SECURIT']->value['S'];?>
+_<?php echo $_smarty_tpl->tpl_vars['SECURIT']->value['I'];?>
+_1">
+										</div>
+
+										</div>
+								
+							<?php } ?>
+				</div>
+				
+				<!------------>
+
+				<div class="dis_flex">
+                     <p><b>Commission form user </b></p>
+                      <div class="checkbox switcher">
+                                  <label for="btn2">
+                                 
+                                   <select name="sub_commission" id="sub_commission">
+									  <option value="0">No</option>
+									  <option value="1">Fixed</option>
+									  <option value="2">Percentage</option>
+									</select>
+                                    <span><small></small></span>
+                                     
+                                  </label>
+                            </div>
+                     
+                </div>
+
+					<!---------->
+                              
+				<div class="sub_commission" style="display:none;">
+							<?php  $_smarty_tpl->tpl_vars['SECURIT'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['SECURIT']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['SECURITY']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['SECURIT']->key => $_smarty_tpl->tpl_vars['SECURIT']->value){
+$_smarty_tpl->tpl_vars['SECURIT']->_loop = true;
+?>
+
+								
+									<div class="dis_flex">
+										 <p><b><?php echo $_smarty_tpl->tpl_vars['SECURIT']->value["S"];?>
+ </b></p>
+										 <div class="checkbox switcher">
+													  
+														<input type="text"  name="<?php echo $_smarty_tpl->tpl_vars['SECURIT']->value['S'];?>
+_<?php echo $_smarty_tpl->tpl_vars['SECURIT']->value['I'];?>
+_2">
+										</div>
+
+										</div>
+								
+							<?php } ?>
+				</div>
+				
+
+              </div>
+         
+        </div>
+    </div>
+    <div class="save_changes">
+    	<div class="buttn">
+        	<button type="submit" id="offer_submit"  >Save</button>
+        </div>
+    </div>
+     
+    
+ </form>   
+</div>
+
+<?php }elseif($_smarty_tpl->tpl_vars['IBMANAGEMENT']->value=='1'){?>
 <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap.min.css">
 

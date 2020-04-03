@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2019-11-29 05:50:53
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-02 16:56:53
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\RecentComments.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:303565de0b1bd21da63-38699195%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '36b5856d88a324b015323282c8f7de18cd208a72' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\RecentComments.tpl',
-      1 => 1572870387,
+      1 => 1585300599,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5de0b1bd401f6',
   'variables' => 
   array (
     'COMMENTS_MODULE_MODEL' => 0,
@@ -51,8 +53,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'PAGING_MODEL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5de0b1bd401f6',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5de0b1bd401f6')) {function content_5de0b1bd401f6($_smarty_tpl) {?>
 <?php $_smarty_tpl->tpl_vars["COMMENT_TEXTAREA_DEFAULT_ROWS"] = new Smarty_variable("2", null, 0);?><?php $_smarty_tpl->tpl_vars["PRIVATE_COMMENT_MODULES"] = new Smarty_variable(Vtiger_Functions::getPrivateCommentModules(), null, 0);?><?php $_smarty_tpl->tpl_vars['IS_CREATABLE'] = new Smarty_variable($_smarty_tpl->tpl_vars['COMMENTS_MODULE_MODEL']->value->isPermitted('CreateView'), null, 0);?><?php $_smarty_tpl->tpl_vars['IS_EDITABLE'] = new Smarty_variable($_smarty_tpl->tpl_vars['COMMENTS_MODULE_MODEL']->value->isPermitted('EditView'), null, 0);?><div class="commentContainer recentComments"><div class="commentTitle"><?php if ($_smarty_tpl->tpl_vars['IS_CREATABLE']->value){?><div class="addCommentBlock"><div class="row"><div class=" col-lg-12"><div class="commentTextArea "><textarea name="commentcontent" class="commentcontent form-control col-lg-12" placeholder="<?php echo vtranslate('LBL_POST_YOUR_COMMENT_HERE',$_smarty_tpl->tpl_vars['MODULE_NAME']->value);?>

@@ -25,7 +25,7 @@ fclose($myfile);
 
 $_SESSION["message"]="Settings Updated Successfully.";
 
-header("Location:".$_REQUEST["current_url"]);
+header("Location:".urldecode($_REQUEST["current_url"]));
 
 
 ?>

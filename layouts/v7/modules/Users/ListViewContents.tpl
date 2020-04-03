@@ -59,6 +59,10 @@
 								</th>
 							{/if}
 						{/foreach}
+						{**********}
+							<th>Commission</th>
+							<th>Report</th>
+							{**********}
 					</tr>
 				</thead>
 				<tbody class="overflow-y">
@@ -79,9 +83,17 @@
 									<input type="hidden" class="operatorValue" value="{$SEARCH_DETAILS[$LISTVIEW_HEADER->getName()]['comparator']}">
 								</th>
 							{/foreach}
+
+							
 						</tr>
 					{/if}
+					{*{$LISTVIEW_ENTRIES|print_r}
+					{php}exit();{/php}*}
 					{foreach item=LISTVIEW_ENTRY from=$LISTVIEW_ENTRIES name=listview}
+						{*{$LISTVIEW_ENTRY|print_r}
+						{$LISTVIEW_ENTRY->getRaw('commission')}
+						{php}exit();{/php}*}
+
 						<tr class="listViewEntries" data-id='{$LISTVIEW_ENTRY->getId()}' data-recordUrl='{$LISTVIEW_ENTRY->getDetailViewUrl()}&parentblock=LBL_USER_MANAGEMENT' id="{$MODULE}_listView_row_{$smarty.foreach.listview.index+1}">
 							<td class="listViewRecordActions">
 								{include file="ListViewRecordActions.tpl"|vtemplate_path:$MODULE}
@@ -128,6 +140,20 @@
 									</td>
 								{/if}
 							{/foreach}
+							
+							
+
+
+							{**********}
+							{if $LISTVIEW_ENTRY->getRaw('commission') eq 0}
+							 <td class="acceptt"><a href="index.php?module=mt4report&view=List&app=SUPPORT&ibcommission=1&users={$LISTVIEW_ENTRY->getId()}"><button> Set Commission </button></a></td>
+							 <td></td>
+							{else $LISTVIEW_ENTRY->getRaw('commission') eq 1}
+							<td></td>
+							<td class="acceptt declm"><a href=""><button> View Report </button></a></td>
+							{/if}
+							{**********}
+
 						</tr>
 					{/foreach}
 					{if $LISTVIEW_ENTRIES_COUNT eq '0'}
