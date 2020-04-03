@@ -91,7 +91,20 @@
 										{/if}
 										&nbsp;{if $FIELD_MODEL->isMandatory() eq true} <span class="redColor">*</span> {/if}
 									</td>
-									{if $FIELD_MODEL->get('uitype') neq '83'}
+									{if $FIELD_MODEL->get('uitype') eq '556'}
+										<td>
+											<div class="autocomplete" style="border: 1px solid #aaa;">
+												<input name="users_smth" id="users_smth" style="width: 100%;border: 0;"/>
+												<datalist id="users_smth">
+													<option value="Internet Explorer">
+													<option value="Firefox">
+													<option value="Google Chrome">
+													<option value="Opera">
+													<option value="Safari">
+												</datalist>
+											</div>
+										</td>
+									{else if $FIELD_MODEL->get('uitype') neq '83'}
 										<td class="fieldValue" {if $FIELD_MODEL->getFieldDataType() eq 'boolean'} style="width:25%" {/if} {if $FIELD_MODEL->get('uitype') eq '19'} colspan="3" {assign var=COUNTER value=$COUNTER+1} {/if}>
 											{include file=vtemplate_path($FIELD_MODEL->getUITypeModel()->getTemplateName(),$MODULE)}
 										</td>
