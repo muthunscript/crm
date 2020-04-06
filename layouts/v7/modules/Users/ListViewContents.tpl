@@ -60,6 +60,7 @@
 							{/if}
 						{/foreach}
 						{**********}
+                            <th>Account</th>
 							<th>Commission</th>
 							<th>Report</th>
 							{**********}
@@ -145,6 +146,7 @@
 
 
 							{**********}
+							 <td>{$LISTVIEW_ENTRY->getRaw('loginid')}</td>
 							{if $LISTVIEW_ENTRY->getRaw('commission') eq 0}
 							 <td class="acceptt"><a href="index.php?module=mt4report&view=List&app=SUPPORT&ibcommission=1&users={$LISTVIEW_ENTRY->getId()}"><button> Set Commission </button></a></td>
 							 <td></td>

@@ -1631,4 +1631,8 @@ function security($mode)//$group,$mode
 		
 }
 
+function ibman()
+{
+	
+}
 

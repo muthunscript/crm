@@ -416,6 +416,36 @@ Vtiger_Index_Js("Vtiger_Edit_Js",{
 		
 		$('[name="offer_type"]').on('change', function(){
 			console.log("offer_type...."+$(this).val());
+			
+			var offer_type=$(this).val();
+			
+			container.find('[name="percentage"]').parent('td').parent('tr').show();
+			container.find('[name="value"]').parent('td').parent('tr').show();
+			container.find('[name="credit_percentage"]').parent('td').parent('tr').show();
+			container.find('[name="credit_value"]').parent('td').parent('tr').show();
+			
+			/*
+			if(offer_type=="Both")
+			{
+				
+			}
+			else 
+				*/
+			if(offer_type=="Credit Points")
+            {
+				container.find('[name="percentage"]').parent('td').parent('tr').hide();
+			    container.find('[name="value"]').parent('td').parent('tr').hide();
+			}
+			else if(offer_type=="Deposit")
+            {
+				container.find('[name="credit_percentage"]').parent('td').parent('tr').hide();
+			    container.find('[name="credit_value"]').parent('td').parent('tr').hide();
+			}
+			
+			//Both
+			//Credit Points
+			//Deposit
+			
 		});
 		
 		container.find('[name="symbol"]').parent('td').parent('tr').hide();

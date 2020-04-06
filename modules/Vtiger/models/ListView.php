@@ -471,6 +471,9 @@ public function __construct() {
 	**/
 	public function getAffiliate_users($aff) {
 		
+		//echo "getAffiliate_users..";
+		//exit();
+		
 		$db = PearDatabase::getInstance();
 		
 		array_push($this->aff_id, $aff);
@@ -495,7 +498,38 @@ public function __construct() {
 			
 			}
 	}
-	
+	/** 
+	 * Function to get Affiliate direct users
+	**/
+	public function get_direct_aff($aff) {
+		
+		$direct_users=array();
+		
+		$db = PearDatabase::getInstance();
+		
+		//array_push($this->aff_id, $aff);
+		$check_data=array();
+			$check ='select id from vtiger_users where reports_to_id = ?';
+			$check = $db->pquery($check,array($aff));
+			$noofrows = $db->num_rows($check);
+				for ($i = 0; $i < $noofrows; ++$i) {
+					$check_data[] = $db->fetch_array($check);
+					
+					
+				}
+				
+				if(!empty($check_data))
+				{
+					foreach($check_data as $data)
+					{
+						array_push($direct_users, $data["id"]);
+						
+						
+						
+					}
+				}
+			return $direct_users;
+	}
 
 	/**
 	 * Function to get the list view entries
