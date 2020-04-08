@@ -41,6 +41,32 @@ if(isset($_REQUEST["email"],$_REQUEST["password"],$_REQUEST["login"],$_REQUEST["
 			$vtiger_crmentityrel_para=array($vtiger_mt4account["crmid"],$vtiger_mt4account["module"],$primaryID1,"deposit");
 			
 			$adb->pquery($vtiger_crmentityrel,$vtiger_crmentityrel_para);
+			
+			
+			/******call fun start******/
+			
+			
+			//$withdraw_response =withdraw($f["login"], $withdraw_data["amount"], $withdraw_data["cf_974"], $mode);
+		
+			$log->info("withdraw response $withdraw_response");
+			
+			$withdraw_response=json_decode($withdraw_response,true);
+			
+			
+			if ($withdraw_response['status'] == 'OK')
+			{
+				
+				$adb->pquery('UPDATE vtiger_withdraw SET status=1,ticket=? WHERE `withdrawid`= ?',array($withdraw_response['order'],$withdraw_id));
+			}
+			else
+			{
+				$adb->pquery('UPDATE vtiger_withdraw SET status=3 WHERE `withdrawid`= ?',array($withdraw_id));
+			}
+
+			
+			/******call fun end******/
+			
+			
 		}
 		/********end*********/
 	}

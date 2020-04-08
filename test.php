@@ -4,9 +4,25 @@ include_once 'config.inc.php';
 global $adb;
 
 
+$group="test";
+$symbol="USDCHF";
+$match_security=match_security($group,$symbol);
+echo $match_security;
+
+exit();
+
 $mt4_users=mt4_users('1331776584');
 echo json_encode($mt4_users);
 exit();
+
+$today = date("Y-m-d H:i:s");
+//echo strtotime('-2 hours', strtotime( $today ));
+$time=strtotime("-30minutes",strtotime("-2hours"));
+$time=date("Y-m-d H:i:s",$time);//2017-07-17 17:54:09
+echo var_dump($time);
+exit();
+
+
 
 $security='{"crypto":[{"I":"0","S":"ForexMajours"},{"I":"1","S":"FX"},{"I":"5","S":"Crypto Ext"},{"I":"25","S":"cryptonew"},{"I":"29","S":"crypton"}],"demoforext2-eur":[{"I":"0","S":"ForexMajours"},{"I":"1","S":"FX"},{"I":"2","S":"Forex Ext"},{"I":"5","S":"Crypto Ext"},{"I":"6","S":"Gold"},{"I":"7","S":"Gold gr"},{"I":"9","S":"Silver"},{"I":"10","S":"Energy Spot"},{"I":"11","S":"Energy Spot 1"},{"I":"12","S":"Futures"},{"I":"13","S":"Energy Futures"},{"I":"14","S":"US Shares"},{"I":"15","S":"UK Shares"},{"I":"16","S":"French Shares"},{"I":"17","S":"German Shares"},{"I":"19","S":"Shares"},{"I":"20","S":"Forex Ext1"},{"I":"21","S":"Forex Ext2"},{"I":"22","S":"Forex Ext3"},{"I":"23","S":"Spot Indices"},{"I":"24","S":"Spot indices 1"},{"I":"25","S":"cryptonew"},{"I":"29","S":"crypton"},{"I":"30","S":"Crypto"}],"test":[{"I":"0","S":"ForexMajours"},{"I":"1","S":"FX"},{"I":"2","S":"Forex Ext"},{"I":"12","S":"Futures"},{"I":"13","S":"Energy Futures"},{"I":"14","S":"US Shares"},{"I":"15","S":"UK Shares"},{"I":"16","S":"French Shares"},{"I":"17","S":"German Shares"},{"I":"20","S":"Forex Ext1"},{"I":"21","S":"Forex Ext2"},{"I":"22","S":"Forex Ext3"},{"I":"23","S":"Spot Indices"},{"I":"24","S":"Spot indices 1"}]}';
 

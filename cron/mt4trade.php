@@ -152,8 +152,8 @@
 		$result = $adb->pquery("select mt4tradeid from `vtiger_mt4trade` WHERE ticket NOT IN ('".implode("','",$allTradeID)."')");
 		$totalDeleted = $adb->num_rows($result);
 		$deleted = $totalDeleted;
-		$tradeData="UPDATE `vtiger_mt4trade` set del_i=1 WHERE ticket NOT IN ('".implode("','",$allTradeID)."')";
-		$adb->pquery($tradeData);
+		//$tradeData="UPDATE `vtiger_mt4trade` set del_i=1 WHERE ticket NOT IN ('".implode("','",$allTradeID)."')";
+		//$adb->pquery($tradeData);
 	} else {
 		$log->info("NO DATA MT4 TRADE DATABASE");
 		echo "NO DATA MT4 TRADE DATABASE";die;

@@ -413,11 +413,11 @@ Vtiger_Index_Js("Vtiger_Edit_Js",{
 		container.find('[name="acc_type"]').parent('td').css('pointer-events', 'none');
 		container.find('[name="acc_type"]').css('background-color' , '#DEDEDE');
 		*/
-		
+		var offer_type=0;
 		$('[name="offer_type"]').on('change', function(){
 			console.log("offer_type...."+$(this).val());
 			
-			var offer_type=$(this).val();
+			offer_type=$(this).val();
 			
 			container.find('[name="percentage"]').parent('td').parent('tr').show();
 			container.find('[name="value"]').parent('td').parent('tr').show();
@@ -433,11 +433,13 @@ Vtiger_Index_Js("Vtiger_Edit_Js",{
 				*/
 			if(offer_type=="Credit Points")
             {
+				//console.log("if  offer_type....Credit Points");
 				container.find('[name="percentage"]').parent('td').parent('tr').hide();
 			    container.find('[name="value"]').parent('td').parent('tr').hide();
 			}
 			else if(offer_type=="Deposit")
             {
+				//console.log("if  offer_type....Deposit");
 				container.find('[name="credit_percentage"]').parent('td').parent('tr').hide();
 			    container.find('[name="credit_value"]').parent('td').parent('tr').hide();
 			}
@@ -445,6 +447,34 @@ Vtiger_Index_Js("Vtiger_Edit_Js",{
 			//Both
 			//Credit Points
 			//Deposit
+			
+		});
+		
+		$('[name="mode"]').on('change', function(){
+			console.log("mode...."+$(this).val());
+			var mode=$(this).val();
+			if(mode=="Percentage")
+			{
+				if(offer_type=="Credit Points")
+				{
+					 container.find('[name="credit_value"]').parent('td').parent('tr').hide();
+				}
+				else
+				{
+					container.find('[name="value"]').parent('td').parent('tr').hide();
+				}
+			}
+			else 
+			{
+				if(offer_type=="Credit Points")
+				{
+					container.find('[name="credit_percentage"]').parent('td').parent('tr').hide();
+				}
+				else
+				{
+					container.find('[name="percentage"]').parent('td').parent('tr').hide();
+				}
+			}
 			
 		});
 		

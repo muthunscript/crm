@@ -1610,10 +1610,10 @@ function security($mode)//$group,$mode
         //getsecuritygroups.exe "demoforext2-eur|-|test|-|crypto|-|" "23.81.66.123:443" "abcd1234" "100"
 		
 		
-		$q = DR . DS . 'dep' . DS . 'getsecuritygroups.exe "'.$groups.'|-|" "' . $deposit_socket[$mode] . ':443" "' . $deposit_socket["rp"] . '" "' . $deposit_socket["ra"] . '"';
+		$q = DR . DS . 'dep' . DS . 'ManagerAPITrade.exe "'.$groups.'|-|" "' . $deposit_socket[$mode] . ':443" "' . $deposit_socket["rp"] . '" "' . $deposit_socket["ra"] . '"';
 		$log->info($q);
 		$n='';
-		$n = exec_exe(DR . DS . 'dep' . DS . 'getsecuritygroups.exe "'.$groups.'|-|" "' . $deposit_socket[$mode] . ':443" "' . $deposit_socket["rp"] . '" "' . $deposit_socket["ra"] . '"');
+		$n = exec_exe(DR . DS . 'dep' . DS . 'ManagerAPITrade.exe "'.$groups.'|-|" "' . $deposit_socket[$mode] . ':443" "' . $deposit_socket["rp"] . '" "' . $deposit_socket["ra"] . '"');
 		
 		
 		/*
@@ -1631,8 +1631,76 @@ function security($mode)//$group,$mode
 		
 }
 
-function ibman()
+function match_security($group,$symbol)
 {
+	global $deposit_socket, $_site_config, $_exe_array, $log;
+
+	$security=DR . DS .'security.json';
+	$security = file_get_contents($security);
+	$security = json_decode($security,true);
+				
+	$security_array=array();
+	$log->info("match_security start");
 	
+	$log->info("group...".$group."  symbol....".$symbol);
+
+	foreach($security as $k => $v)
+	{
+		if($k==$group)
+		{
+			$log->info("group...".$group);
+			foreach($v as $k1 => $v1)
+			{
+				$security_array[]=$v1;
+				if (in_array($symbol, $v1["SYM"])) 
+				{
+					$arr=array("act"=>true);
+					$log->info("SYM...".json_encode($v1));
+					$arr[]=$v1;
+					return json_encode($arr);
+					exit();
+				}
+
+			}
+
+		}
+
+	}
+	
+
+	
+	//$val=array_search("Futures", array_column($security_array, 'S'));
+	
+	
+		$log->info("match_security end");
+		$arr=array("act"=>false);
+		return json_encode($arr);
+	
+
+}
+
+function ibman($security,$user,$amount,$user_type)
+{
+	global $deposit_socket, $_site_config, $_exe_array, $log, $adb;
+	
+	//echo "SELECT * FROM `vtiger_ibmain` where users=".$user." and security=".$security." and user_type=".$user_type."";
+	//exit();
+	
+	$data=$adb->pquery("SELECT * FROM `vtiger_ibmain` where users=".$user." and security=".$security." and user_type=".$user_type."" );
+	$data=$adb->fetch_array($data);
+	
+	$ret=array("status"=>false);
+	
+	if($data)
+	{
+		$a=$data["commission"];
+		if($data["commissiontype"]==1)
+		{
+			$a=$amount*$data["commission"]/100;
+		}
+		$ret=array("amount"=>$a,"loginid"=>$data["mt4_id"],"status"=>true,"user"=>$user);
+		
+	}
+	return json_encode($ret);
 }
 

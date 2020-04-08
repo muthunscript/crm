@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-03-27 16:10:16
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-06 11:18:12
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\partials\SidebarAppMenu.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:145735ddfd1df735e16-11868712%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a8f14efad58bd507fe773661e2cb99afe1009dd2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\partials\\SidebarAppMenu.tpl',
-      1 => 1585300599,
+      1 => 1586151645,
       2 => 'file',
     ),
   ),
@@ -150,6 +150,16 @@ $_smarty_tpl->tpl_vars['moduleModel']->_loop = true;
 					</div>
 				<?php }?>
 			<?php } ?>
+			<div class="menu-item app-item dropdown-toggle app-item-color-<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" data-app-name="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" id="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="index.php?module=mt4report&view=List&app=SUPPORT&managenotification=1">
+				<div class="menu-items-wrapper app-menu-items-wrapper">
+					<span class="app-icon-list fa vicon-mt4trade"></span>
+					<span class="app-name textOverflowEllipsis">Notification Settings</span>
+				</div>
+			</div>
+
 			<div class="menu-item app-item dropdown-toggle app-item-color-DEPOSIT" data-app-name="DEPOSIT" id="DEPOSIT_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="http://20.0.0.2/vtigercrm/index.php?module=deposit&view=List&viewname=57&app=MARKETING&credit=1">
 				<div class="menu-items-wrapper app-menu-items-wrapper">
 					<span class="app-icon-list fa vicon-deposit"></span>
