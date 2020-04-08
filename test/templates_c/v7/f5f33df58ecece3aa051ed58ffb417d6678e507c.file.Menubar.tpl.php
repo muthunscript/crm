@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-02-12 06:18:45
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-06 13:50:47
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\allreport\partials\Menubar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:292925e4398c520a574-22101385%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f5f33df58ecece3aa051ed58ffb417d6678e507c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\allreport\\partials\\Menubar.tpl',
-      1 => 1580364260,
+      1 => 1585300596,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5e4398c5240f1',
   'variables' => 
   array (
     'MENU_STRUCTURE' => 0,
@@ -26,8 +28,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'SELECTED_MENU_CATEGORY' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5e4398c5240f1',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5e4398c5240f1')) {function content_5e4398c5240f1($_smarty_tpl) {?>
 

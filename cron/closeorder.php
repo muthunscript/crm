@@ -15,10 +15,10 @@
 	
 	/****start*****/
 	
-	$affiliate=new Vtiger_ListView_Model();
+//	$affiliate=new Vtiger_ListView_Model();
 //	$aff=$affiliate->get_direct_aff(26);
    
-    $time=strtotime("-30minutes",strtotime("-40hours"));
+    $time=strtotime("-30minutes",strtotime("-200hours"));
 	
 	 $time=date("Y-m-d H:i:s",$time);//2017-07-17 17:54:09
 
@@ -28,16 +28,7 @@
 	$loginid=array();
 	$groups=groups();
 	
-/*
-	echo "select mt4_trades.*,mt4_users.*
-		from mt4_trades
-		join mt4_users
-		on mt4_users.LOGIN=mt4_trades.LOGIN
-		where mt4_users.`GROUP` in (\"".implode('","',$groups)."\")
-		and mt4_trades.`CLOSE_TIME`>='".$time."' AND mt4_trades.CMD in (0,1) order by mt4_trades.OPEN_TIME DESC";
-		
-		exit();
-	*/
+
 	
 	$log->info("closeorder cron");
 	$mdb = new PearDatabase();
@@ -65,14 +56,13 @@
 				
 				$tradeDate1=$adb->fetch_array($tradeDate);
 				
-			//	echo json_encode($tradeDate);
-			//	echo $tradeDate["closeorder_cron"];
-			//	exit();
+			
 
 				if($adb->num_rows($tradeDate) == 0){
 					
-					$new_record[]=$f;
+					$new_record[$f["login"]]=$f;
 					$loginid[]=$f["login"];
+					
 					
 					$log->info("INSERT");
 					$primaryID = $adb->getUniqueID('vtiger_crmentity');
@@ -87,11 +77,12 @@
 					
 					$inserted++;
 				} else if($tradeDate1["closeorder_cron"]==0){
-						$new_record[]=$f;
+						$new_record[$f["login"]]=$f;
 						$loginid[]=$f["login"];
 					
+					
 						$log->info("UPDATE");
-						$tradeData="UPDATE `vtiger_mt4trade` set login='".$f[1]."', symbol='".$f[2]."', digits='".$f[3]."', cmd='".$f[4]."', volume='".$f[5]."', open_time='".$f[6]."', open_price='".$f[7]."', sl='".$f[8]."', tp='".$f[9]."', close_time='".$f[10]."', expiration='".$f[11]."', reason='".$f[12]."', conv_rate1='".$f[13]."', conv_rate2='".$f[14]."', commission='".$f[15]."', commission_agent='".$f[16]."', swaps='".$f[17]."', close_price='".$f[18]."', profit='".$f[19]."', taxes='".$f[20]."', comment='".$f[21]."', internal_id='".$f[22]."', margin_rate='".$f[23]."', timestamp='".$f[24]."', magic='".$f[25]."', gw_volume='".$f[26]."', gw_open_price='".$f[27]."', gw_close_price='".$f[28]."', modify_time='".$f[29]."', display_from_cron=1, closeorder_cron=0 WHERE ticket=".$f['ticket'];
+						$tradeData="UPDATE `vtiger_mt4trade` set login='".$f[1]."', symbol='".$f[2]."', digits='".$f[3]."', cmd='".$f[4]."', volume='".$f[5]."', open_time='".$f[6]."', open_price='".$f[7]."', sl='".$f[8]."', tp='".$f[9]."', close_time='".$f[10]."', expiration='".$f[11]."', reason='".$f[12]."', conv_rate1='".$f[13]."', conv_rate2='".$f[14]."', commission='".$f[15]."', commission_agent='".$f[16]."', swaps='".$f[17]."', close_price='".$f[18]."', profit='".$f[19]."', taxes='".$f[20]."', comment='".$f[21]."', internal_id='".$f[22]."', margin_rate='".$f[23]."', timestamp='".$f[24]."', magic='".$f[25]."', gw_volume='".$f[26]."', gw_open_price='".$f[27]."', gw_close_price='".$f[28]."', modify_time='".$f[29]."', display_from_cron=1, closeorder_cron=1 WHERE ticket=".$f['ticket'];
 						$log->info("MT4 Trade Query : ".$tradeData);
 						$adb->pquery($tradeData);
 						$updated++;
@@ -102,15 +93,12 @@
 			}
 		}
 		$mt4_trade->close();
-		
-		/*****start****/
-		
-		
+
 		if(!empty($new_record))
 		{
 			
 			
-			$data=$adb->pquery("select vtiger_crmentityrel.*,vtiger_contactdetails.*,vtiger_mt4account.*,vtiger_crmentity.*,vtiger_users.first_name as user_fn,vtiger_users.last_name as user_ln,vtiger_users.reports_to_id as affiliate 
+			$data=$adb->pquery("select vtiger_crmentityrel.*,vtiger_contactdetails.*,vtiger_mt4account.*,vtiger_crmentity.*,vtiger_users.first_name as user_fn,vtiger_users.last_name as user_ln,vtiger_users.reports_to_id as affiliate,vtiger_users.mt4_group 
 			from vtiger_crmentityrel
 			left join vtiger_contactdetails ON vtiger_contactdetails.contactid= vtiger_crmentityrel.crmid
 			left join vtiger_mt4account ON vtiger_mt4account.mt4accountid= vtiger_crmentityrel.relcrmid
@@ -118,27 +106,124 @@
 			left join vtiger_users ON vtiger_users.id= vtiger_crmentity.smownerid
 			where vtiger_crmentityrel.module='Contacts' and vtiger_crmentityrel.relmodule='mt4account' and vtiger_crmentityrel.crmid!=0 and vtiger_crmentityrel.relcrmid!=0 and vtiger_mt4account.loginid in (\"".implode('","',$loginid)."\")");
 			
-			$data=$adb->fetch_array($data);
-			
-			
-			
-			foreach($new_record as $new)
-			{
-				// $aff=$affiliate->get_direct_aff($data["smownerid"]);
+		
 				
-			}
+				$users_det=array();
+				
+				$com=array();
+
+			   if($data)
+			   {
+					while ($row = $adb->fetch_array($data))
+					{
+						if($new_record[$row["loginid"]]["profit"]>0 && $row["smownerid"]!="" && $row["smownerid"]!=0)
+						{
+							$match_security=match_security($row["mt4_group"],$new_record[$row["loginid"]]["symbol"]);
+
+							$match_security=json_decode($match_security,true);
+							if($match_security["act"])
+							{
+								$amt=0;
+								
+								$affiliate_1=ibman($match_security[0]["I"],$row["smownerid"],$new_record[$row["loginid"]]["profit"],1);
+								
+								$affiliate_1=json_decode($affiliate_1,true);
+								
+								if($affiliate_1["status"])
+								{
+									
+									
+									$com[$affiliate_1["loginid"]][]=array("amount"=>$affiliate_1["amount"],"trade"=>$new_record[$row["loginid"]]["ticket"],"user"=>$affiliate_1["user"]);
+									
+									$amt+=$affiliate_1["amount"];
+									
+									if($row["affiliate"]!=0 && $row["affiliate"]!="")
+									{
+										$affiliate_2=ibman($match_security[0]["I"],$row["affiliate"],$new_record[$row["loginid"]]["profit"],2);
+										
+										$affiliate_2=json_decode($affiliate_2,true);
+										
+										if($affiliate_2["status"])
+										{
+											$com[$affiliate_2["loginid"]][]=array("amount"=>$affiliate_2["amount"],"trade"=>$new_record[$row["loginid"]]["ticket"],"user"=>$affiliate_2["user"]);											
+											$amt+=$affiliate_2["amount"];
+										}
+									}
+									
+									$users_det[$row["loginid"]][]=array("amount"=>$amt);
+									
+								}
+
+							}
+						}
+					}
+					$data->close();
+					
+					/**deposit**/
+					
+					$set_com=array();
+					
+					if(!empty($com))
+					{
+						foreach($com as $k => $v)
+						{
+							$content="<table><tr><th>Trade</th><th>Amount</th></tr>";
+							$amt=0;
+							$u=0;
+							foreach($v as $co)
+							{
+								$amt+=$co["amount"];
+								$u=$co["user"];
+								$content.="<tr><td>".$co["trade"]."</td><td>".$co["amount"]."</td></tr>";
+							}
+							
+							$content.="</table>";
+							
+							$adb->pquery("INSERT INTO `vtiger_settlement`(`amount`, `html`, `datetime`, `json`, `loginid`, `user`) VALUES (".$amt.",'".$content."','".time()."','".json_encode($v)."','".$k."','".$u."')");
+							
+							
+							//deposit($login, $deposit, $comment, $mode)
+							
+							$comment="IB commission";
+							deposit($k,$amt,$comment,"live");
+							
+							$set_com[$k]=$amt;
+						}
+					}
+					
+					/**withdraw**/
+					
+					$set_user=array();
+					
+					if(!empty($users_det))
+					{
+						foreach($users_det as $k => $v)
+						{
+
+							$amt=0;
+							foreach($v as $co)
+							{	
+								$amt+=$co["amount"];
+							}
+							//withdraw($login, $withdraw, $comment, $mode)
+							
+							$comment="ib management";
+							withdraw($k, $amt, $comment, "live");
+							$set_user[$k]=$amt;
+						}
+					}
+					
+					//echo json_encode($set_user);
+				//	echo json_encode($set_com);
+					
+					
+			   }
 		}
-	
-		
-		
-		/*****end****/
-		
-		
 	} else {
 		$log->info("NO DATA FROM MT4 TRADE DATABASE");
 		echo "NO DATA FROM MT4 TRADE DATABASE";die;
 	}
-	echo 'Total Insert : '.$inserted.'<br>';
-	echo 'Total Update : '.$updated.'<br>';
-	echo 'Total Delete : '.$deleted.'<br>';
+	//echo 'Total Insert : '.$inserted.'<br>';
+	//echo 'Total Update : '.$updated.'<br>';
+	//echo 'Total Delete : '.$deleted.'<br>';
 ?>

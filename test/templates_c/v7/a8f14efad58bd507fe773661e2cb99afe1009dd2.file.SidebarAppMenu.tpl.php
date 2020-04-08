@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-04-08 10:55:03
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-06 11:18:12
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\partials\SidebarAppMenu.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:145735ddfd1df735e16-11868712%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (

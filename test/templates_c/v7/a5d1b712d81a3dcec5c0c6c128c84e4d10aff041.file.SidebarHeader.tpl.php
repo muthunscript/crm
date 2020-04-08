@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-02-18 09:35:34
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-06 13:50:46
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\allreport\partials\SidebarHeader.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:293745e4398c5030072-69336903%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a5d1b712d81a3dcec5c0c6c128c84e4d10aff041' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\allreport\\partials\\SidebarHeader.tpl',
-      1 => 1582018530,
+      1 => 1585300596,
       2 => 'file',
     ),
   ),

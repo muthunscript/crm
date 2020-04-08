@@ -33,7 +33,10 @@ Bitcoin_30_2: ""
 
 if(isset($_REQUEST["account"])&&$_REQUEST["account"]!="")
 {
-	$mt4_users=mt4_users($_REQUEST["account"]);
+	$mt4_users=array_shift(mt4_users($_REQUEST["account"]));
+	//echo json_encode($mt4_users);
+	//echo $mt4_users[0]["group"];
+	//exit();
 	
 	if(!empty($mt4_users))
 	{
@@ -69,7 +72,7 @@ if(isset($_REQUEST["account"])&&$_REQUEST["account"]!="")
 			}
 			
 			/******start******/
-			$vtiger_users="UPDATE `vtiger_users` SET `loginid`='".$_REQUEST["account"]."',`commission`=1 WHERE id=".$_REQUEST["users"]."";
+			$vtiger_users="UPDATE `vtiger_users` SET `loginid`='".$_REQUEST["account"]."',`mt4_group`='".$mt4_users[0]["group"]."',`commission`=1 WHERE id=".$_REQUEST["users"]."";
 			$log->info("IBMAIN Query : ".$vtiger_users);
 			$adb->pquery($vtiger_users);
 			/******end******/
