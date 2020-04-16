@@ -242,4 +242,36 @@ $bankdetails_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
 
 $bankdetails_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
 
+$mt4users_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$mt4users_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$salesreport_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$salesreport_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$bonusreport_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$bonusreport_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$managenotification_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$managenotification_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$managementreport_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$managementreport_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$tradereport_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$tradereport_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$assetreport_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$assetreport_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$clientreport_share_read_permission=array('ROLE'=>array(),'GROUP'=>array());
+
+$clientreport_share_write_permission=array('ROLE'=>array(),'GROUP'=>array());
+
 ?>

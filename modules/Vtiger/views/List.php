@@ -99,7 +99,7 @@ class Vtiger_List_View extends Vtiger_Index_View {
 
 	function process (Vtiger_Request $request) {
 		
-		global $log;
+		global $log,$_site_config;
 		
 		$viewer = $this->getViewer ($request);
 		$moduleName = $request->getModule();
@@ -133,6 +133,9 @@ class Vtiger_List_View extends Vtiger_Index_View {
 		$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 		$viewer->assign('ACTUAL_LINK', urlencode($actual_link));
 		$viewer->assign('SETTINGS', $json);
+		
+		//echo var_dump($moduleName);
+		//exit();
 		
 		if($moduleName=="riskintelligence")
 		{
@@ -384,26 +387,61 @@ class Vtiger_List_View extends Vtiger_Index_View {
 			$offers=$request->get('offers');
 			$ibmanagement=$request->get('ibmanagement');
 			$ibcommission=$request->get('ibcommission');
+			$commission_report=$request->get('commission_report');
+			$users=$request->get('users');
+			$voip=$request->get('voip');
 			
-		//	echo $ibcommission;
-		//	exit();
-			
-			if($ibcommission==1)
+			if($voip==1)
 			{
-				//$security=json_decode('[{"I": "0", "S": "Forex"},{"I": "5", "S": "Metals"},{"I": "6", "S": "Oil"},{"I": "2", "S": "CFD"},{"I": "30", "S": "Bitcoin"}]',true);
+				/*****start******/
+				$filename='voip_'.$users.'.txt';
+				$varray=array();
 				
+				//echo DR.DS.'voip'.DS.$_site_config['folder'].DS.$filename;
+				//exit();
 				
+				if(is_file(DR.DS.'voip'.DS.$_site_config['folder'].DS.$filename))
+				{
+					
+				//	echo "yes";
+				//	exit();
+					
+					$get_result=file_get_contents(DR.DS.'voip'.DS.$_site_config['folder'].DS.$filename);
+					$getres=explode(' ',$get_result);
+					foreach($getres as $c)
+					{
+						$varray[]=decode_voip($c,8);
+					}
+					
+				}
+				//else
+				//{
+				//	echo "no";
+				//	exit();
+				//}
 				
-				/****s***/
+			    //echo json_encode($varray);
+				//exit();
 				
-				//$security=json_decode(security("live"),true);
-				
+				/******end*****/
+				$viewer->assign('VOIP_DATA', $varray);
+				$viewer->assign('USERS', $users);
+				$viewer->assign('VOIP', 1);
+			}
+		
+			else if($commission_report==1)
+			{
+				$get_report=get_report($users);
+				//echo json_encode($get_report);
+				//exit();
+				$viewer->assign('REPORT', $get_report);
+				$viewer->assign('COMMISSION_REPORT', 1);
+			}
+			else if($ibcommission==1)
+			{
 				$security='security.json';
 				$security = file_get_contents($security);
 				$security = json_decode($security,true);
-				
-				
-
 				$security_array=array();
 				foreach($security as $k => $v)
 				{
@@ -415,10 +453,10 @@ class Vtiger_List_View extends Vtiger_Index_View {
 				}
 
 				$security_array = array_map("unserialize", array_unique(array_map("serialize", $security_array)));
-				/****e***/
 				
 				
-				$users=$request->get('users');
+				
+				
 				
 			
 				$viewer->assign('SECURITY', $security_array);
@@ -432,16 +470,7 @@ class Vtiger_List_View extends Vtiger_Index_View {
 			}
 			else if($offers==1)
 			{
-				/*
-				$filename='crm_setting.json';
-				$str = file_get_contents($filename);
-				$json = json_decode($str,true);
 				
-				$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-				$viewer->assign('RISK', 1);
-				$viewer->assign('ACTUAL_LINK', $actual_link);
-				$viewer->assign('SETTINGS', $json);
-				*/
 				$viewer->assign('RISK', 1);
 			}
 			else
@@ -454,98 +483,35 @@ class Vtiger_List_View extends Vtiger_Index_View {
 						
 						$_mt_user=array_shift(mt4_users($loginid));
 						
-						/*
-						//Array ( [0] => 1331776130 [login] => 1331776130 [1] => test [group] => test [2] => 1 [enable] => 1 [3] => 0 [enable_change_pass] => 0 [4] => 0 [enable_readonly] => 0 [5] => 0 [enable_otp] => 0 [6] => [password_phone] => [7] => last l [name] => last l [8] => india [country] => india [9] => chennai [city] => chennai [10] => tamil nadu [state] => tamil nadu [11] => [zipcode] => [12] => [address] => [13] => [lead_source] => [14] => 9089787878 [phone] => 9089787878 [15] => lavanya+9000@nscript.in [email] => lavanya+9000@nscript.in [16] => [comment] => [17] => [id] => [18] => [status] => [19] => 2020-01-23 07:06:56 [regdate] => 2020-01-23 07:06:56 [20] => 2020-01-23 07:06:56 [lastdate] => 2020-01-23 07:06:56 [21] => 100 [leverage] => 100 [22] => 0 [agent_account] => 0 [23] => 1580709993 [timestamp] => 1580709993 [24] => 47 [balance] => 47 [25] => 0 [prevmonthbalance] => 0 [26] => 50 [prevbalance] => 50 [27] => 0 [credit] => 0 [28] => 0 [interestrate] => 0 [29] => 0 [taxes] => 0 [30] => 0 [send_reports] => 0 [31] => 0 [mqid] => 0 [32] => 0 [user_color] => 0 [33] => 47 [equity] => 47 [34] => 0 [margin] => 0 [35] => 0 [margin_level] => 0 [36] => 47 [margin_free] => 47 [37] => USD [currency] => USD [38] => [api_data] => [39] => 2020-02-05 07:50:18 [modify_time] => 2020-02-05 07:50:18 )
 						
-						
-						$log->info("mt4_users list ".json_encode($_mt_user));
-					
-						
-						//array(26) { [0]=> string(6) "259149" ["ticket"]=> string(6) "259149" [1]=> string(10) "1331776130" ["login"]=> string(10) "1331776130" [2]=> string(0) "" ["symbol"]=> string(0) "" [3]=> string(1) "6" ["cmd"]=> string(1) "6" [4]=> string(1) "1" ["volume"]=> string(1) "1" [5]=> string(19) "2020-02-03 06:05:49" ["open_time"]=> string(19) "2020-02-03 06:05:49" [6]=> string(1) "0" ["open_price"]=> string(1) "0" [7]=> string(1) "0" ["sl"]=> string(1) "0" [8]=> string(1) "0" ["tp"]=> string(1) "0" [9]=> string(19) "2020-02-03 06:05:49" ["close_time"]=> string(19) "2020-02-03 06:05:49" [10]=> string(1) "0" ["close_price"]=> string(1) "0" [11]=> string(2) "20" ["profit"]=> string(2) "20" [12]=> string(2) "ok" ["comment"]=> string(2) "ok" }
-						
-						$open_orders = array_filter($kola,function($v){ if($v[0]["close_time"]=='1970-01-01 00:00:00' && ($v[0]["cmd"] == 0 || $v[0]["cmd"] == 1)){return TRUE; }else{return FALSE; } });
-						$close_orders = array_filter($kola,function($v){ if($v[0]["close_time"]!='1970-01-01 00:00:00' && ($v[0]["cmd"] == 0 || $v[0]["cmd"] == 1)){return TRUE; }else{return FALSE; } });
-						$deposit = array_filter($kola,function($v){ if($v[0]["profit"]>0 && $v[0]["cmd"] == 6 ){ return TRUE; }else{ return FALSE; } });
-						$withadraw = array_filter($kola,function($v){ if($v[0]["profit"]<0 && $v[0]["cmd"] == 6 ){return TRUE; }else{return FALSE; } });
-						
-					
-						$orders_by_symbol = group_array($close_orders,"SYMBOL");
-						
-						$today = strtotime('12:00:00');
-						$today24 = $today - (24 * 60 * 60);
-						$grouped = Array();
-						$grouped_lot = Array();
-						$grouped_number = Array();
-						$grouped_sym = Array();
-						$grouped_sym_n = Array();
-						$pnl = Array();
-
-						for($i=0;$i<15;$i++){
-							$grouped[$i] = Array(); $grouped_lot[$i] = Array(0,0,date("d/m",$today24)); $grouped_number[$i] = Array(0,0,date("d/m",$today24));
-							foreach($close_orders as $close_orders_t){
-								if(strtotime($close_orders_t[0]["close_time"])<$today && strtotime($close_orders_t[0]["close_time"])>$today24){
-									array_push($grouped[$i],$close_orders_t);
-									$te1 = $grouped_lot[$i][1] + $close_orders_t[0]["volume"];
-									$te2 = $grouped_number[$i][1] + 1;
-									$grouped_lot[$i] = Array($i,$te1,date("d/m",$today24));
-									$grouped_number[$i] =  Array($i,$te2,date("d/m",$today24));
-								}
-							}
-							$today = $today24 ;
-							$today24 = $today24 - (24 * 60 * 60);
-						}
-						$pnl[0] = Array("id"=>0,"day"=>0,"profit"=>0);
-						$pnlmax = 0; $pnlmin = 0; $pnlfinal=0;
-						foreach($close_orders as $close_orders_t){
-								$grouped_sym[$close_orders_t[0]["symbol"]] = $close_orders_t;
-								if(!array_key_exists($close_orders_t[0]["symbol"],$grouped_sym_n)){ $grouped_sym_n[$close_orders_t[0]["symbol"]] = 0; }  
-								$grouped_sym_n[$close_orders_t[0]["symbol"]]++;
-								if($close_orders_t[0]["profit"]>$pnlmax){ $pnlmax = $close_orders_t[0]["profit"]; }
-								if($close_orders_t[0]["profit"]<$pnlmin){ $pnlmin = $close_orders_t[0]["profit"]; }
-								$pnlfinal += $close_orders_t[0]["profit"];
-								array_push($pnl,Array("id"=>sizeof($pnl),"day"=>sizeof($pnl),"profit"=>$pnl[sizeof($pnl)-1]["profit"]+$close_orders_t[0]["profit"]));
-							}
-
-
-							
-							$m = Array();
-							foreach($grouped_sym_n as $key=>$value){
-								array_push($m,Array($key,$value));
-							}
-
-						$demosit_arr = Array(); $totaldep = 0;
-						foreach($deposit as $deposit_t){
-
-							array_push($demosit_arr,Array($deposit_t[0]["ticket"],$deposit_t[0]["profit"],$deposit_t[0]["comment"],$deposit_t[0]["close_time"]));
-							
-							$totaldep += $deposit_t[0]["profit"]; 
-							}
-		
-						$with_arr = Array();  $totalwith = 0;
-						foreach($withadraw as $withadraw_t){
-							
-							array_push($with_arr,Array($withadraw_t[0]["ticket"],$withadraw_t[0]["profit"],$withadraw_t[0]["comment"],$withadraw_t[0]["close_time"]));
-							
-							$totalwith += $withadraw_t[0]["profit"];
-						}
-
-						$open_arr = Array();
-						foreach($open_orders as $open_orders_t){
-
-							
-							array_push($open_arr,Array($open_orders_t[0]["ticket"],$open_orders_t[0]["symbol"],$open_orders_t[0]["open_price"],$open_orders_t[0]["open_time"],$open_orders_t[0]["profit"]));
-						}
-						
-						$close_arr = Array();
-						foreach($close_orders as $open_orders_t){
-							
-							array_push($close_arr,Array($open_orders_t[0]["ticket"],$open_orders_t[0]["symbol"],$open_orders_t[0]["open_price"],$open_orders_t[0]["open_time"],$open_orders_t[0]["profit"]));
-						}
-						*/
 						
 						$response=calculation($kola);
+						/*
+						echo json_encode($response["pnlmax"]);
+						echo json_encode($response["pnlmin"]);
+						echo json_encode($response["pnl"]);
+						exit();
+						*/
 						
 						//$viewer->assign('RISK', 0);
+						$viewer->assign('PNL', $response["pnl"]);
+						$viewer->assign('PNLMAX', $response["pnlmax"]);
+						$viewer->assign('PNLMIN', $response["pnlmin"]);
+						$viewer->assign('M', $response["m"]);
+						$viewer->assign('PROFIT_CHART', json_encode($response["profit_chart"]));
+						$viewer->assign('PIE_CHART', json_encode($response["pie_chart"]));
+						$viewer->assign('GROUPED_LOT', json_encode($response["grouped_lot"]));
+						$viewer->assign('C1_DATE', json_encode($response["c1_date"]));
+						$viewer->assign('C2_DATE', json_encode($response["c2_date"]));
+						$viewer->assign('C1_DATA', json_encode($response["c1_data"]));
+						$viewer->assign('C2_DATA', json_encode($response["c2_data"]));
+						
+						//echo json_encode($response["c2_date"]);
+						//echo json_encode($response["c2_data"]);
+						//echo json_encode($response["grouped_lot"]);
+						//exit();
+						
+						
 						$viewer->assign('DEPOSIT_DATA', $response["demosit_arr"]);
 						$viewer->assign('WITHDRAW_DATA', $response["with_arr"]);
 						$viewer->assign('OPEN_DATA', $response["open_arr"]);
@@ -557,12 +523,6 @@ class Vtiger_List_View extends Vtiger_Index_View {
 					
 				}
 			}
-			
-		    
-			
-			
-			
-			
 		}
 		else if($report=="management_report")
 		{
@@ -587,14 +547,8 @@ class Vtiger_List_View extends Vtiger_Index_View {
 			
 			foreach($date_wise as $k => $v)
 			{
-			
-				
-				//$management_report[$k]=calculation($v);
-				
+
 				$report=calculation($v);
-				
-			
-				
 				$register_date=date('m/d/Y', $k);
 				$Registrations=0;
 				$Active_user=1;
@@ -607,13 +561,7 @@ class Vtiger_List_View extends Vtiger_Index_View {
 					$Registrations=$USER_REGISTER[$myId];
 				}
 
-				/*
-				if($report["volume_lot"]!='' && $report["volume_lot"]!=0)
-				{
-					$Volume=$report["volume_lot"];
-					$lot=$Volume/100;
-				}
-				*/
+				
 				
 				$management_report[]=array($register_date,$Registrations,$Active_user,$report["open_order"],$report["close_order"],$report["volume"],$report["pnlfinal"],$report["totaldep"],$report["totalwith"],$report["net_deposit"],$report["credit_in"],$report["credit_out"],$report["lot"]);
 				

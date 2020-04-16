@@ -359,7 +359,7 @@ public function __construct() {
 				$split = preg_split('/where/i', $listQuery);
 				$split1 = preg_split('/FROM/i', $listQuery);
 				$split2 = preg_split('/where/i', $split1[1]);
-				$listQuery = $split1[0] . ',vtiger_users.loginid,vtiger_users.commission FROM ' . $split2[0] . ' WHERE '.$split2[1].'';
+				$listQuery = $split1[0] . ',vtiger_users.loginid,vtiger_users.commission,vtiger_users.voip,vtiger_users.voip_edit FROM ' . $split2[0] . ' WHERE '.$split2[1].'';
 			}
 
 			

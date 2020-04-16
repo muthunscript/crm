@@ -29,6 +29,8 @@
 	<input type="hidden" value="{$LISTVIEW_ENTRIES_COUNT}" id="noOfEntries">
 	<input type="hidden" value="{$NO_SEARCH_PARAMS_CACHE}" id="noFilterCache" >
 
+
+
 	<div id="table-content" class="table-container">
 		<form name='list' id='listedit' action='' onsubmit="return false;">
 			<table id="listview-table" class="table {if $LISTVIEW_ENTRIES_COUNT eq '0'}listview-table-norecords {/if} listview-table">
@@ -63,6 +65,7 @@
                             <th>Account</th>
 							<th>Commission</th>
 							<th>Report</th>
+							<th>VOIP</th>
 							{**********}
 					</tr>
 				</thead>
@@ -152,7 +155,14 @@
 							 <td></td>
 							{else $LISTVIEW_ENTRY->getRaw('commission') eq 1}
 							<td></td>
-							<td class="acceptt declm"><a href=""><button> View Report </button></a></td>
+							<td class="acceptt declm"><a href="index.php?module=mt4report&view=List&app=SUPPORT&commission_report=1&users={$LISTVIEW_ENTRY->getId()}"><button> View Report </button></a></td>
+							{/if}
+							
+							{*{$LISTVIEW_ENTRY->getId()}{$smarty.session.authenticated_user_id}*}
+							{if ($smarty.session.authenticated_user_id eq 1) or ($LISTVIEW_ENTRY->getId() eq $smarty.session.authenticated_user_id and $LISTVIEW_ENTRY->getRaw('voip_edit') eq 1)}
+							
+								<td class="acceptt declm"><a href="index.php?module=mt4report&view=List&app=SUPPORT&voip=1&users={$LISTVIEW_ENTRY->getId()}"><button> VOIP </button></a></td>
+
 							{/if}
 							{**********}
 

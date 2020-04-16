@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-04-08 11:15:45
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-11 21:43:17
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\mt4report\ListViewContents.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:182195e37bbfa908524-62883902%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e297644f856c24efe2029b6d407bd2a7b6c4775e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\mt4report\\ListViewContents.tpl',
-      1 => 1586263062,
+      1 => 1586621593,
       2 => 'file',
     ),
   ),
@@ -23,9 +23,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'RISK' => 0,
     'IBMANAGEMENT' => 0,
     'IBCOMMISSION' => 0,
+    'COMMISSION_REPORT' => 0,
+    'REPORT' => 0,
+    'VOIP' => 0,
     'ACTUAL_LINK' => 0,
-    'SECURITY_JSON' => 0,
     'USERS' => 0,
+    'VOIP_DATA' => 0,
+    'REP' => 0,
+    'SECURITY_JSON' => 0,
     'SECURITY' => 0,
     'SECURIT' => 0,
     'SETTINGS' => 0,
@@ -36,7 +41,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'MT_USER' => 0,
     'PNLFINAL' => 0,
     'TOTALDEP' => 0,
+    'PROFIT_CHART' => 0,
+    'PIE_CHART' => 0,
+    'C1_DATE' => 0,
+    'C1_DATA' => 0,
     'i' => 0,
+    'C2_DATE' => 0,
+    'C2_DATA' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -50,9 +61,297 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php $_smarty_tpl->tpl_vars['RISK'] = new Smarty_variable($_smarty_tpl->tpl_vars['RISK']->value, null, 0);?>
 <?php $_smarty_tpl->tpl_vars['IBMANAGEMENT'] = new Smarty_variable($_smarty_tpl->tpl_vars['IBMANAGEMENT']->value, null, 0);?>
 <?php $_smarty_tpl->tpl_vars['IBCOMMISSION'] = new Smarty_variable($_smarty_tpl->tpl_vars['IBCOMMISSION']->value, null, 0);?>
+<?php $_smarty_tpl->tpl_vars['COMMISSION_REPORT'] = new Smarty_variable($_smarty_tpl->tpl_vars['COMMISSION_REPORT']->value, null, 0);?>
+<?php $_smarty_tpl->tpl_vars['REPORT'] = new Smarty_variable($_smarty_tpl->tpl_vars['REPORT']->value, null, 0);?>
+<?php $_smarty_tpl->tpl_vars['VOIP'] = new Smarty_variable($_smarty_tpl->tpl_vars['VOIP']->value, null, 0);?>
 
-<?php if ($_smarty_tpl->tpl_vars['IBCOMMISSION']->value=='1'){?>
 
+<?php if ($_smarty_tpl->tpl_vars['VOIP']->value=='1'){?>
+
+
+
+
+
+<style>
+.notificatn h2 {
+    font-size: 24px;
+    font-family: 'OpenSans-Semibold', 'ProximaNova-Semibold', sans-serif;
+	    margin: 0px;
+}
+.top_flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
+
+.general_notificatn h3 {
+    font-size: 18px;
+    font-family: 'OpenSans-Regular', sans-serif;
+    
+        padding: 0px 18px;
+}
+
+.bordr_top{
+	border-top: 1px solid #ccc;
+	padding:15px 0px;
+	}
+
+
+div.checkbox.switcher label, div.radio.switcher label {
+  padding: 0;
+}
+div.checkbox.switcher label *, div.radio.switcher label * {
+  vertical-align: middle;
+}
+div.checkbox.switcher label input, div.radio.switcher label input {
+  display: none;
+}
+div.checkbox.switcher label input + span, div.radio.switcher label input + span {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    width: 45px;
+    height: 20px;
+    background: #f2f2f2;
+    border: 1px solid #eee;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+}
+div.checkbox.switcher label input + span small, div.radio.switcher label input + span small {
+    position: absolute;
+    display: block;
+    width: 40%;
+    margin: 2px;
+    height: 14px;
+    background: #fff;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+    left: 0;
+}
+div.checkbox.switcher label input:checked + span, div.radio.switcher label input:checked + span {
+  background: #ef5e29;
+  border-color: #ef5e29;
+}
+div.checkbox.switcher label input:checked + span small, div.radio.switcher label input:checked + span small {
+  left: 50%;
+}
+ .dis_flex {
+    padding: 8px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox.switcher {
+    margin: 0px;
+}
+
+.dis_flex p {
+    font-size: 15px !important;
+	width: 68%;
+	margin: 0px;
+}
+
+ 
+.checkbox.switcher {
+    font-size: 15px;
+}
+.save_changes {
+    float: right;
+    padding: 40px 5px;
+}
+ 
+
+#offer_submit {
+    background-color: #ef5e29;
+    padding: 6px 50px;
+    font-size: 15px;
+    color: #fff;
+    border: 0px;
+    outline: none;
+}
+</style>
+ <div class="container notificatn">
+ 
+
+ <form method="post" action="voip.php">
+ <input type="hidden" name="current_url" value="<?php echo $_smarty_tpl->tpl_vars['ACTUAL_LINK']->value;?>
+">
+ <input type="hidden" name="users" value='<?php echo $_smarty_tpl->tpl_vars['USERS']->value;?>
+'>
+
+ <div class="top_flex">
+ 	<h2>VOIP</h2>
+	
+  </div> 
+    <div class="container general_notificatn">
+        <div class="col-md-6 col-sm-12 ">
+               <div class="bordr_top">
+				<!---start--->
+				<div class="dis_flex">
+                     <p><b>Voip Username</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_username" value="<?php if (count($_smarty_tpl->tpl_vars['VOIP_DATA']->value)>=0){?><?php echo $_smarty_tpl->tpl_vars['VOIP_DATA']->value[2];?>
+ <?php }?>">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Password</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_registerpass" value="<?php if (count($_smarty_tpl->tpl_vars['VOIP_DATA']->value)>=0){?><?php echo $_smarty_tpl->tpl_vars['VOIP_DATA']->value[4];?>
+ <?php }?>">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Domain Host</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_domainhost" value="<?php if (count($_smarty_tpl->tpl_vars['VOIP_DATA']->value)>=0){?><?php echo $_smarty_tpl->tpl_vars['VOIP_DATA']->value[5];?>
+ <?php }?>">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Register Name</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_registername" value="<?php if (count($_smarty_tpl->tpl_vars['VOIP_DATA']->value)>=0){?><?php echo $_smarty_tpl->tpl_vars['VOIP_DATA']->value[3];?>
+ <?php }?>">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Display Name</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_dispname" value="<?php if (count($_smarty_tpl->tpl_vars['VOIP_DATA']->value)>=0){?><?php echo $_smarty_tpl->tpl_vars['VOIP_DATA']->value[1];?>
+ <?php }?>">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Domain Port</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_domainport" value="<?php if (count($_smarty_tpl->tpl_vars['VOIP_DATA']->value)>=0){?><?php echo $_smarty_tpl->tpl_vars['VOIP_DATA']->value[6];?>
+ <?php }?>">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+
+
+			<!---end-->
+              </div>
+         
+        </div>
+    </div>
+    <div class="save_changes">
+    	<div class="buttn">
+        	<button type="submit" id="offer_submit"  >Save</button>
+        </div>
+    </div>
+     
+    
+ </form>   
+</div>
+
+
+
+<?php }elseif($_smarty_tpl->tpl_vars['COMMISSION_REPORT']->value=='1'){?>
+
+
+
+<div class="col-sm-12 col-xs-12 ">
+<div class="floatThead-wrapper">
+<div id="table-content" class="table-container ps-container"">
+<table class="table  listview-table  floatThead-table">
+	<thead>
+		<tr>
+			<th>Time</th>
+			<th>Amount</th>
+			
+			<th>View</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php  $_smarty_tpl->tpl_vars['REP'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['REP']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['REPORT']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['REP']->key => $_smarty_tpl->tpl_vars['REP']->value){
+$_smarty_tpl->tpl_vars['REP']->_loop = true;
+?>
+
+	
+			<tr>
+			<td><?php echo $_smarty_tpl->tpl_vars['REP']->value["datetime"];?>
+</td>
+			<td><?php echo $_smarty_tpl->tpl_vars['REP']->value["amount"];?>
+</td>
+			
+			<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".mt4_report_pop<?php echo $_smarty_tpl->tpl_vars['REP']->value['settlementid'];?>
+">View</button></td>
+		</tr>
+	<?php } ?>
+		
+		
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<!-- Large modal -->
+<?php  $_smarty_tpl->tpl_vars['REP'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['REP']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['REPORT']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['REP']->key => $_smarty_tpl->tpl_vars['REP']->value){
+$_smarty_tpl->tpl_vars['REP']->_loop = true;
+?>
+
+<div class="modal fade mt4_report_pop<?php echo $_smarty_tpl->tpl_vars['REP']->value['settlementid'];?>
+" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+		
+      <div class="modal-header">
+        <h5 class="modal-title">Commission Report</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	  <div class="modal-body">
+		<?php echo $_smarty_tpl->tpl_vars['REP']->value['html'];?>
+
+		<!--<table class="table  listview-table  floatThead-table"><thead><tr><th>Trade</th><th>Amount</th></tr></thead><tbody>
+
+
+	
+		
+		
+
+							
+							</tbody></table>-->
+</div>
+    </div>
+  </div>
+</div>
+<?php } ?>
+
+
+
+<style>
+.mt4_report_pop thead {
+    background: #ddd;
+	text-align:center;
+}
+.mt4_report_pop thead th{
+	text-align:center;
+}
+.mt4_report_pop table {
+    border: 1px solid #ddd;
+}
+
+.module-action-content {
+    display: none;
+}
+</style>
+
+<?php }elseif($_smarty_tpl->tpl_vars['IBCOMMISSION']->value=='1'){?>
 <style>
 .notificatn h2 {
     font-size: 24px;
@@ -1369,6 +1668,11 @@ div.checkbox.switcher label input:checked + span small, div.radio.switcher label
 	<?php $_smarty_tpl->tpl_vars['MT_USER'] = new Smarty_variable($_smarty_tpl->tpl_vars['MT_USER']->value, null, 0);?>
 	<?php $_smarty_tpl->tpl_vars['PNLFINAL'] = new Smarty_variable($_smarty_tpl->tpl_vars['PNLFINAL']->value, null, 0);?>
 	<?php $_smarty_tpl->tpl_vars['TOTALDEP'] = new Smarty_variable($_smarty_tpl->tpl_vars['TOTALDEP']->value, null, 0);?>
+    <?php $_smarty_tpl->tpl_vars['PROFIT_CHART'] = new Smarty_variable($_smarty_tpl->tpl_vars['PROFIT_CHART']->value, null, 0);?>
+	<?php $_smarty_tpl->tpl_vars['PIE_CHART'] = new Smarty_variable($_smarty_tpl->tpl_vars['PIE_CHART']->value, null, 0);?>
+	<?php $_smarty_tpl->tpl_vars['C1_DATE'] = new Smarty_variable($_smarty_tpl->tpl_vars['C1_DATE']->value, null, 0);?>
+	<?php $_smarty_tpl->tpl_vars['C1_DATA'] = new Smarty_variable($_smarty_tpl->tpl_vars['C1_DATA']->value, null, 0);?>
+	
 	
 	
 	
@@ -1560,32 +1864,8 @@ $_smarty_tpl->tpl_vars['i']->_loop = true;
                     	    <div id="b_chart" style="min-width: 310px; height: 350px; max-width: 100%; margin: 0 auto"></div>
                   </div>
                   <div id="trader_12" class="tab-pane fade">
-                    <table>
-                        	<tr>
-                            	<th>Id</th>
-                                <th>Value</th>
-                                <th>Comment</th>
-                                <th>Time</th>
-                            </tr>
-                            <tr>
-                            	<td>1586</td>
-                                <td>3224</td>
-                                <td>test</td>
-                                <td>1:25 28-25-2019</td> 
-                             </tr>
-                             <tr>
-                            	<td>1586</td>
-                                <td>3224</td>
-                                <td>test</td>
-                                <td>1:25 28-25-2019</td> 
-                             </tr>
-                             <tr>
-                            	<td>1586</td>
-                                <td>3224</td>
-                                <td>test</td>
-                                <td>1:25 28-25-2019</td> 
-                             </tr>
-                        </table>
+				   <div id="b_chart1" style="min-width: 310px; height: 350px; max-width: 100%; margin: 0 auto"></div>
+                    
                   </div>
                  
 				</div>
@@ -1628,7 +1908,8 @@ $_smarty_tpl->tpl_vars['i']->_loop = true;
     },
     series: [{
         name: '',
-        data: [3, 4, 3, 5, 4, 10, 12]
+        data: <?php echo $_smarty_tpl->tpl_vars['PROFIT_CHART']->value;?>
+
     }]
 });
 // Build the chart
@@ -1645,7 +1926,7 @@ Highcharts.chart('container', {
     }
   },
   title: {
-    text: 'Browser market shares in January, 2018'
+    text: ''
   },
   exporting: {
 		enabled: false
@@ -1675,27 +1956,8 @@ Highcharts.chart('container', {
   series: [{
     name: 'Brands',
     colorByPoint: true,
-    data: [{
-      name: 'Chrome',
-      y: 61.41,
-      sliced: true,
-      selected: true
-    }, {
-      name: 'Internet Explorer',
-      y: 11.84
-    }, {
-      name: 'Firefox',
-      y: 10.85
-    }, {
-      name: 'Edge',
-      y: 4.67
-    }, {
-      name: 'Safari',
-      y: 4.18
-    }, {
-      name: 'Other',
-      y: 7.05
-    }]
+    data: <?php echo $_smarty_tpl->tpl_vars['PIE_CHART']->value;?>
+
   }]
 });
 
@@ -1711,23 +1973,8 @@ Highcharts.chart('b_chart', {
         text: ''
     },
     xAxis: {
-        categories: [
-            '01/01',
-            '02/01',
-            '03/01',
-            '04/01',
-            '05/01',
-            '06/01',
-            '07/01',
-            '08/01',
-            '09/01',
-            '10/01',
-            '11/01',
-            '12/01',
-            '13/01',
-            '14/01',
-            '15/01'
-        ],
+        categories: <?php echo $_smarty_tpl->tpl_vars['C1_DATE']->value;?>
+,
         crosshair: true
     },
     yAxis: {
@@ -1744,7 +1991,47 @@ Highcharts.chart('b_chart', {
     },
     series: [{
         name: 'Days',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        data: <?php echo $_smarty_tpl->tpl_vars['C1_DATA']->value;?>
+
+
+    }]
+});
+
+
+
+
+
+Highcharts.chart('b_chart1', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: ''
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        categories: <?php echo $_smarty_tpl->tpl_vars['C2_DATE']->value;?>
+,
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Lots'
+        }
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Days',
+        data: <?php echo $_smarty_tpl->tpl_vars['C2_DATA']->value;?>
+
 
     }]
 });
@@ -1823,4 +2110,7 @@ figure.highcharts-figure {
 }
 	</style>
 </div>
-<?php }?><?php }} ?>
+
+<?php }?>
+
+<?php }} ?>

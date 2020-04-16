@@ -784,7 +784,14 @@ class Reports_Record_Model extends Vtiger_Record_Model {
 	 */
 	function getReportData($pagingModel = false, $filterQuery = false) {
 		$reportRun = ReportRun::getInstance($this->getId());
-		$data = $reportRun->GenerateReport('PDF', $filterQuery, true, $pagingModel->getStartIndex(), $pagingModel->getPageLimit());
+		//$data = $reportRun->GenerateReport('PDF', $filterQuery, true, $pagingModel->getStartIndex(), $pagingModel->getPageLimit());
+		
+		//echo var_dump($pagingModel["recordId"]);
+		//echo var_dump($pagingModel);
+		//echo $pagingModel->get('recordId');
+		//exit();
+		
+		$data = $reportRun->GenerateReport('PDF', $filterQuery, true, $pagingModel->getStartIndex(), $pagingModel->getPageLimit(), "",$pagingModel->get('recordId'));
 		return $data;
 	}
 

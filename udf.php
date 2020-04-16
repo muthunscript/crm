@@ -9,6 +9,7 @@ require_once('include/utils/UserInfoUtil.php');
 require_once("include/Zend/Json.php");
 require_once 'include/RelatedListView.php';
 require_once 'ws.php';
+require_once 'livechat_password.php';
 
 //error_reporting(E_ALL);
 
@@ -751,6 +752,10 @@ function calculation($kola)
 	$grouped_sym = Array();
 	$grouped_sym_n = Array();
 	$pnl = Array();
+	
+	/**profit start**/
+	$profit_chart=array();
+	/**profit end**/
 
 	for($i=0;$i<15;$i++){
 		$grouped[$i] = Array(); $grouped_lot[$i] = Array(0,0,date("d/m",$today24)); $grouped_number[$i] = Array(0,0,date("d/m",$today24));
@@ -766,7 +771,31 @@ function calculation($kola)
 		$today = $today24 ;
 		$today24 = $today24 - (24 * 60 * 60);
 	}
+	
+	/***start***/
+	//grouped_lot
+	$c1_date=array();
+	$c1_data=array();
+	foreach($grouped_lot as $lot)
+	{
+		$c1_data[]=$lot[1];
+		$c1_date[]=$lot[2];
+	}
+	
+	$c2_date=array();
+	$c2_data=array();
+	foreach($grouped_number as $num)
+	{
+		$c1_data[]=$num[1];
+		$c1_date[]=$num[2];
+	}
+	/***end***/
+	
+	
 	$pnl[0] = Array("id"=>0,"day"=>0,"profit"=>0);
+	
+	$profit_chart[]=0;
+	
 	$pnlmax = 0; $pnlmin = 0; $pnlfinal=0;
 	foreach($close_orders as $close_orders_t){
 			$grouped_sym[$close_orders_t[0]["symbol"]] = $close_orders_t;
@@ -776,13 +805,27 @@ function calculation($kola)
 			if($close_orders_t[0]["profit"]<$pnlmin){ $pnlmin = $close_orders_t[0]["profit"]; }
 			$pnlfinal += $close_orders_t[0]["profit"];
 			array_push($pnl,Array("id"=>sizeof($pnl),"day"=>sizeof($pnl),"profit"=>$pnl[sizeof($pnl)-1]["profit"]+$close_orders_t[0]["profit"]));
+			
+			array_push($profit_chart,$pnl[sizeof($pnl)-1]["profit"]+$close_orders_t[0]["profit"]);
 		}
 
 
 		
 		$m = Array();
+		
+		$pie_chart=array();
+		
 		foreach($grouped_sym_n as $key=>$value){
 			array_push($m,Array($key,$value));
+			if(empty($pie_chart))
+			{
+				array_push($pie_chart,Array("name"=>$key,"y"=>$value,"sliced"=> true,"selected"=> true));
+			}
+			else
+			{
+				array_push($pie_chart,Array("name"=>$key,"y"=>$value));
+			}
+			
 		}
 
 	$i=0;
@@ -869,7 +912,11 @@ function calculation($kola)
 	$net_deposit=$totaldep+$totalwith;
 	$credits=$total_credit_in+$total_credit_out;
 	
-	$response=array("demosit_arr"=>$demosit_arr,"with_arr"=>$with_arr,"open_arr"=>$open_arr,"close_arr"=>$close_arr,"pnlfinal"=>$pnlfinal,"totaldep"=>$totaldep,"totalwith"=>$totalwith,"deposit_count"=>$deposit_count,"withdraw_count"=>$withdraw_count,"open_pl"=>$open_pl,"open_order"=>count($open_arr),"close_order"=>count($close_arr),"volume"=>$Volume,"lot"=>$lot,"ftd"=>$ftd,"net_deposit"=>$net_deposit,"credit_in"=>$total_credit_in,"credit_out"=>$total_credit_out,"credit"=>$credits,"close_time"=>$close_time,"open_time"=>$open_time,"redeposits"=>$redeposits,"no_redeposits"=>$no_redeposits);
+	$response=array("demosit_arr"=>$demosit_arr,"with_arr"=>$with_arr,"open_arr"=>$open_arr,"close_arr"=>$close_arr,"pnlfinal"=>$pnlfinal,"totaldep"=>$totaldep,"totalwith"=>$totalwith,"deposit_count"=>$deposit_count,"withdraw_count"=>$withdraw_count,"open_pl"=>$open_pl,"open_order"=>count($open_arr),"close_order"=>count($close_arr),"volume"=>$Volume,"lot"=>$lot,"ftd"=>$ftd,"net_deposit"=>$net_deposit,"credit_in"=>$total_credit_in,"credit_out"=>$total_credit_out,"credit"=>$credits,"close_time"=>$close_time,"open_time"=>$open_time,"redeposits"=>$redeposits,"no_redeposits"=>$no_redeposits,"pnlmin"=>$pnlmin,"pnlmax"=>$pnlmax,"pnl"=>$pnl,"m"=>$m,"profit_chart"=>$profit_chart,"pie_chart"=>$pie_chart,"grouped_lot"=>$grouped_lot,"c1_date"=>$c1_date,"c1_data"=>$c1_data,"grouped_number"=>$grouped_number,"c2_date"=>$c2_date,"c2_data"=>$c2_data);
+	
+	
+	
+
 	
 	//echo json_encode($response);
 	//exit();
@@ -1704,3 +1751,133 @@ function ibman($security,$user,$amount,$user_type)
 	return json_encode($ret);
 }
 
+function get_report($users)
+{
+	global $deposit_socket, $_site_config, $_exe_array, $log, $adb;
+	$result=$adb->pquery("SELECT * FROM `vtiger_settlement` where user=".$users."" );
+	
+	$ret=array();
+	if($result)
+	{
+		 while ($row = $adb->fetch_array($result))
+		 {
+				array_push($ret,$row);
+
+		 }
+		$result->close();
+		   
+	}
+	
+	return $ret;
+	
+}
+
+function encode_voip($data,$length)
+{
+	for($i=0;$i<$length;$i++)
+	{
+	$data=base64_encode($data);
+	}
+	return $data;
+}
+function decode_voip($data,$length)
+{
+
+	for($i=0;$i<$length;$i++)
+	{
+	$data=base64_decode($data);
+	}
+	return $data;
+} 
+
+function chat($data)
+{
+	global $log,$sql_manager,$_site_config;
+	$log->info("chat");
+	
+	
+	
+	/*
+	$data=array("aff_id"=>"1","band"=>$_site_config["brandname"],"email"=>"lavanya+2001@nscript.in","first_name"=>"lavanya","last_name"=>"baskaran","password"=>"Ev3d2VE6ZwZgg3G5","affiliates"=>array());
+	$data=array("aff_id"=>"26","band"=>$_site_config["brandname"],"email"=>"lavanya+2001@nscript.in","first_name"=>"lavanya","last_name"=>"baskaran","password"=>"Ev3d2VE6ZwZgg3G5","affiliates"=>array(25,24));
+	
+	*/
+	
+	$passsword=password_hash($data["password"], PASSWORD_DEFAULT);
+	
+	$mdb = new PearDatabase();
+
+	$mdb->connect1($sql_manager[$_site_config['sql']]['chat'][0],$sql_manager[$_site_config['sql']]['chat'][1],$sql_manager[$_site_config['sql']]['chat'][2],$sql_manager[$_site_config['sql']]['chat'][3]);
+	
+	/**start department**/
+	
+	$department_name="aff_".$data["band"]."_".$data["aff_id"];
+	$bot_configuration='{"off_op_exec":0,"ru_on_transfer":0,"bot_id":0,"bot_tr_id":0,"survey_id":0,"bot_only_offline":false,"auto_delay_timeout":0,"auto_delay_var":"","hide_send_email":false}';
+	$product_configuration='{"products_enabled":0,"products_required":0}';
+	
+	$department=$mdb->pquery("INSERT INTO `lh_departament` (`name`, `email`, `xmpp_recipients`, `xmpp_group_recipients`, `priority`, `sort_priority`, `department_transfer_id`, `transfer_timeout`, `exclude_inactive_chats`, `delay_before_assign`, `max_ac_dep_chats`, `assign_same_language`, `disabled`, `hidden`, `delay_lm`, `max_active_chats`, `max_timeout_seconds`, `identifier`, `mod_start_hour`, `mod_end_hour`, `tud_start_hour`, `tud_end_hour`, `wed_start_hour`, `wed_end_hour`, `thd_start_hour`, `thd_end_hour`, `frd_start_hour`, `frd_end_hour`, `sad_start_hour`, `sad_end_hour`, `sud_start_hour`, `sud_end_hour`, `nc_cb_execute`, `na_cb_execute`, `inform_unread`, `active_balancing`, `visible_if_online`, `inform_close`, `inform_unread_delay`, `inform_options`, `online_hours_active`, `inform_delay`, `attr_int_1`, `attr_int_2`, `attr_int_3`, `pending_max`, `pending_group_max`, `active_chats_counter`, `pending_chats_counter`, `closed_chats_counter`, `inform_close_all`, `inform_close_all_email`, `product_configuration`, `bot_configuration`) VALUES ('".$department_name."', '".$data["email"]."', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '', -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 'a:0:{}', 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, '', '".$product_configuration."', '".$bot_configuration."')");
+	
+	$department_id=$mdb->getLastInsertID();
+	
+	$log->info("department_id.....".$department_id);
+	
+	/**end department**/
+	/**start users**/
+	
+	$dep_id=$department_id.","."-1";
+	
+	$users=$mdb->pquery("INSERT INTO `lh_users` (`username`, `password`, `email`, `time_zone`, `name`, `surname`, `filepath`, `filename`, `job_title`, `departments_ids`, `chat_nickname`, `xmpp_username`, `session_id`, `operation_admin`, `skype`, `exclude_autoasign`, `disabled`, `hide_online`, `all_departments`, `invisible_mode`, `inactive_mode`, `rec_per_req`, `active_chats_counter`, `closed_chats_counter`, `pending_chats_counter`, `auto_accept`, `max_active_chats`, `pswd_updated`, `attr_int_1`, `attr_int_2`, `attr_int_3`) VALUES ('".$department_name."', '".$passsword."', '".$data["email"]."', '', '".$data["first_name"]."', '".$data["last_name"]."', '', '', '', '".$dep_id."', '".$data["first_name"]."', '', '', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '".time()."', 0, 0, 0)");
+	
+	$users_id=$mdb->getLastInsertID();
+	
+	$log->info("users_id.....".$users_id);
+	/**end users**/
+	/**start userdep**/
+	
+	$userdep_arr=array();
+	
+	userdep($users_id,$department_id);
+	userdep($users_id,-1);
+	
+	//admin
+	
+	//userdep(1,$department_id);
+	
+	if(!empty($data["affiliates"]))
+	{
+		foreach($data["affiliates"] as $d)
+		{
+			userdep($d,$department_id);
+		}
+	}
+	
+	/**end userdep**/
+	/**start groupuser**/
+	
+	$groupuser=$mdb->pquery("INSERT INTO `lh_groupuser` (`group_id`, `user_id`) VALUES (2, ".$users_id.")");
+	
+	/**end groupuser**/
+	
+	/*start response*/
+	
+	$ret=array("users_id"=>$users_id,"user_name"=>$department_name);
+	
+	/*end response*/
+	  
+	   return $ret;	
+}
+
+function userdep($user_id,$dep_id)
+{
+	global $log,$sql_manager,$_site_config;
+	$log->info("userdep");
+	
+	$mdb = new PearDatabase();
+
+	$mdb->connect1($sql_manager[$_site_config['sql']]['chat'][0],$sql_manager[$_site_config['sql']]['chat'][1],$sql_manager[$_site_config['sql']]['chat'][2],$sql_manager[$_site_config['sql']]['chat'][3]);
+	
+		$userdep=$mdb->pquery("INSERT INTO `lh_userdep` (`user_id`, `dep_id`, `last_activity`, `exclude_autoasign`, `hide_online`, `last_accepted`, `active_chats`, `pending_chats`, `inactive_chats`, `max_chats`, `type`, `ro`, `hide_online_ts`, `dep_group_id`) VALUES (".$user_id.", ".$dep_id.", '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)");
+	/*
+	$userdep=$mdb->pquery("INSERT INTO `lh_userdep` (`user_id`, `dep_id`, `last_activity`, `exclude_autoasign`, `hide_online`, `last_accepted`, `active_chats`, `pending_chats`, `inactive_chats`, `max_chats`, `type`, `ro`, `hide_online_ts`, `dep_group_id`) VALUES (3, -1, 1586772062, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0)");
+	*/
+}

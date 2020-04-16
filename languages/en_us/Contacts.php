@@ -13,6 +13,7 @@ $languageStrings = array(
 	'SINGLE_Contacts' => 'User',
 	'LBL_ADD_RECORD' => 'Add User',
 	'LBL_RECORDS_LIST' => 'Users List',
+	
 
 	// Blocks
 	'LBL_CONTACT_INFORMATION' => 'Basic Information',
@@ -20,6 +21,7 @@ $languageStrings = array(
 	'LBL_IMAGE_INFORMATION' => 'Profile Picture',
 	'LBL_COPY_OTHER_ADDRESS' => 'Copy Other Address',
 	'LBL_COPY_MAILING_ADDRESS' => 'Copy Mailing Address',
+	'LBL_CONTACT_NOTIFICATION' => 'Notification',
 
 	//Field Labels
 	'Office Phone' => 'Office Phone',

@@ -4,6 +4,19 @@ include_once 'config.inc.php';
 global $adb;
 
 
+$data=array("aff_id"=>"23","band"=>$_site_config["brandname"],"email"=>"lavanya@nscript.in","first_name"=>"lavanya","last_name"=>"baskaran","password"=>"Ev3d2VE6ZwZgg3G5","affiliates"=>array(),"admin"=>9);
+$chat=chat($data);
+echo json_encode($chat);
+exit();
+
+$password="Ev3d2VE6ZwZgg3G5";
+echo password_hash($password, PASSWORD_DEFAULT);
+exit();
+
+$chat=chat();
+echo json_encode($chat);
+
+exit();
 $group="test";
 $symbol="USDCHF";
 $match_security=match_security($group,$symbol);

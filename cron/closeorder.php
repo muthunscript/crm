@@ -167,6 +167,24 @@
 					{
 						foreach($com as $k => $v)
 						{
+							
+							/***start***/
+							$amt=0;
+							$u=0;
+							$content='<table class="table  listview-table  floatThead-table"><thead><tr><th>Trade</th><th>Amount</th></tr></thead><tbody>';
+							foreach($v as $co)
+							{
+								$amt+=$co["amount"];
+								$u=$co["user"];
+								$content.="<tr><td>".$co["trade"]."</td><td>".$co["amount"]."</td></tr>";
+							}
+								
+							$content.='</tbody></table>';
+						
+						
+							
+							/***end***/
+							/*
 							$content="<table><tr><th>Trade</th><th>Amount</th></tr>";
 							$amt=0;
 							$u=0;
@@ -178,6 +196,7 @@
 							}
 							
 							$content.="</table>";
+							*/
 							
 							$adb->pquery("INSERT INTO `vtiger_settlement`(`amount`, `html`, `datetime`, `json`, `loginid`, `user`) VALUES (".$amt.",'".$content."','".time()."','".json_encode($v)."','".$k."','".$u."')");
 							

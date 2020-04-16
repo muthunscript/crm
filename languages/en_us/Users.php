@@ -21,6 +21,8 @@ $languageStrings = array(
 	'Asterisk Configuration'  =>  'Asterisk Configuration',
 	'LBL_HOME_PAGE_COMPONENTS' => 'Home Page Components',
 	'LBL_TAG_CLOUD_DISPLAY' => 'Tag Cloud Display',
+	'LBL_USER_NOTIFICATION' => 'Notification',
+	'LBL_USER_VOIP' => 'VOIP',
 
 	//MyPreference Fields
 	'Role' => 'Role',

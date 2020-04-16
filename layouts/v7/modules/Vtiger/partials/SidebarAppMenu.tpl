@@ -72,7 +72,9 @@
 								
 
 								<li>
-									<a href="{if $translatedModuleLabel eq 'Sales'}index.php?module=Reports&view=Detail&record=20{else if $translatedModuleLabel eq 'Management'}index.php?module=allreport&view=List&app=MARKETING&report=management_report{else if $translatedModuleLabel eq 'Trading'}index.php?module=allreport&view=List&app=MARKETING&report=trade_report{else if $translatedModuleLabel eq 'Asset Report'}index.php?module=allreport&view=List&app=MARKETING&report=assert_report{else if $translatedModuleLabel eq 'Client Report'}index.php?module=allreport&view=List&app=MARKETING&report=client_report{else if $translatedModuleLabel neq 'Finance' && $translatedModuleLabel neq 'Marketing'  && $translatedModuleLabel neq 'Management'  && $translatedModuleLabel neq 'Trading' && $translatedModuleLabel neq 'Service Enquiry'  && $translatedModuleLabel neq 'Product Enquiry'}{$moduleModel->getDefaultUrl()}&app={$APP_NAME}{else}index.php?module=livechat&view=List&app=SUPPORT{/if}" title="{$translatedModuleLabel}">
+									<!--<a href="{if $translatedModuleLabel eq 'Sales'}index.php?module=Reports&view=Detail&record=20{else if $translatedModuleLabel eq 'Management'}index.php?module=allreport&view=List&app=MARKETING&report=management_report{else if $translatedModuleLabel eq 'Trading'}index.php?module=allreport&view=List&app=MARKETING&report=trade_report{else if $translatedModuleLabel eq 'Asset Report'}index.php?module=allreport&view=List&app=MARKETING&report=assert_report{else if $translatedModuleLabel eq 'Client Report'}index.php?module=allreport&view=List&app=MARKETING&report=client_report{else if $translatedModuleLabel neq 'Finance' && $translatedModuleLabel neq 'Marketing'  && $translatedModuleLabel neq 'Management'  && $translatedModuleLabel neq 'Trading' && $translatedModuleLabel neq 'Service Enquiry'  && $translatedModuleLabel neq 'Product Enquiry'}{$moduleModel->getDefaultUrl()}&app={$APP_NAME}{else}index.php?module=livechat&view=List&app=SUPPORT{/if}" title="{$translatedModuleLabel}">-->
+
+									<a href="{if $translatedModuleLabel eq 'Sales'}index.php?module=Reports&view=Detail&record=27{else if $translatedModuleLabel eq 'Management'}index.php?module=Reports&view=Detail&record=31{else if $translatedModuleLabel eq 'Trading'}index.php?module=Reports&view=Detail&record=29{else if $translatedModuleLabel eq 'Asset Report'}index.php?module=Reports&view=Detail&record=30{else if $translatedModuleLabel eq 'Client Report'}index.php?module=Reports&view=Detail&record=26{else if $translatedModuleLabel neq 'Finance' && $translatedModuleLabel neq 'Marketing'  && $translatedModuleLabel neq 'Management'  && $translatedModuleLabel neq 'Trading' && $translatedModuleLabel neq 'Service Enquiry'  && $translatedModuleLabel neq 'Product Enquiry'}{$moduleModel->getDefaultUrl()}&app={$APP_NAME}{else}index.php?module=livechat&view=List&app=SUPPORT{/if}" title="{$translatedModuleLabel}">
 										<span class="module-icon {if $custommodelid gt 52 || $custommodelid eq 27}custom-icon-container{/if} {$custommodelid}">{$moduleModel->getModuleIcon()}</span>
 										<span class="module-name textOverflowEllipsis"> {$translatedModuleLabel}</span>
 									</a>
@@ -103,11 +105,33 @@
 				</div>
 			</div>
 			<!---s--->
+
+			<div class="menu-item app-item dropdown-toggle app-item-color-{$APP_NAME}" data-app-name="{$APP_NAME}" id="{$APP_NAME}_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="index.php?module=Users&parent=Settings&view=List&block=1&fieldid=1">
+				<div class="menu-items-wrapper app-menu-items-wrapper">
+					<span class="app-icon-list fa vicon-mt4trade"></span>
+					<span class="app-name textOverflowEllipsis">Affiliate</span>
+				</div>
+			</div>
 			
 			<div class="menu-item app-item dropdown-toggle app-item-color-{$APP_NAME}" data-app-name="{$APP_NAME}" id="{$APP_NAME}_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="index.php?module=mt4report&view=List&app=SUPPORT&ibmanagement=1">
 				<div class="menu-items-wrapper app-menu-items-wrapper">
 					<span class="app-icon-list fa vicon-mt4trade"></span>
 					<span class="app-name textOverflowEllipsis">IB Management</span>
+				</div>
+			</div>
+
+
+			<div class="menu-item app-item dropdown-toggle app-item-color-{$APP_NAME}" data-app-name="{$APP_NAME}" id="{$APP_NAME}_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="index.php?module=mt4report&view=List&app=SUPPORT&ibmanagement=1">
+				<div class="menu-items-wrapper app-menu-items-wrapper">
+					<span class="app-icon-list fa vicon-mt4trade"></span>
+					<span class="app-name textOverflowEllipsis">Start VOIP Application</span>
+				</div>
+			</div>
+
+			<div class="menu-item app-item dropdown-toggle app-item-color-{$APP_NAME}" data-app-name="{$APP_NAME}" id="{$APP_NAME}_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="https://sanfrix.com/dialer/">
+				<div class="menu-items-wrapper app-menu-items-wrapper">
+					<span class="app-icon-list fa vicon-mt4trade"></span>
+					<span class="app-name textOverflowEllipsis">Download VOIP Application</span>
 				</div>
 			</div>
 

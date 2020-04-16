@@ -563,11 +563,12 @@ jQuery(function () {
 //}, 1000 * 60 * 5);
 	
 /********custom end***********/
-var siteURL = 'http://localhost/vtigercrm/';
+//var siteURL = 'http://localhost/vtigercrm/';
+
 function getNotifications(){
 	var lastNotifyTime = localStorage.lastNotifyTime;
 	$.ajax({
-		url: siteURL+'ajax/get-notifications.php',
+		url: 'ajax/get-notifications.php',
 		data: { lastNotifyTime:lastNotifyTime },
 		dataType: "json",
 		type: 'POST',

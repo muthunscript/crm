@@ -62,8 +62,8 @@
 		$result = $adb->pquery("select mt4usersid from vtiger_mt4users WHERE login NOT IN ('".implode("','",$allUserLogin)."')");
 		$totalDeleted = $adb->num_rows($result);
 		$deleted = $totalDeleted;
-		$userData="UPDATE vtiger_mt4users set del_i=1 WHERE login NOT IN ('".implode("','",$allUserLogin)."')";
-		$adb->pquery($userData);
+		//$userData="UPDATE vtiger_mt4users set del_i=1 WHERE login NOT IN ('".implode("','",$allUserLogin)."')";
+		//$adb->pquery($userData);
 	} else {
 		$log->info("NO DATA MT4 TRADE DATABASE");
 		echo "NO DATA MT4 TRADE DATABASE";die;

@@ -206,7 +206,7 @@ $tr_array=array("vtigercrm");
 
 $_exe_array=array("vtigercrm"=>array("live"=>array("23.81.66.123:443","abcd1234","100"),"demo"=>array("23.81.66.123:443","abcd1234","100")));
 
-$sql_manager=array("vtigercrm"=>array("live"=>array("23.81.66.123:3306","usern","password","mt4"),"demo"=>array("23.81.66.123:3306","usern","password","mt4")));
+$sql_manager=array("vtigercrm"=>array("live"=>array("23.81.66.123:3306","usern","password","mt4"),"demo"=>array("23.81.66.123:3306","usern","password","mt4"),"chat"=>array("18.211.64.113:3306","chat1_sanfrix","Ev3d2VE6ZwZgg3G5","chat1_sanfrix")));
 
 /*
 $_exe_array=array("vtigercrm"=>array("live"=>array("184.95.62.122:443","m6U4aCdc","110"),"demo"=>array("184.95.62.122:443","m6U4aCdc","110")));

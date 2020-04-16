@@ -14,9 +14,293 @@
 {assign var=RISK value=$RISK}
 {assign var=IBMANAGEMENT value=$IBMANAGEMENT}
 {assign var=IBCOMMISSION value=$IBCOMMISSION}
+{assign var=COMMISSION_REPORT value=$COMMISSION_REPORT}
+{assign var=REPORT value=$REPORT}
+{assign var=VOIP value=$VOIP}
+{*{assign var=VOIP_DAT value=$VOIP_DATA}*}
 
-{if $IBCOMMISSION eq '1'}
+{if $VOIP eq '1'}
+<style>
+.notificatn h2 {
+    font-size: 24px;
+    font-family: 'OpenSans-Semibold', 'ProximaNova-Semibold', sans-serif;
+	    margin: 0px;
+}
+.top_flex {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
 
+.general_notificatn h3 {
+    font-size: 18px;
+    font-family: 'OpenSans-Regular', sans-serif;
+    
+        padding: 0px 18px;
+}
+
+.bordr_top{
+	border-top: 1px solid #ccc;
+	padding:15px 0px;
+	}
+
+
+div.checkbox.switcher label, div.radio.switcher label {
+  padding: 0;
+}
+div.checkbox.switcher label *, div.radio.switcher label * {
+  vertical-align: middle;
+}
+div.checkbox.switcher label input, div.radio.switcher label input {
+  display: none;
+}
+div.checkbox.switcher label input + span, div.radio.switcher label input + span {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    width: 45px;
+    height: 20px;
+    background: #f2f2f2;
+    border: 1px solid #eee;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+}
+div.checkbox.switcher label input + span small, div.radio.switcher label input + span small {
+    position: absolute;
+    display: block;
+    width: 40%;
+    margin: 2px;
+    height: 14px;
+    background: #fff;
+    border-radius: 0;
+    transition: all 0.3s ease-in-out;
+    left: 0;
+}
+div.checkbox.switcher label input:checked + span, div.radio.switcher label input:checked + span {
+  background: #ef5e29;
+  border-color: #ef5e29;
+}
+div.checkbox.switcher label input:checked + span small, div.radio.switcher label input:checked + span small {
+  left: 50%;
+}
+ .dis_flex {
+    padding: 8px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.checkbox.switcher {
+    margin: 0px;
+}
+
+.dis_flex p {
+    font-size: 15px !important;
+	width: 68%;
+	margin: 0px;
+}
+
+ 
+.checkbox.switcher {
+    font-size: 15px;
+}
+.save_changes {
+    float: right;
+    padding: 40px 5px;
+}
+ 
+
+#offer_submit {
+    background-color: #ef5e29;
+    padding: 6px 50px;
+    font-size: 15px;
+    color: #fff;
+    border: 0px;
+    outline: none;
+}
+</style>
+ <div class="container notificatn">
+ 
+
+ <form method="post" action="voip.php">
+ <input type="hidden" name="current_url" value="{$ACTUAL_LINK}">
+ <input type="hidden" name="users" value='{$USERS}'>
+
+ <div class="top_flex">
+ 	<h2>VOIP</h2>
+	
+  </div> 
+    <div class="container general_notificatn">
+        <div class="col-md-6 col-sm-12 ">
+               <div class="bordr_top">
+				<!---start--->
+				<div class="dis_flex">
+                     <p><b>Voip Username</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_username" value="{if $VOIP_DATA|@count ge 0}{$VOIP_DATA[2]} {/if}">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Password</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_registerpass" value="{if $VOIP_DATA|@count ge 0}{$VOIP_DATA[4]} {/if}">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Domain Host</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_domainhost" value="{if $VOIP_DATA|@count ge 0}{$VOIP_DATA[5]} {/if}">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Register Name</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_registername" value="{if $VOIP_DATA|@count ge 0}{$VOIP_DATA[3]} {/if}">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Display Name</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_dispname" value="{if $VOIP_DATA|@count ge 0}{$VOIP_DATA[1]} {/if}">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+				<div class="dis_flex">
+                     <p><b>Voip Domain Port</b></p>
+                                  <label for="btn2">
+                                  <input type="text"  name="voip_domainport" value="{if $VOIP_DATA|@count ge 0}{$VOIP_DATA[6]} {/if}">
+                                    <span><small></small></span>
+                                  </label>
+                </div>
+
+
+			<!---end-->
+              </div>
+         
+        </div>
+    </div>
+    <div class="save_changes">
+    	<div class="buttn">
+        	<button type="submit" id="offer_submit"  >Save</button>
+        </div>
+    </div>
+     
+    
+ </form>   
+</div>
+
+
+
+{elseif $COMMISSION_REPORT eq '1'}
+
+{*{$enc = json_encode(["First"=>$contact.first_name,"Last"=>$contact.last_name,"Email"=>$contact.channels.email.address])}
+enc: {$enc}
+{$dec = json_decode($enc)}<br><br>
+{foreach $dec as $key => $value}
+{$key}: {$value}<br>
+{/foreach}
+{php}exit();{/php}*}
+
+<div class="col-sm-12 col-xs-12 ">
+<div class="floatThead-wrapper">
+<div id="table-content" class="table-container ps-container"">
+<table class="table  listview-table  floatThead-table">
+	<thead>
+		<tr>
+			<th>Time</th>
+			<th>Amount</th>
+			
+			<th>View</th>
+		</tr>
+	</thead>
+	<tbody>
+	{foreach item=REP from=$REPORT}
+
+	{*{$REP|print_r}
+	{php}exit();{/php}*}
+			<tr>
+			<td>{$REP["datetime"]}</td>
+			<td>{$REP["amount"]}</td>
+			
+			<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".mt4_report_pop{$REP['settlementid']}">View</button></td>
+		</tr>
+	{/foreach}
+		
+		
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<!-- Large modal -->
+{foreach item=REP from=$REPORT}
+
+<div class="modal fade mt4_report_pop{$REP['settlementid']}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+		
+      <div class="modal-header">
+        <h5 class="modal-title">Commission Report</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+	  <div class="modal-body">
+		{$REP['html']}
+		<!--<table class="table  listview-table  floatThead-table"><thead><tr><th>Trade</th><th>Amount</th></tr></thead><tbody>
+
+
+	
+		
+		
+
+							
+							</tbody></table>-->
+</div>
+    </div>
+  </div>
+</div>
+{/foreach}
+
+{*{assign var=enc value="{$REP['json']}"}
+
+{$enc}
+
+{$enc = '[{"amount":0.3275,"trade":"271941","user":"23"},{"amount":0.1638,"trade":"271931","user":"23"}]'}
+
+{$enc = {$REP["json"]}}
+		
+{$enc}
+{$dec = json_decode({$enc})}
+{$dec|print_r}
+*}
+{*{foreach $dec as $key => $value}
+{foreach $value as $key1 => $value1}
+{$key1}: {$value1}<br>
+{/foreach}
+{/foreach}*}
+<style>
+.mt4_report_pop thead {
+    background: #ddd;
+	text-align:center;
+}
+.mt4_report_pop thead th{
+	text-align:center;
+}
+.mt4_report_pop table {
+    border: 1px solid #ddd;
+}
+
+.module-action-content {
+    display: none;
+}
+</style>
+
+{elseif  $IBCOMMISSION eq '1'}
 <style>
 .notificatn h2 {
     font-size: 24px;
@@ -1484,6 +1768,11 @@ div.checkbox.switcher label input:checked + span small, div.radio.switcher label
 	{assign var=MT_USER value=$MT_USER}
 	{assign var=PNLFINAL value=$PNLFINAL}
 	{assign var=TOTALDEP value=$TOTALDEP}
+    {assign var=PROFIT_CHART value=$PROFIT_CHART}
+	{assign var=PIE_CHART value=$PIE_CHART}
+	{assign var=C1_DATE value=$C1_DATE}
+	{assign var=C1_DATA value=$C1_DATA}
+	
 	
 	{*{$MT_USER[0]["balance"]|print_r}
 	{php}
@@ -1632,32 +1921,8 @@ div.checkbox.switcher label input:checked + span small, div.radio.switcher label
                     	    <div id="b_chart" style="min-width: 310px; height: 350px; max-width: 100%; margin: 0 auto"></div>
                   </div>
                   <div id="trader_12" class="tab-pane fade">
-                    <table>
-                        	<tr>
-                            	<th>Id</th>
-                                <th>Value</th>
-                                <th>Comment</th>
-                                <th>Time</th>
-                            </tr>
-                            <tr>
-                            	<td>1586</td>
-                                <td>3224</td>
-                                <td>test</td>
-                                <td>1:25 28-25-2019</td> 
-                             </tr>
-                             <tr>
-                            	<td>1586</td>
-                                <td>3224</td>
-                                <td>test</td>
-                                <td>1:25 28-25-2019</td> 
-                             </tr>
-                             <tr>
-                            	<td>1586</td>
-                                <td>3224</td>
-                                <td>test</td>
-                                <td>1:25 28-25-2019</td> 
-                             </tr>
-                        </table>
+				   <div id="b_chart1" style="min-width: 310px; height: 350px; max-width: 100%; margin: 0 auto"></div>
+                    
                   </div>
                  
 				</div>
@@ -1700,7 +1965,7 @@ div.checkbox.switcher label input:checked + span small, div.radio.switcher label
     },
     series: [{
         name: '',
-        data: [3, 4, 3, 5, 4, 10, 12]
+        data: {$PROFIT_CHART}
     }]
 });
 // Build the chart
@@ -1717,7 +1982,7 @@ Highcharts.chart('container', {
     }
   },
   title: {
-    text: 'Browser market shares in January, 2018'
+    text: ''
   },
   exporting: {
 		enabled: false
@@ -1747,27 +2012,7 @@ Highcharts.chart('container', {
   series: [{
     name: 'Brands',
     colorByPoint: true,
-    data: [{
-      name: 'Chrome',
-      y: 61.41,
-      sliced: true,
-      selected: true
-    }, {
-      name: 'Internet Explorer',
-      y: 11.84
-    }, {
-      name: 'Firefox',
-      y: 10.85
-    }, {
-      name: 'Edge',
-      y: 4.67
-    }, {
-      name: 'Safari',
-      y: 4.18
-    }, {
-      name: 'Other',
-      y: 7.05
-    }]
+    data: {$PIE_CHART}
   }]
 });
 
@@ -1783,23 +2028,7 @@ Highcharts.chart('b_chart', {
         text: ''
     },
     xAxis: {
-        categories: [
-            '01/01',
-            '02/01',
-            '03/01',
-            '04/01',
-            '05/01',
-            '06/01',
-            '07/01',
-            '08/01',
-            '09/01',
-            '10/01',
-            '11/01',
-            '12/01',
-            '13/01',
-            '14/01',
-            '15/01'
-        ],
+        categories: {$C1_DATE},
         crosshair: true
     },
     yAxis: {
@@ -1816,7 +2045,44 @@ Highcharts.chart('b_chart', {
     },
     series: [{
         name: 'Days',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        data: {$C1_DATA}
+
+    }]
+});
+
+
+
+
+
+Highcharts.chart('b_chart1', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: ''
+    },
+    subtitle: {
+        text: ''
+    },
+    xAxis: {
+        categories: {$C2_DATE},
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Lots'
+        }
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Days',
+        data: {$C2_DATA}
 
     }]
 });
@@ -1895,4 +2161,6 @@ figure.highcharts-figure {
 }
 	</style>
 </div>
+
 {/if}
+

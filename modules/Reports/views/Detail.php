@@ -45,6 +45,10 @@ class Reports_Detail_View extends Vtiger_Index_View {
 		$viewer = $this->getViewer($request);
 		$moduleName = $request->getModule();
 		$recordId = $request->get('record');
+		
+		//echo var_dump($recordId);
+		//exit();
+		
 		$detailViewModel = Reports_DetailView_Model::getInstance($moduleName, $recordId);
 		$reportModel = $detailViewModel->getRecord();
 		$viewer->assign('REPORT_NAME', $reportModel->getName());
@@ -56,6 +60,7 @@ class Reports_Detail_View extends Vtiger_Index_View {
 		$pagingModel = new Vtiger_Paging_Model();
 		$pagingModel->set('page', $page);
 		$pagingModel->set('limit', self::REPORT_LIMIT);
+		$pagingModel->set('recordId', $recordId);
 
 		$reportData = $reportModel->getReportData($pagingModel);
 		

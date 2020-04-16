@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-04-06 11:18:12
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-14 19:36:19
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\partials\SidebarAppMenu.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:145735ddfd1df735e16-11868712%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a8f14efad58bd507fe773661e2cb99afe1009dd2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\partials\\SidebarAppMenu.tpl',
-      1 => 1586263062,
+      1 => 1586873172,
       2 => 'file',
     ),
   ),
@@ -133,7 +133,12 @@ $_smarty_tpl->tpl_vars['moduleModel']->_loop = true;
 								
 
 								<li>
-									<a href="<?php if ($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Sales'){?>index.php?module=Reports&view=Detail&record=20<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Management'){?>index.php?module=allreport&view=List&app=MARKETING&report=management_report<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Trading'){?>index.php?module=allreport&view=List&app=MARKETING&report=trade_report<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Asset Report'){?>index.php?module=allreport&view=List&app=MARKETING&report=assert_report<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Client Report'){?>index.php?module=allreport&view=List&app=MARKETING&report=client_report<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Finance'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Marketing'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Management'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Trading'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Service Enquiry'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Product Enquiry'){?><?php echo $_smarty_tpl->tpl_vars['moduleModel']->value->getDefaultUrl();?>
+									<!--<a href="<?php if ($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Sales'){?>index.php?module=Reports&view=Detail&record=20<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Management'){?>index.php?module=allreport&view=List&app=MARKETING&report=management_report<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Trading'){?>index.php?module=allreport&view=List&app=MARKETING&report=trade_report<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Asset Report'){?>index.php?module=allreport&view=List&app=MARKETING&report=assert_report<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Client Report'){?>index.php?module=allreport&view=List&app=MARKETING&report=client_report<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Finance'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Marketing'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Management'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Trading'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Service Enquiry'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Product Enquiry'){?><?php echo $_smarty_tpl->tpl_vars['moduleModel']->value->getDefaultUrl();?>
+&app=<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+<?php }else{ ?>index.php?module=livechat&view=List&app=SUPPORT<?php }?>" title="<?php echo $_smarty_tpl->tpl_vars['translatedModuleLabel']->value;?>
+">-->
+
+									<a href="<?php if ($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Sales'){?>index.php?module=Reports&view=Detail&record=27<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Management'){?>index.php?module=Reports&view=Detail&record=31<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Trading'){?>index.php?module=Reports&view=Detail&record=29<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Asset Report'){?>index.php?module=Reports&view=Detail&record=30<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value=='Client Report'){?>index.php?module=Reports&view=Detail&record=26<?php }elseif($_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Finance'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Marketing'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Management'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Trading'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Service Enquiry'&&$_smarty_tpl->tpl_vars['translatedModuleLabel']->value!='Product Enquiry'){?><?php echo $_smarty_tpl->tpl_vars['moduleModel']->value->getDefaultUrl();?>
 &app=<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
 <?php }else{ ?>index.php?module=livechat&view=List&app=SUPPORT<?php }?>" title="<?php echo $_smarty_tpl->tpl_vars['translatedModuleLabel']->value;?>
 ">
@@ -176,6 +181,16 @@ _modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded
 				</div>
 			</div>
 			<!---s--->
+
+			<div class="menu-item app-item dropdown-toggle app-item-color-<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" data-app-name="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" id="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="index.php?module=Users&parent=Settings&view=List&block=1&fieldid=1">
+				<div class="menu-items-wrapper app-menu-items-wrapper">
+					<span class="app-icon-list fa vicon-mt4trade"></span>
+					<span class="app-name textOverflowEllipsis">Affiliate</span>
+				</div>
+			</div>
 			
 			<div class="menu-item app-item dropdown-toggle app-item-color-<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
 " data-app-name="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
@@ -184,6 +199,27 @@ _modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded
 				<div class="menu-items-wrapper app-menu-items-wrapper">
 					<span class="app-icon-list fa vicon-mt4trade"></span>
 					<span class="app-name textOverflowEllipsis">IB Management</span>
+				</div>
+			</div>
+
+
+			<div class="menu-item app-item dropdown-toggle app-item-color-<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" data-app-name="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" id="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="index.php?module=mt4report&view=List&app=SUPPORT&ibmanagement=1">
+				<div class="menu-items-wrapper app-menu-items-wrapper">
+					<span class="app-icon-list fa vicon-mt4trade"></span>
+					<span class="app-name textOverflowEllipsis">Start VOIP Application</span>
+				</div>
+			</div>
+
+			<div class="menu-item app-item dropdown-toggle app-item-color-<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" data-app-name="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+" id="<?php echo $_smarty_tpl->tpl_vars['APP_NAME']->value;?>
+_modules_dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-default-url="https://sanfrix.com/dialer/">
+				<div class="menu-items-wrapper app-menu-items-wrapper">
+					<span class="app-icon-list fa vicon-mt4trade"></span>
+					<span class="app-name textOverflowEllipsis">Download VOIP Application</span>
 				</div>
 			</div>
 

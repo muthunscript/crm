@@ -231,7 +231,7 @@ class Vtiger_MenuStructure_Model extends Vtiger_Base_Model {
 	 */
 	public static function getAppMenuList(){
 		//return array('CUSTOMERS','MASTER','MARKETING','SALES','INVENTORY','SUPPORT','PROJECT','TOOLS','WITHDRAW','DEPOSIT', 'REPORTSNEW', 'FINANCE','TRADING');
-        return array('MASTER','CUSTOMERS','FINANCE','MARKETING','SALES','SUPPORT','TOOLS', 'REPORTSNEW','TRADING','RISK','BANKDETAILS','MANAGENOTIFICATION');//,'WITHDRAW','DEPOSIT''MT4TRADE',
+        return array('MASTER','CUSTOMERS','FINANCE','MARKETING','SALES','SUPPORT','TOOLS', 'REPORTSNEW','TRADING','RISK','BANKDETAILS');//,'WITHDRAW','DEPOSIT''MT4TRADE',,'MANAGENOTIFICATION'
 	}
 
 	public static function getAppIcons() {
@@ -263,11 +263,11 @@ class Vtiger_MenuStructure_Model extends Vtiger_Base_Model {
 			'TRADING'	=>		'fa-exchange',
 			'RISK'	=>		'vicon-servicecontracts',
 			'BANKDETAILS'	=>		'vicon-bankdetails',
-			'MANAGENOTIFICATION'	=>		'vicon-managenotification',
+			
 		);
 		
 		/*
-		
+		'MANAGENOTIFICATION'	=>		'vicon-managenotification',
 		'WITHDRAW'		=>		'fa-download',
 			'DEPOSIT'		=>		'fa-upload',
 		

@@ -3042,6 +3042,7 @@ class ReportRun extends CRMEntity {
 
 		//echo var_dump($reportquery);
 		//exit();
+		//$reportquery="SELECT FROM `trading` limit 10";
 		
 		return $reportquery;
 	}
@@ -3057,7 +3058,7 @@ class ReportRun extends CRMEntity {
 	 * 		HTML strings for
 	 */
 	// Performance Optimization: Added parameter directOutput to avoid building big-string!
-	function GenerateReport($outputformat, $filtersql, $directOutput = false, $startLimit = false, $endLimit = false, $operation = false) {		
+	function GenerateReport($outputformat, $filtersql, $directOutput = false, $startLimit = false, $endLimit = false, $operation = false, $record_id = false) {		
 		global $adb, $current_user, $php_max_execution_time;
 		global $modules, $app_strings;
 		global $mod_strings, $current_language;
@@ -3092,88 +3093,427 @@ class ReportRun extends CRMEntity {
 
 		
 		if ($outputformat == "PDF") {
-			$sSQL = $this->sGetSQLforReport($this->reportid, $filtersql, $outputformat, false, $startLimit, $endLimit);
+			
+			if($record_id==28)// bonus report
+			{
+				$with_result1 = $adb->pquery("SELECT `bonusreportid`, `userid`, `username`, `depositid`, `depositamount`, `usergroup`, `bonus`, `bonusstatus`, `date`, `useraccountid`, `displayfromcron` FROM `bonus_report`");
+				 $kola=array();
+				   if($with_result1)
+				   {
+
+						while ($row = $adb->fetch_array($with_result1))
+						{
+							array_push($kola,$row);
+						}
+						$with_result1->close();
+					   
+				   }				   
+				$data['data']=$kola;
+				$data['count'] = count($kola);
+			}
+			else if($record_id==27)// sales report
+			{
+				$with_result1 = $adb->pquery("SELECT `salesreportid`, `affiliateid`, `affiliatename`, `userid`, `username`, `accountloginid`, `accounttype`, `depositamount`, `totaldeposits`, `opentime`, `closetime`, `displayfromcron` FROM `vtiger_salesreport` FROM `sales_report`");
+				 $kola=array();
+				   if($with_result1)
+				   {
+
+						while ($row = $adb->fetch_array($with_result1))
+						{
+							array_push($kola,$row);
+						}
+						$with_result1->close();
+					   
+				   }				   
+				$data['data']=$kola;
+				$data['count'] = count($kola);
+				
+			}
+			else if($record_id==31) //management_report
+			{
+				
+					
+					//$user_register=user_register();
+					
+					/**start**/
+					
+					
+					$with_result = $adb->pquery("SELECT *,COUNT(login) AS regsister_count FROM vtiger_mt4users GROUP BY YEAR(regdate), MONTH(regdate),DAY(regdate)");
+
+					  $user_register=array();
+					   if($with_result)
+					   {
+
+							while ($row = $adb->fetch_array($with_result))
+							{
+								
+								$va=$row["regdate"];
+								$va=explode(" ", $va);
+								$va=explode("-", $va[0]);
+								$timestamp=mktime(0,0,0,$va[1],$va[2],$va[0]);
+								
+								$user_register[$timestamp]=$row["regsister_count"];
+
+							}
+							$with_result->close();
+		   
+						}
+					
+					/**end**/
+					
+					//$kola=withdraw_history($loginid);
+					/****start******/
+					$with_result1 = $adb->pquery("SELECT * FROM `trading`");
+					 $kola=array();
+					   if($with_result1)
+					   {
+
+							while ($row = $adb->fetch_array($with_result1))
+							{
+								$kola[]=array($row);
+
+							}
+							$with_result1->close();
+						   
+					   }
+				/****end******/
+					$date_wise=array();
+
+					foreach($kola as $ko)
+					{
+						
+						$va=$ko[0]["open_time"];
+						$va=explode(" ", $va);
+						$va=explode("-", $va[0]);
+						$timestamp=mktime(0,0,0,$va[1],$va[2],$va[0]);
+						
+						$date_wise[$timestamp][]=array($ko[0]);
+						
+					}
+					$management_report=array();
+					
+					
+					foreach($date_wise as $k => $v)
+					{
+
+						$report=calculation($v);
+						$register_date=date('m/d/Y', $k);
+						$Registrations=0;
+						$Active_user=1;
+						$Volume=0;
+						//$net_deposit=$report["totaldep"]+$report["totalwith"];
+						$Credits=1;
+						$lot=0;
+						if(array_key_exists($myId, $USER_REGISTER))
+						{
+							$Registrations=$USER_REGISTER[$myId];
+						}
+						//$management_report[]=array($register_date,$Registrations,$Active_user,$report["open_order"],$report["close_order"],$report["volume"],$report["pnlfinal"],$report["totaldep"],$report["totalwith"],$report["net_deposit"],$report["credit_in"],$report["credit_out"],$report["lot"]);
+						
+						$management_report[]=array("Date"=>$register_date,"Registrations"=>$Registrations,"Active Users"=>$Active_user,"Opened Trades"=>$report["open_order"],"Close Trades"=>$report["close_order"],"Volume"=>$report["volume"],"Total P&L"=>$report["pnlfinal"],"Deposit"=>$report["totaldep"],"Withdrawls"=>$report["totalwith"],"Net Deposit"=>$report["net_deposit"],"Credit In"=>$report["credit_in"],"Credit Out"=>$report["credit_out"],"Volume (lots)"=>$report["lot"]);
+						
+					}
+					//$header=array("Date","Registrations","Active Users","Opened Trades","Close Trades","Volume","Total P&L","Deposit","Withdrawls","Net Deposit","Credit In","Credit Out","Volume (lots)");
+					
+				$data['data']=$management_report;
+				$data['count'] = count($management_report);
+					
+			}
+			else if($record_id==30)//assert report
+			{
+					
+					//$kola=withdraw_history($loginid);
+					
+				/****start******/
+				$with_result1 = $adb->pquery("SELECT * FROM `trading`");
+				 $kola=array();
+				   if($with_result1)
+				   {
+
+						while ($row = $adb->fetch_array($with_result1))
+						{
+							$kola[]=array($row);
+
+						}
+						$with_result1->close();
+					   
+				   }
+				/****end******/
+					
+					
+					/*****start****/
+					
+					$date_wise=array();
+
+					foreach($kola as $ko)
+					{
+						if($ko[0]["symbol"]!="")
+						{
+							$date_wise[$ko[0]["symbol"]][]=array($ko[0]);
+						}
+						
+					}
+					$management_report=array();
+					
+					$agent="";
+					$last_trade=0;
+					$trade=0;
+					$Active_user=1;
+				
+					foreach($date_wise as $k => $v)
+					{	
+						
+						$report=calculation($v);
+						//$management_report[]=array($v[0][0]["symbol"],$Active_user,$trade,$report["volume"],$report["pnlfinal"],$report["pnlfinal"],$report["lot"]);
+						
+						$management_report[]=array("Symbol"=>$v[0][0]["symbol"],"Active users"=>$Active_user,"Total Trades"=>$trade,"Total Volume"=>$report["volume"],"Profit"=>$report["pnlfinal"],"Volume (lots)"=>$report["lot"]);
+						
+					}
+					
+					/*****end****/
+					
+					
+				//	$header=array("Symbol","Active users","Total Trades","Total Volume","Profit","P&L Rate","Volume (lots)");
+				
+				$data['data']=$management_report;
+				$data['count'] = count($management_report);
+				
+			}
+			else if($record_id==26)//client report
+			{
+				//$client_report=client_report();
+				
+				/**start***/
+				
+				$with_result = $adb->pquery("SELECT * FROM `client_report`");
+				 $client_report=array();
+				   if($with_result)
+				   {
+						while ($row = $adb->fetch_array($with_result))
+						{
+							//$client_report[]=array($row);
+							array_push($client_report,$row);
+
+						}
+						$with_result->close();
+				   }
+				   
+				/**end***/
+			
+				//echo json_encode($client_report);
+				//exit(); 
+				
+				$user_data=array();
+				
+				foreach($client_report as $client)
+				{
+					
+				
+					
+					$assigned=$client["user_fn"]." ".$client["user_ln"];
+					
+					$client_desc="-";
+					$leadsource="-";
+					if($client["leadsource"]!="")
+					{
+						$leadsource=$client["leadsource"];
+					}
+					
+					$user_data[$client["loginid"]]=array($client["loginid"],$client["createdtime"],$client["label"],$assigned,$leadsource,$client_desc,$assigned);
+					
+				}
+				
+				
+				
+				//$loginid="";
+				//$kola=withdraw_history($loginid);
+				
+				/****start******/
+				$with_result1 = $adb->pquery("SELECT * FROM `trading`");
+				 $kola=array();
+				   if($with_result1)
+				   {
+
+						while ($row = $adb->fetch_array($with_result1))
+						{
+							$kola[]=array($row);
+
+						}
+						$with_result1->close();
+					   
+				   }
+				/****end******/
+				
+		
+				$date_wise=array();
+
+				foreach($kola as $ko)
+				{
+					if($ko[0]["login"]!="")
+					{
+						$date_wise[$ko[0]["login"]][]=array($ko[0]);
+					}
+				}
+				$management_report=array();
+				
+				foreach($date_wise as $k => $v)
+				{	
+					$client=$user_data[$v[0][0]["login"]];
+					$report=calculation($v);
+				//	$management_report[]=array($client[0],$client[1],$client[2],$client[3],$client[4],$client[5],$client[6],$report["ftd"],$report["open_time"],$report["no_redeposits"],$report["redeposits"]);
+				
+				$management_report[]=array("Account No"=>$client[0],"Creation Date"=>$client[1],"Name"=>$client[2],"Assigned To"=>$client[3],"Client Source"=>$client[4],"Client Description"=>$client[5],"Conversion owner"=>$client[6],"FTD"=>$report["ftd"],"FTD Date"=>$report["open_time"],"No of Redeposits"=>$report["no_redeposits"],"Total Redeposits"=>$report["redeposits"]);
+				}
+
+				//$header=array("Account No","Creation Date","Name","Assigned To","Client Source","Client Description","Conversion owner","FTD","FTD Date","No of Redeposits","Total Redeposits");
+				
+				$data['data']=$management_report;
+				$data['count'] = count($management_report);
+				
+			}
+			else if($record_id==29) //trading report
+			{
+				$with_result = $adb->pquery("SELECT * FROM `trading`");
+				 $kola=array();
+				   if($with_result)
+				   {
+
+						while ($row = $adb->fetch_array($with_result))
+						{
+							$kola[]=array($row);
+
+						}
+						$with_result->close();
+					   
+				   }
+				   
+				   /****start****/
+				  // $kola=withdraw_history($loginid);
+	
+					$date_wise=array();
+
+					foreach($kola as $ko)
+					{
+						if($ko[0]["login"]!="")
+						{
+							$date_wise[$ko[0]["login"]][]=array($ko[0]);
+						}
+					}
+					$management_report=array();
+					
+					$agent="";
+					$last_trade=0;
+					$trade=0;
+
+					foreach($date_wise as $k => $v)
+					{	
+						
+						$report=calculation($v);
+					
+						
+						$management_report[]=array("Account Name"=>$v[0][0]["name"],"Account No"=>$v[0][0]["login"],"Agent"=>$agent,"Register date"=>$v[0][0]["regdate"],"Country"=>$v[0][0]["country"],"Last trade"=>$last_trade,"FTD"=>$report["ftd"],"Deposit"=>$report["totaldep"],"Withdrawals"=>$report["totalwith"],"Balance"=>$report["net_deposit"],"Credit In"=>$report["credit_in"],"Credit Out"=>$report["credit_out"],"Trades"=>$trade,"Volume"=>$report["volume"],"Total P&L"=>$report["pnlfinal"],"Volume (lots)"=>$report["lot"]);
+						
+					}
+					
+					
+					
+					$data['data']=$management_report;
+					$data['count'] = count($management_report);
+					
+			
+				   /****end****/
+			}
+			else
+			{
+				$sSQL = $this->sGetSQLforReport($this->reportid, $filtersql, $outputformat, false, $startLimit, $endLimit);
+				
+							$result = $adb->pquery($sSQL, array());
+			
+				//echo var_dump($result);
+				//exit();
+				
+				if ($is_admin == false && $profileGlobalPermission[1] == 1 && $profileGlobalPermission[2] == 1)
+					$picklistarray = $this->getAccessPickListValues();
+				$noofrows = $adb->num_rows($result);
+				$arr_val = array();
+				if ($noofrows > 0) {
+					// Number of fields in the result
+					$y = $adb->num_fields($result);
+					$custom_field_values = $adb->fetch_array($result);
+
+					$fieldsList = array();
+					// to get Field and it's Header Labels
+					for ($i = 0; $i < $y; $i++) {
+						$field = $adb->field_name($result, $i);
+
+						list($module, $fieldLabel) = explode('_', $field->name, 2);
+						$translatedLabel = getTranslatedString($fieldLabel, $module);
+						if ($fieldLabel == $translatedLabel) {
+							$translatedLabel = getTranslatedString(str_replace('_', ' ', $fieldLabel), $module);
+						} else {
+							$translatedLabel = str_replace('_', ' ', $translatedLabel);
+						}
+						// In reports we are converting "&" to "and" in query. So field name will not be translated
+						// if this replacement is done. Added to handle that case.
+						if ((strpos($fieldLabel, '_and_') !== false) && ($translatedLabel == str_replace('_', ' ', $fieldLabel))) {
+							$tempLabel = getTranslatedString(str_replace('and', '&', $translatedLabel), $module);
+							if ($tempLabel !== $translatedLabel) {
+								$translatedLabel = $tempLabel;
+							}
+						}
+						// End
+						$moduleLabel ='';
+						if(in_array($module,$modules_selected)){
+							$moduleLabel = getTranslatedString($module,$module);
+						}
+						$headerLabel = $translatedLabel;
+						if(!empty($this->secondarymodule)) {
+							if($moduleLabel != '') {
+								$headerLabel = $moduleLabel." ". $translatedLabel;
+							}
+						}
+						$fieldsList[$i]['field'] = $field; 
+						$fieldsList[$i]['headerlabel'] = $headerLabel; 
+					}
+					do {
+						$arraylists = Array();
+						for ($i = 0; $i < $y; $i++) {
+							$fld = $fieldsList[$i]['field'];
+							$headerLabel = $fieldsList[$i]['headerlabel'];
+							// Check for role based pick list
+							$fieldvalue = getReportFieldValue($this, $picklistarray, $fld, $custom_field_values, $i, $operation);
+
+							if ($fld->name == $this->primarymodule . '_LBL_ACTION' && $fieldvalue != '-' && $operation != 'ExcelExport') {
+								if($this->primarymodule == 'ModComments') {
+									$fieldvalue = "<a href='index.php?module=".getSalesEntityType($fieldvalue)."&view=Detail&record=".$fieldvalue."' target='_blank'>" . getTranslatedString('LBL_VIEW_DETAILS', 'Reports') . "</a>";
+								} else {
+									$fieldvalue = "<a href='index.php?module={$this->primarymodule}&view=Detail&record={$fieldvalue}' target='_blank'>" . getTranslatedString('LBL_VIEW_DETAILS', 'Reports') . "</a>";
+								}
+							}
+							if (is_array($sec_modules) && (in_array(str_replace('_LBL_ACTION', '', $fld->name), $sec_modules))) {
+								continue;
+							}
+
+							$arraylists[$headerLabel] = $fieldvalue;
+						}
+						$arr_val[] = $arraylists;
+						set_time_limit($php_max_execution_time);
+					} while ($custom_field_values = $adb->fetch_array($result));
+					$data['data'] = $arr_val;
+				}
+				$data['count'] = $noofrows;
+					
+			}
+			
+			
+			
 			
 			
 			//echo json_encode(array($this->reportid, $filtersql, $outputformat, $startLimit, $endLimit));
 			//echo var_dump($sSQL);
 			//exit();
 			
-			$result = $adb->pquery($sSQL, array());
-			
-			//echo var_dump($result);
-			//exit();
-			
-			if ($is_admin == false && $profileGlobalPermission[1] == 1 && $profileGlobalPermission[2] == 1)
-				$picklistarray = $this->getAccessPickListValues();
-			$noofrows = $adb->num_rows($result);
-        	$arr_val = array();
-			if ($noofrows > 0) {
-				// Number of fields in the result
-				$y = $adb->num_fields($result);
-				$custom_field_values = $adb->fetch_array($result);
 
-				$fieldsList = array();
-				// to get Field and it's Header Labels
-				for ($i = 0; $i < $y; $i++) {
-					$field = $adb->field_name($result, $i);
-
-					list($module, $fieldLabel) = explode('_', $field->name, 2);
-					$translatedLabel = getTranslatedString($fieldLabel, $module);
-					if ($fieldLabel == $translatedLabel) {
-						$translatedLabel = getTranslatedString(str_replace('_', ' ', $fieldLabel), $module);
-					} else {
-						$translatedLabel = str_replace('_', ' ', $translatedLabel);
-					}
-					// In reports we are converting "&" to "and" in query. So field name will not be translated
-					// if this replacement is done. Added to handle that case.
-					if ((strpos($fieldLabel, '_and_') !== false) && ($translatedLabel == str_replace('_', ' ', $fieldLabel))) {
-						$tempLabel = getTranslatedString(str_replace('and', '&', $translatedLabel), $module);
-						if ($tempLabel !== $translatedLabel) {
-							$translatedLabel = $tempLabel;
-						}
-					}
-					// End
-					$moduleLabel ='';
-					if(in_array($module,$modules_selected)){
-						$moduleLabel = getTranslatedString($module,$module);
-					}
-					$headerLabel = $translatedLabel;
-					if(!empty($this->secondarymodule)) {
-						if($moduleLabel != '') {
-							$headerLabel = $moduleLabel." ". $translatedLabel;
-						}
-					}
-					$fieldsList[$i]['field'] = $field; 
-					$fieldsList[$i]['headerlabel'] = $headerLabel; 
-				}
-				do {
-					$arraylists = Array();
-					for ($i = 0; $i < $y; $i++) {
-						$fld = $fieldsList[$i]['field'];
-						$headerLabel = $fieldsList[$i]['headerlabel'];
-						// Check for role based pick list
-						$fieldvalue = getReportFieldValue($this, $picklistarray, $fld, $custom_field_values, $i, $operation);
-
-						if ($fld->name == $this->primarymodule . '_LBL_ACTION' && $fieldvalue != '-' && $operation != 'ExcelExport') {
-							if($this->primarymodule == 'ModComments') {
-								$fieldvalue = "<a href='index.php?module=".getSalesEntityType($fieldvalue)."&view=Detail&record=".$fieldvalue."' target='_blank'>" . getTranslatedString('LBL_VIEW_DETAILS', 'Reports') . "</a>";
-							} else {
-								$fieldvalue = "<a href='index.php?module={$this->primarymodule}&view=Detail&record={$fieldvalue}' target='_blank'>" . getTranslatedString('LBL_VIEW_DETAILS', 'Reports') . "</a>";
-							}
-						}
-						if (is_array($sec_modules) && (in_array(str_replace('_LBL_ACTION', '', $fld->name), $sec_modules))) {
-							continue;
-						}
-
-						$arraylists[$headerLabel] = $fieldvalue;
-					}
-					$arr_val[] = $arraylists;
-					set_time_limit($php_max_execution_time);
-				} while ($custom_field_values = $adb->fetch_array($result));
-            	$data['data'] = $arr_val;
-			}
-			$data['count'] = $noofrows;
 			
 			//echo var_dump($data);
 			//exit();
