@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-01-17 05:16:52
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-17 16:30:50
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\dashboards\History.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:171225e2143444f8100-05591573%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b3c07ac9bb53c1eda4ece2f09820322e97d4ea75' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\dashboards\\History.tpl',
-      1 => 1572870387,
+      1 => 1587119365,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_5e21434466b08',
   'variables' => 
   array (
     'WIDGET' => 0,
@@ -27,8 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'COMMENTS_MODULE_MODEL' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_5e21434466b08',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5e21434466b08')) {function content_5e21434466b08($_smarty_tpl) {?>
 <div class="dashboardWidgetHeader clearfix">

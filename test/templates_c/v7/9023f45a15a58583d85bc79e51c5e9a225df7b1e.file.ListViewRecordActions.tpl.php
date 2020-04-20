@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-03-18 13:05:22
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-17 16:31:47
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\ListViewRecordActions.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5445ddfd231c11b02-83809161%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '9023f45a15a58583d85bc79e51c5e9a225df7b1e' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\ListViewRecordActions.tpl',
-      1 => 1584516789,
+      1 => 1587119693,
       2 => 'file',
     ),
   ),

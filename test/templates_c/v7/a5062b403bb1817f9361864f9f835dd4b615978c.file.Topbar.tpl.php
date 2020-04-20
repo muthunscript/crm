@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2020-02-11 13:16:46
+<?php /* Smarty version Smarty-3.1.7, created on 2020-04-17 16:30:39
          compiled from "C:\xampp\htdocs\vtigercrm\includes\runtime/../../layouts/v7\modules\Vtiger\partials\Topbar.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:192235ddfd1df3c1f19-48002526%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a5062b403bb1817f9361864f9f835dd4b615978c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\vtigercrm\\includes\\runtime/../../layouts/v7\\modules\\Vtiger\\partials\\Topbar.tpl',
-      1 => 1581427002,
+      1 => 1587119365,
       2 => 'file',
     ),
   ),
@@ -49,52 +49,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 " alt="<?php echo $_smarty_tpl->tpl_vars['COMPANY_LOGO']->value->get('alt');?>
 "/></a></div></div></div></div><div class="search-links-container col-md-3 col-lg-3 col-sm-3"><div class="search-link hidden-xs"><span class="fa fa-search" aria-hidden="true"></span><input class="keyword-input" type="text" placeholder="<?php echo vtranslate('LBL_TYPE_SEARCH');?>
 " value="<?php echo $_smarty_tpl->tpl_vars['GLOBAL_SEARCH_VALUE']->value;?>
-"><span id="adv-search" class="adv-search fa fa-chevron-circle-down pull-right cursorPointer" aria-hidden="true"></span></div></div><div id="navbar" class="col-sm-6 col-md-3 col-lg-3 collapse navbar-collapse navbar-right global-actions">
-<?php
-	global $log,$sql_manager,$adb,$_site_config;
-	$query = "
-		SELECT *
-		FROM vtiger_notification
-		WHERE vtiger_notification.seen = 0
-		ORDER BY createtime DESC
-	";
-	$result = $adb->pquery($query);
-	$customNotification = array();
-	while($row = $adb->fetch_array($result)){
-		array_push($customNotification, $row);
-	}
-?>
-<ul class="nav navbar-nav">
-
-<li>
-	<div class="global_notification">
-		<a class="fa fa-bell" title="" aria-hidden="true"><?php echo (count($customNotification)>0)?count($customNotification):""; ?></a>
-		<div class="notification_container">
-			<?php
-				if(count($customNotification)>0){ foreach($customNotification as $k=>$n){
-					if($k == 0){
-						$last_notify_time = $n['createtime'];
-						echo "<script>
-							localStorage.setItem('lastNotifyTime', '".$last_notify_time."');
-						</script>";
-					}
-			?>
-			<div class="notification">
-				<div class="details">
-					<h4><?php echo $n['type']; ?></h4>
-					<p><?php echo $n['description']; ?></p>
-					<div><?php echo date('Y-m-d h:i A', $n['createtime']); ?></div>
-				</div>
-				<div class="actions">
-					<!-- <div><img src="circle-tick.png" /></div> -->
-				</div>
-			</div>
-			<?php } } ?>
-		</div>
-	</div>
-</li>
-
-<li><div class="dropdown"><div class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><a href="#" id="menubar_quickCreate" class="qc-button fa fa-plus-circle" title="<?php echo vtranslate('LBL_QUICK_CREATE',$_smarty_tpl->tpl_vars['MODULE']->value);?>
+"><span id="adv-search" class="adv-search fa fa-chevron-circle-down pull-right cursorPointer" aria-hidden="true"></span></div></div><div id="navbar" class="col-sm-6 col-md-3 col-lg-3 collapse navbar-collapse navbar-right global-actions"><ul class="nav navbar-nav"><li><div class="dropdown"><div class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><a href="#" id="menubar_quickCreate" class="qc-button fa fa-plus-circle" title="<?php echo vtranslate('LBL_QUICK_CREATE',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 " aria-hidden="true"></a></div><ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="width:500px;"><li class="title" style="padding: 5px 0 0 15px;"><strong><?php echo vtranslate('LBL_QUICK_CREATE',$_smarty_tpl->tpl_vars['MODULE']->value);?>
 </strong></li><hr/><li id="quickCreateModules" style="padding: 0 5px;"><div class="col-lg-12" style="padding-bottom:15px;"><?php  $_smarty_tpl->tpl_vars['moduleModel'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['moduleModel']->_loop = false;
  $_smarty_tpl->tpl_vars['moduleName'] = new Smarty_Variable;
@@ -158,14 +113,3 @@ _<?php echo $_smarty_tpl->tpl_vars['IMAGE_INFO']->value['orgname'];?>
 "><?php echo vtranslate('LBL_MY_PREFERENCES');?>
 </a></span><span class="pull-right"><span class="fa fa-power-off"></span><a id="menubar_item_right_LBL_SIGN_OUT" href="index.php?module=Users&action=Logout"><?php echo vtranslate('LBL_SIGN_OUT');?>
 </a></span></div></div></div></div></li></ul></div></div></div><?php }} ?>
-<style>
-	.global_notification { position: relative;z-index: 1; }
-	.global_notification .notification_container { display: none;position: absolute;border: 1px solid red;top: 40px;background: #fff;padding: 5px 8px;left: -250px;width: 500px;min-height: 300px;max-height: 400px;overflow: auto; }
-	.global_notification .notification_container::before { content: " ";border: 1px solid red;border-width: 10px;border-top-color: transparent;border-left-color: transparent;border-right-color: transparent;top: -20px;position: absolute;left: 262px;z-index: -1; }
-	.global_notification a.fa.fa-bell { width: 46px;height: 46px; }
-	.global_notification a.fa-bell:before { padding-right: 5px; }
-	.global_notification a.fa.fa-bell::after { content: " ";background: red;left: 7px;top:-19px;position: relative;width: 10px;height: 10px;display: inline-block;border-radius: 13px; }
-	.global_notification .notification_container .notification { border-bottom: 1px solid #999; }
-	.global_notification .notification_container .notification .details { width:80%;display:inline-block; }
-	.global_notification .notification_container .notification .actions { width:20%;display:inline-block; }
-</style>

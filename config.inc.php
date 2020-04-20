@@ -47,7 +47,7 @@ $HELPDESK_SUPPORT_EMAIL_REPLY_ID = $HELPDESK_SUPPORT_EMAIL_ID;
 $dbconfig['db_server'] = 'localhost';
 $dbconfig['db_port'] = ':3306';
 $dbconfig['db_username'] = 'root';
-$dbconfig['db_password'] = 'nscript$';
+$dbconfig['db_password'] = '';
 $dbconfig['db_name'] = 'vtigercrm';
 $dbconfig['db_type'] = 'mysqli';
 $dbconfig['db_status'] = 'true';
@@ -79,13 +79,13 @@ $dbconfigoption['ssl'] = false;
 
 $host_name = $dbconfig['db_hostname'];
 
-$site_URL = 'http://nscript/vtigercrm/';
+$site_URL = 'http://localhost/crm/';
 
 // url for customer portal (Example: http://vtiger.com/portal)
 $PORTAL_URL = $site_URL.'/customerportal';
 // root directory path
-$root_directory = 'C:\xampp\htdocs\vtigercrm';
-$root_directory1 = 'C:/xampp/htdocs/vtigercrm/';
+$root_directory = 'C:\xampp\htdocs\crm';
+$root_directory1 = 'C:/xampp/htdocs/crm/';
 
 // cache direcory path
 $cache_dir = 'cache/';
